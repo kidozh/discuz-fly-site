@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--bg: 255 255 255;
+	--text: 17 24 39;
+	--muted: 107 114 128;
+
+	/* Brand colors (light theme) */
+	--brand: 52 152 219; /* #3498DB */
+}
+
+.dark {
+	--bg: 15 23 42;
+	--text: 229 231 235;
+	--muted: 148 163 184;
+
+	/* Brand colors (dark theme) */
+	--brand: 22 160 133; /* #16A085 */
+}
+
+html {
+	color-scheme: light dark;
+	background-color: rgb(var(--bg));
+	color: rgb(var(--text));
+}
+
+/* Smooth color transitions but avoid transition during first paint */
+html[data-theme-ready="true"] {
+	transition: background-color 250ms ease, color 250ms ease;
+}
+
+/* Utility to apply themed colors in components */
+.bg-theme { background-color: rgb(var(--bg)); }
+.text-theme { color: rgb(var(--text)); }
+.muted { color: rgb(var(--muted)); }
+
+/* Brand utilities moved into Tailwind config as `brand` color */

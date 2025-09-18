@@ -4,6 +4,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Navbar from '../components/Navbar'
 
 const NotFoundPage: React.FC<PageProps> = () => {
+  if (typeof console !== 'undefined' && console.log) console.log('SSR: Rendering 404Page')
   const { t } = useTranslation()
   return (
     <main className="min-h-screen font-sans bg-theme text-theme transition-colors p-6">

@@ -1,76 +1,21 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import { graphql, type HeadFC, type PageProps } from "gatsby"
+import { useTranslation } from 'gatsby-plugin-react-i18next'
+import LanguageSwitcher from '../components/LanguageSwitcher'
+import Navbar from '../components/Navbar'
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const doclistStyles = {
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  display: `inline-block`,
-  marginBottom: 24,
-  marginRight: 12,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
+// Using Tailwind + theme utilities for layout and colors
 
 const docLinks = [
   {
     text: "TypeScript Documentation",
     url: "https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/",
-    color: "#8954A8",
+  color: "#0D96F2",
   },
   {
     text: "GraphQL Typegen Documentation",
     url: "https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/",
-    color: "#8954A8",
+  color: "#0D96F2",
   }
 ]
 
@@ -110,7 +55,7 @@ const links = [
     url: "https://www.gatsbyjs.com/docs/reference/",
     description:
       "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
+  color: "#0D6BFF",
   },
   {
     text: "Conceptual Guides",
@@ -132,27 +77,25 @@ const links = [
     badge: true,
     description:
       "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
+  color: "#0D6BFF",
   },
 ]
 
 const IndexPage: React.FC<PageProps> = () => {
+  // const { t } = useTranslation()
+  const { t } = useTranslation()
+
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={doclistStyles}>
+    <main className="min-h-screen font-sans bg-theme text-theme transition-colors">
+      <div className="h-3" />
+  <h1 className="text-4xl font-semibold mb-16 max-w-xs">{t('title')}</h1>
+  <p className="mb-12">{t('welcome')}</p>
+
+      <ul className="mb-12 pl-0">
         {docLinks.map(doc => (
-          <li key={doc.url} style={docLinkStyle}>
+          <li key={doc.url} className="list-none inline-block mb-6 mr-3">
             <a
-              style={linkStyle}
+              className="text-brand font-bold text-base align-text-bottom transition-colors"
               href={`${doc.url}?utm_source=starter&utm_medium=ts-docs&utm_campaign=minimal-starter-ts`}
             >
               {doc.text}
@@ -160,30 +103,33 @@ const IndexPage: React.FC<PageProps> = () => {
           </li>
         ))}
       </ul>
-      <ul style={listStyles}>
+
+      <ul className="mb-24 pl-0">
         {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
+          <li key={link.url} className="font-light text-xl max-w-xl mb-8" style={{ color: link.color }}>
             <span>
               <a
-                style={linkStyle}
+                className="text-brand font-bold text-base transition-colors"
                 href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter-ts`}
               >
                 {link.text}
               </a>
               {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
+                <span className="inline-block bg-green-700 text-white text-xs font-bold rounded px-2 py-0.5 ml-2" aria-label="New Badge">
                   NEW!
                 </span>
               )}
-              <p style={descriptionStyle}>{link.description}</p>
+              <p className="text-sm mt-2 mb-0">{link.description}</p>
             </span>
           </li>
         ))}
       </ul>
+
       <img
         alt="Gatsby G Logo"
         src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
       />
+
     </main>
   )
 }
@@ -191,3 +137,17 @@ const IndexPage: React.FC<PageProps> = () => {
 export default IndexPage
 
 export const Head: HeadFC = () => <title>Home Page</title>
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`
