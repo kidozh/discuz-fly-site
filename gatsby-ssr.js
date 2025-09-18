@@ -1,4 +1,7 @@
-// i18n initialization is handled in `gatsby-node.js` during build.
+// Ensure react-i18next is registered for SSR rendering. `gatsby-node.js`
+// initializes resources; this require ensures `initReactI18next` is used
+// in the SSR process before React renders pages.
+try { require('./src/i18n/init') } catch (e) {}
 const setThemeScript = `(function(){try{var ls=null;try{ls=window.localStorage.getItem('theme')}catch(e){}var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var useDark=ls==='dark'||(ls===null&&prefersDark);if(useDark)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');document.documentElement.setAttribute('data-theme-ready','true')}catch(e){} })()`;
 
 exports.onRenderBody = ({ setHeadComponents }) => {
