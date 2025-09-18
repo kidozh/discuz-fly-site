@@ -1,3 +1,5 @@
+// Ensure react-i18next adapter is registered early during build/plugin init.
+try { require('./src/i18n/ssr-register') } catch (e) {}
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
