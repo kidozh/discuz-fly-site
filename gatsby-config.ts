@@ -1,5 +1,6 @@
-// Ensure react-i18next adapter is registered early during build/plugin init.
-try { require('./src/i18n/ssr-register') } catch (e) {}
+// Ensure react-i18next adapter and resources are available early during
+// build/plugin init by requiring the SSR initializer.
+try { require('./src/i18n/i18n-ssr') } catch (e) {}
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {

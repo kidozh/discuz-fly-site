@@ -1,6 +1,6 @@
-// Register react-i18next for SSR rendering. Resource init runs in
-// `gatsby-node.js`; this shim only registers the React adapter.
-try { require('./src/i18n/ssr-register') } catch (e) {}
+// Load SSR-ready i18n instance/registration so react-i18next is registered
+// before React renders during static HTML generation.
+try { require('./src/i18n/i18n-ssr') } catch (e) {}
 const setThemeScript = `(function(){try{var ls=null;try{ls=window.localStorage.getItem('theme')}catch(e){}var prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var useDark=ls==='dark'||(ls===null&&prefersDark);if(useDark)document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');document.documentElement.setAttribute('data-theme-ready','true')}catch(e){} })()`;
 
 exports.onRenderBody = ({ setHeadComponents }) => {
