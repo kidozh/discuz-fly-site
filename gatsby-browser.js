@@ -1,5 +1,4 @@
-// Initialize react-i18next integration to avoid informational warning
-try { require('./src/i18n/init') } catch (e) {}
+// i18n initialization is handled during build in `gatsby-node.js`.
 
 // Ensure theme is set before React hydrates to prevent flash of wrong theme
 exports.onClientEntry = () => {
