@@ -1,3 +1,6 @@
+// Ensure SSR shim registers initReactI18next as early as possible.
+try { require('./src/i18n/ssr-register') } catch (e) {}
+
 // Synchronous i18n initialization during Gatsby build (SSR/static HTML)
 // This ensures react-i18next has resources available during static rendering
 // and avoids React Suspense during build.
