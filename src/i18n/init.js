@@ -1,4 +1,6 @@
-// Initialize react-i18next integration to avoid runtime informational warning
+// Initialize react-i18next integration to avoid runtime informational warning.
+// Keep initialization synchronous only for server-side HTML builds to avoid
+// React Suspense during Gatsby static HTML rendering.
 try {
   const i18next = require('i18next');
   const { initReactI18next, setI18n } = require('react-i18next');
@@ -6,9 +8,12 @@ try {
   if (!i18next.__initializedWithReact) {
     i18next.use(initReactI18next);
 
-    // Only perform synchronous initialization during server-side builds
+    // Detect server-side HTML build stages used by Gatsby.
     const isServer = typeof window === 'undefined';
-    const isBuildStage = process.env.BUILD_STAGE === 'build-html' || process.env.NODE_ENV === 'production';
+    const isBuildHtml = process.env.BUILD_STAGE === 'build-html' || process.env.GATSBY_BUILD_STAGE === 'build-html';
+    const isProduction = process.env.NODE_ENV === 'production';
+    const isBuildStage = isBuildHtml || isProduction;
+
     if (isServer && isBuildStage) {
       let en = {};
       let zh = {};
@@ -18,7 +23,7 @@ try {
       try {
         i18next.init({
           resources: { en: { translation: en }, zh: { translation: zh } },
-          lng: 'en',
+          lng: process.env.DEFAULT_LANGUAGE || 'en',
           fallbackLng: 'en',
           interpolation: { escapeValue: false },
           react: { useSuspense: false },
