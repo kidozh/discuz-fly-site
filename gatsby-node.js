@@ -53,7 +53,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const languages = (process.env.SITE_LANGUAGES || 'en,zh').split(',');
   const defaultLang = process.env.DEFAULT_LANGUAGE || 'en';
   const languagesArr = languages.map((l) => l.trim()).filter(Boolean);
-  const ENABLE_MARKDOWN_PAGES = process.env.ENABLE_MARKDOWN_PAGES === 'true' || process.env.NODE_ENV === 'development';
+  // Always enable markdown page generation so docs are produced in all environments
+  const ENABLE_MARKDOWN_PAGES = true;
 
   const generated = [];
 

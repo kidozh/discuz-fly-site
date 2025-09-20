@@ -12,6 +12,7 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "deploy": "gatsby build && gh-pages -d public -b main",
     "develop:no-markdown": "ENABLE_MARKDOWN_PAGES=false gatsby develop",
     "develop:with-markdown": "ENABLE_MARKDOWN_PAGES=true gatsby develop",
     "build:no-markdown": "ENABLE_MARKDOWN_PAGES=false gatsby build",
@@ -48,6 +49,7 @@
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
+    "gh-pages": "^6.3.0",
     "typescript": "^5.3.3"
   }
 }
