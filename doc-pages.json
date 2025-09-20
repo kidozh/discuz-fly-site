@@ -1,0 +1,14 @@
+[
+  {
+    "id": "index-en",
+    "path": "/en/doc/",
+    "type": "index",
+    "language": "en"
+  },
+  {
+    "id": "index-zh",
+    "path": "/zh/doc/",
+    "type": "index",
+    "language": "zh"
+  }
+]
