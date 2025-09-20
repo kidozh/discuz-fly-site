@@ -10,5 +10,41 @@
     "path": "/zh/doc/",
     "type": "index",
     "language": "zh"
+  },
+  {
+    "id": "c33d8e59-5f9e-595d-8d12-821d630f1eaf",
+    "path": "/zh/doc/term_of_services/",
+    "language": "zh",
+    "title": "服务条款"
+  },
+  {
+    "id": "76cac228-0d09-5ffe-9a20-c5c5e43ca5d3",
+    "path": "/en/doc/term_of_services/",
+    "language": "en",
+    "title": "Terms of Services"
+  },
+  {
+    "id": "a15caeff-e222-5f59-b697-5eb5fd7669a7",
+    "path": "/en/doc/privacy_policy/",
+    "language": "en",
+    "title": "Privacy Policy"
+  },
+  {
+    "id": "cf01af0f-f1cd-5e73-a96d-f756dea5272b",
+    "path": "/en/doc/open_source/",
+    "language": "en",
+    "title": "Open Source & License"
+  },
+  {
+    "id": "e2d83737-3ef4-5f4e-b35d-ae87930b1317",
+    "path": "/zh/doc/privacy_policy/",
+    "language": "zh",
+    "title": "隐私政策"
+  },
+  {
+    "id": "37d33619-1c86-58a4-ae2d-e32bb87810a4",
+    "path": "/zh/doc/open_source/",
+    "language": "zh",
+    "title": "开源与许可证"
   }
 ]
