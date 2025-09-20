@@ -1,0 +1,33 @@
+---
+title: Privacy Policy
+tags: [Notification,]
+keywords: [版本发布,更新]
+date: 2024-12-24T14:07:00.226Z
+cover: in-xinjiang.jpg
+excerpt: Full text of terms of service
+---
+
+<Message>The privacy policy is at 2nd version, updated and take effect at Dec 24, 2024</Message>
+
+# Welcome to read our privacy policy
+
+Your privacy is important to DisuzHub and DisFly so we’ve developed a Privacy Policy that covers how we collect, use, disclose, transfer, and store your personal information.
+            
+## Collection and Use of Personal Information
+
++ Crash diagnose
++ Usage data
+
+This data is collected in an anonymous manner using Google Analytics and is only used for our client development and optimization of service usage.
+            
+We does not collect any data about you or that can be associated with you.
+
+
+
+## Notification of future amendments to our privacy Policy
+
+This policy is an important part of Discuzhub's services. We reserve the right to update or modify this policy from time to time. If such changes cause a substantial reduction in your rights under new policy, we will send you change notifications through different channels, including but not limited to website announcements, application push, and other methods. If you do not agree with the revised privacy policy, you have the right and should immediately stop using the app. If you continue to use the DiscuzHub app, you are deemed to have accepted the changes we made to the relevant terms of this policy.
+
+## Contact us
+
+If you have questions about this policy or other related matters, please send an email to kidozh@gmail.com. We will answer your questions as soon as possible and make the necessary changes.

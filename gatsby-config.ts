@@ -45,7 +45,9 @@ const config: GatsbyConfig = {
         },
       },
     },
-    { resolve: "gatsby-plugin-image" },
+    { 
+      resolve: "gatsby-plugin-image" 
+    },
     {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
@@ -58,6 +60,21 @@ const config: GatsbyConfig = {
           returnNull: false,
           react: { useSuspense: false },
         },
+        pages: [
+        {
+          // Use a path-to-regexp compatible pattern that captures any
+          // nested document id or path under the `doc` prefix. This avoids
+          // using the literal `*` which the plugin parses with path-to-regexp
+          // and can cause an unexpected modifier error.
+          matchPath: '/:lang?/doc/:documentId(.*)',
+          getLanguageFromPath: true,
+          excludeLanguages: ['es']
+        },
+        {
+          matchPath: '/preview',
+          languages: ['en']
+        }
+      ]
       },
     },
     { resolve: "gatsby-plugin-sitemap" },
@@ -68,12 +85,25 @@ const config: GatsbyConfig = {
         icon: 'src/images/icon.png',
       },
     },
-    { resolve: "gatsby-plugin-mdx" },
+  { resolve: "gatsby-transformer-remark" },
     { resolve: "gatsby-plugin-sharp" },
     { resolve: "gatsby-transformer-sharp" },
     {
       resolve: 'gatsby-source-filesystem',
-      options: { name: 'locales', path: './src/locales/' },
+      options: { name: 'documents', path: './src/document/' },
+      __key: 'documents',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: { name: 'blog', path: './blog/' },
+      __key: 'blog',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+          name: 'locales',
+          path: './src/locales/' 
+      },
       __key: 'locales',
     },
     {

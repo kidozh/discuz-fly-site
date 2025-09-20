@@ -19,12 +19,16 @@ exports.onClientEntry = () => {
 };
 require('./src/styles/global.css');
 
-// Wrap every page with Layout so Navbar/Footer are provided globally
+// Let page components render `Layout` themselves. Only ensure the
+// i18n plugin's wrapper is applied so `react-i18next` provider is
+// outside of page content during hydration.
 exports.wrapPageElement = ({ element, props }) => {
   try {
-    const React = require('react')
-    const Layout = require('./src/components/Layout').default
-    return React.createElement(Layout, props, element)
+    const i18nPlugin = require('gatsby-plugin-react-i18next')
+    if (i18nPlugin && typeof i18nPlugin.wrapPageElement === 'function') {
+      return i18nPlugin.wrapPageElement({ element, props })
+    }
+    return element
   } catch (e) {
     return element
   }

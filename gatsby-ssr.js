@@ -13,12 +13,15 @@ exports.onRenderBody = ({ setHeadComponents }) => {
   ]);
 };
 
-// Wrap every page with the Layout component on SSR
+// Let page components render `Layout` themselves. Ensure i18n plugin
+// wrapper is applied so translations are available during SSR.
 exports.wrapPageElement = ({ element, props }) => {
   try {
-    const React = require('react')
-    const Layout = require('./src/components/Layout').default
-    return React.createElement(Layout, props, element)
+    const i18nPlugin = require('gatsby-plugin-react-i18next')
+    if (i18nPlugin && typeof i18nPlugin.wrapPageElement === 'function') {
+      return i18nPlugin.wrapPageElement({ element, props })
+    }
+    return element
   } catch (e) {
     return element
   }
