@@ -85,9 +85,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.warn('Failed to create document index pages');
   }
 
-  if (!ENABLE_MARKDOWN_PAGES) {
-    reporter.info('Skipping markdown page generation (ENABLE_MARKDOWN_PAGES is not true)');
-  } else {
     try {
       const introspect = await graphql(`{ __type(name: "File") { fields { name } } }`);
       const fileType = introspect && introspect.data && introspect.data.__type;
@@ -269,7 +266,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
       console.error('createPages(markdown) error:', e);
     }
-  }
 
   // write generated pages metadata to public/doc-pages.json (so it can be used at runtime)
   try {
@@ -338,12 +334,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 
       // For backwards compatibility keep the unprefixed `/blog/` as the default language index
-  createPage({ path: '/blog/', component: blogIndexComponent, context: { posts: postsForContext, currentPage: 1, totalPages, pageSize: PAGE_SIZE, i18n: { language: defaultLang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: '/blog/' } } });
+  createPage({ path: '/blog/', component: blogIndexComponent, context: { language: defaultLang, posts: postsForContext, currentPage: 1, totalPages, pageSize: PAGE_SIZE, i18n: { language: defaultLang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: '/blog/' } } });
 
   // create paginated pages for default language: /blog/page/2/ ...
   for (let i = 2; i <= totalPages; i++) {
-    const pagePath = `/blog/page/${i}/`;
-    createPage({ path: pagePath, component: blogIndexComponent, context: { posts: postsForContext, currentPage: i, totalPages, pageSize: PAGE_SIZE, i18n: { language: defaultLang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: pagePath } } });
+  const pagePath = `/blog/page/${i}/`;
+  createPage({ path: pagePath, component: blogIndexComponent, context: { language: defaultLang, posts: postsForContext, currentPage: i, totalPages, pageSize: PAGE_SIZE, i18n: { language: defaultLang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: pagePath } } });
   }
 
   // Create language-prefixed versions for each supported language (e.g. /zh/blog/)
@@ -351,11 +347,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const base = `/${lang}/blog`;
     const baseIndex = `${base}/`;
     // index page
-    createPage({ path: baseIndex, component: blogIndexComponent, context: { posts: postsForContext, currentPage: 1, totalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: baseIndex } } });
+  createPage({ path: baseIndex, component: blogIndexComponent, context: { language: lang, posts: postsForContext, currentPage: 1, totalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: baseIndex } } });
     // paginated pages
     for (let i = 2; i <= totalPages; i++) {
-      const pagePath = `${base}/page/${i}/`;
-      createPage({ path: pagePath, component: blogIndexComponent, context: { posts: postsForContext, currentPage: i, totalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: pagePath } } });
+  const pagePath = `${base}/page/${i}/`;
+  createPage({ path: pagePath, component: blogIndexComponent, context: { language: lang, posts: postsForContext, currentPage: i, totalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: pagePath } } });
     }
   });
 
@@ -374,21 +370,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         const tagPostsForContext = tagPosts.map((p) => ({ id: p.id, frontmatter: { title: p.title, slug: p.slug, date: p.date, excerpt: p.excerpt, tags: p.tags }, relativePath: p.slug }))
         const tagTotalPages = Math.max(1, Math.ceil(tagPosts.length / PAGE_SIZE));
   // page 1 (unprefixed)
-  createPage({ path: `/blog/tag/${tagSlug}/`, component: blogIndexComponent, context: { posts: tagPostsForContext, selectedTag: tag, currentPage: 1, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: defaultLang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: `/blog/tag/${tagSlug}/` } } })
+  createPage({ path: `/blog/tag/${tagSlug}/`, component: blogIndexComponent, context: { language: defaultLang, posts: tagPostsForContext, selectedTag: tag, currentPage: 1, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: defaultLang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: `/blog/tag/${tagSlug}/` } } })
   // create language-prefixed tag pages
   languagesArr.forEach((lang) => {
     const base = `/${lang}/blog/tag/${tagSlug}`;
     const baseIndex = `${base}/`;
-    createPage({ path: baseIndex, component: blogIndexComponent, context: { posts: tagPostsForContext, selectedTag: tag, currentPage: 1, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: baseIndex } } });
+  createPage({ path: baseIndex, component: blogIndexComponent, context: { language: lang, posts: tagPostsForContext, selectedTag: tag, currentPage: 1, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: baseIndex } } });
     for (let i = 2; i <= tagTotalPages; i++) {
-      const tagPagePath = `${base}/page/${i}/`;
-      createPage({ path: tagPagePath, component: blogIndexComponent, context: { posts: tagPostsForContext, selectedTag: tag, currentPage: i, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: tagPagePath } } })
+  const tagPagePath = `${base}/page/${i}/`;
+  createPage({ path: tagPagePath, component: blogIndexComponent, context: { language: lang, posts: tagPostsForContext, selectedTag: tag, currentPage: i, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: tagPagePath } } })
     }
   });
         // additional pages (unprefixed)
         for (let i = 2; i <= tagTotalPages; i++) {
           const tagPagePath = `/blog/tag/${tagSlug}/page/${i}/`;
-          createPage({ path: tagPagePath, component: blogIndexComponent, context: { posts: tagPostsForContext, selectedTag: tag, currentPage: i, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: defaultLang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: tagPagePath } } })
+          createPage({ path: tagPagePath, component: blogIndexComponent, context: { language: defaultLang, posts: tagPostsForContext, selectedTag: tag, currentPage: i, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: defaultLang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: tagPagePath } } })
         }
       });
 
@@ -419,6 +415,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           path: p.path,
           component: blogComponent,
           context: {
+            language: defaultLang,
             id: p.id,
             title: p.title || null,
             date: p.date || null,
@@ -436,6 +433,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             path: langPath,
             component: blogComponent,
             context: {
+              language: lang,
               id: p.id,
               title: p.title || null,
               date: p.date || null,

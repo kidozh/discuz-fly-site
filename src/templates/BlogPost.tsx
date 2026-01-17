@@ -7,7 +7,8 @@ const zhTranslations = require('../locales/zh/translation.json')
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
 
-const BlogPost: React.FC<any> = ({ data, pageContext }) => {
+const BlogPost: React.FC<any> = (props) => {
+  const { data, pageContext } = props
   const { t, i18n } = useTranslation()
   const effectiveLang = pageContext?.i18n?.language || (i18n && i18n.language) || 'en'
   const raw = { en: enTranslations, zh: zhTranslations }
@@ -36,15 +37,21 @@ const BlogPost: React.FC<any> = ({ data, pageContext }) => {
   const html = pageContext?.html || (md && md.html) || ''
   let date: string | null = null
   const dateSource = pageContext?.date || (md && md.frontmatter && md.frontmatter.date)
+  const dateFormatter = React.useMemo(() => {
+    try {
+      return new Intl.DateTimeFormat(effectiveLang || 'en', { year: 'numeric', month: '2-digit', day: '2-digit' })
+    } catch (e) { return null }
+  }, [effectiveLang])
+
   if (dateSource) {
     try {
       const d = new Date(dateSource)
-      date = new Intl.DateTimeFormat(effectiveLang || 'en', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(d)
+      date = dateFormatter ? dateFormatter.format(d) : String(dateSource)
     } catch (e) { date = String(dateSource) }
   }
 
   return (
-    <Layout>
+    <Layout pageProps={props}>
       <SeoHead title={title} description={pageContext?.excerpt ? String(pageContext.excerpt) : undefined} />
       <main className="max-w-4xl mx-auto py-12 px-4">
         <h1 className="text-3xl font-bold mb-4">{title}</h1>
@@ -61,7 +68,7 @@ const BlogPost: React.FC<any> = ({ data, pageContext }) => {
                   <div className="flex-1">
                     <div className="text-xs text-gray-500 mb-1">{translate('blog.previous') || 'Previous'}</div>
                     <div className="font-semibold text-lg text-theme dark:text-theme">{pageContext.previous.title}</div>
-                    {pageContext.previous.date ? <div className="text-sm text-gray-400 mt-1">{new Date(pageContext.previous.date).toLocaleDateString(effectiveLang)}</div> : null}
+                    {pageContext.previous.date ? <div className="text-sm text-gray-400 mt-1">{dateFormatter ? dateFormatter.format(new Date(pageContext.previous.date)) : String(pageContext.previous.date)}</div> : null}
                     {pageContext.previous.excerpt ? <div className="text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-2">{pageContext.previous.excerpt}</div> : null}
                   </div>
                 </div>
@@ -74,7 +81,7 @@ const BlogPost: React.FC<any> = ({ data, pageContext }) => {
                   <div className="flex-1">
                     <div className="text-xs text-gray-500 mb-1">{translate('blog.next') || 'Next'}</div>
                     <div className="font-semibold text-lg text-theme dark:text-theme">{pageContext.next.title}</div>
-                    {pageContext.next.date ? <div className="text-sm text-gray-400 mt-1">{new Date(pageContext.next.date).toLocaleDateString(effectiveLang)}</div> : null}
+                    {pageContext.next.date ? <div className="text-sm text-gray-400 mt-1">{dateFormatter ? dateFormatter.format(new Date(pageContext.next.date)) : String(pageContext.next.date)}</div> : null}
                     {pageContext.next.excerpt ? <div className="text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-2">{pageContext.next.excerpt}</div> : null}
                   </div>
                   <div className="ml-4 text-3xl text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200">▶</div>
@@ -89,13 +96,22 @@ const BlogPost: React.FC<any> = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query BlogPostById($id: String) {
+  query BlogPostById($id: String, $language: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
         title
         date
+      }
+    }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
   }

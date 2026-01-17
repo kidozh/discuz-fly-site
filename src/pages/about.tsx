@@ -4,11 +4,11 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
 
-const AboutPage: React.FC<PageProps> = () => {
+const AboutPage: React.FC<PageProps> = (props) => {
   const { t } = useTranslation()
 
   return (
-    <Layout>
+    <Layout pageProps={props}>
         <main className="min-h-screen font-sans bg-theme text-theme transition-colors">
       <div className="h-3" />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
+import LocalizedLink from '../components/LocalizedLink';
 import SeoHead from '../components/SeoHead';
 import DocSidebar from '../components/DocSidebar';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
@@ -25,7 +26,7 @@ const DocumentIndex = ({ data, pageContext, location }: any) => {
   const docPrefix = pageContext?.docPrefix || process.env.DOC_PREFIX || 'doc';
 
   // build hierarchical tree from filtered nodes
-  const docBase = (lang: string) => `/${lang}/${docPrefix}`;
+  const docBase = () => `/${docPrefix}`;
 
   function computeSlug(node: any) {
     let slug = node.frontmatter?.slug || '';
@@ -68,14 +69,14 @@ const DocumentIndex = ({ data, pageContext, location }: any) => {
         cursor.title = title;
         cursor.excerpt = node.excerpt || null;
         cursor.date = node.frontmatter?.date || null;
-        const path = `${docBase(language)}${slug === '' ? '' : '/' + slug}`;
+        const path = `${docBase()}${slug === '' ? '' : '/' + slug}`;
         cursor.path = path;
       }
     });
     // handle index files (slug === '')
     if (parts.length === 0) {
       root.title = node.frontmatter?.title || t('docs.index');
-      root.path = `${docBase(language)}`;
+      root.path = `${docBase()}`;
     }
   });
 
@@ -84,7 +85,7 @@ const DocumentIndex = ({ data, pageContext, location }: any) => {
     if (node.title && node.path) {
       items.push(
         <li key={node.path} className="py-1">
-          <a href={node.path} className="text-brand hover:underline">{node.title}</a>
+          <LocalizedLink to={node.path} className="text-brand hover:underline" prefetch="true">{node.title}</LocalizedLink>
         </li>
       );
     }
@@ -106,10 +107,10 @@ const DocumentIndex = ({ data, pageContext, location }: any) => {
         );
       } else {
         const title = child.title || child.name;
-        const path = child.path || `${docBase(language)}/${[...childKey.split('/').filter(Boolean)].join('/')}`;
+        const path = child.path || `${docBase()}/${[...childKey.split('/').filter(Boolean)].join('/')}`;
         items.push(
           <li key={childKey} className="py-1">
-            <a href={path} className="hover:underline">{title}</a>
+            <LocalizedLink to={path} className="hover:underline" prefetch="true">{title}</LocalizedLink>
           </li>
         );
       }

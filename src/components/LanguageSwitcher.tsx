@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useI18next, Link } from 'gatsby-plugin-react-i18next';
+import { useI18next, Link as GLink } from 'gatsby-plugin-react-i18next';
+const Link: any = GLink
 
 type LanguageSwitcherProps = { pageProps?: any }
 
@@ -24,8 +25,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ pageProps }) => {
     return (
       <div className="mb-4">
         <div className="mb-2">
-          <a href="/" className="mr-2"><button className="px-2 py-1 rounded-md bg-theme dark:bg-theme text-theme dark:text-theme">English</button></a>
-          <a href="/zh/" className="mr-2"><button className="px-2 py-1 rounded-md bg-theme dark:bg-theme text-theme dark:text-theme">中文</button></a>
+          <Link to="/" className="mr-2"><button className="px-2 py-1 rounded-md bg-theme dark:bg-theme text-theme dark:text-theme">English</button></Link>
+          <Link to="/zh/" className="mr-2"><button className="px-2 py-1 rounded-md bg-theme dark:bg-theme text-theme dark:text-theme">中文</button></Link>
         </div>
       </div>
     )

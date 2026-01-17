@@ -5,7 +5,8 @@ const zhTranslations = require('../locales/zh/translation.json')
 import Layout from '../components/Layout'
 import { Link } from 'gatsby'
 
-const TagsIndex: React.FC<any> = ({ pageContext }) => {
+const TagsIndex: React.FC<any> = (props) => {
+  const { pageContext } = props
   const { t, i18n } = useTranslation()
   const effectiveLang = pageContext?.i18n?.language || (i18n && i18n.language) || 'en'
   const defaultLang = pageContext?.i18n?.defaultLanguage || 'en'
@@ -39,7 +40,7 @@ const TagsIndex: React.FC<any> = ({ pageContext }) => {
   }, [tagsData, query, sortBy])
 
   return (
-    <Layout>
+    <Layout pageProps={props}>
       <main className="max-w-4xl mx-auto py-12 px-4">
         <h1 className="text-3xl font-bold mb-6">{String(translate('blog.title') || 'Blog')} — Tags</h1>
         <div className="mb-4 flex items-center gap-4">

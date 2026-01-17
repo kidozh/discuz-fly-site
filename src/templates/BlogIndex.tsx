@@ -3,11 +3,13 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 const enTranslations = require('../locales/en/translation.json')
 const zhTranslations = require('../locales/zh/translation.json')
 import Layout from '../components/Layout'
-import { Link, navigate } from 'gatsby'
+import SeoHead from '../components/SeoHead'
+import { Link, navigate, graphql } from 'gatsby'
 
 const PAGE_SIZE = 5
 
-const BlogIndex: React.FC<any> = ({ pageContext }) => {
+const BlogIndex: React.FC<any> = (props) => {
+  const pageContext = props.pageContext || {}
   const rawPosts = pageContext?.posts || []
 
   // Normalize posts and parse dates
@@ -19,13 +21,14 @@ const BlogIndex: React.FC<any> = ({ pageContext }) => {
       const date = fm.date ? new Date(fm.date) : null
       const excerpt = fm.excerpt || ''
       const tags = Array.isArray(fm.tags) ? fm.tags.map(String) : []
-      return { id: p.id || slug, title, slug, date, excerpt, tags }
+      const dateTs = date ? date.getTime() : null
+      return { id: p.id || slug, title, slug, date, dateTs, excerpt, tags }
     }).sort((a: any, b: any) => {
       // newest first; null dates go last
-      if (!a.date && !b.date) return 0
-      if (!a.date) return 1
-      if (!b.date) return -1
-      return b.date.getTime() - a.date.getTime()
+      if (!a.dateTs && !b.dateTs) return 0
+      if (!a.dateTs) return 1
+      if (!b.dateTs) return -1
+      return b.dateTs - a.dateTs
     })
   }, [rawPosts])
 
@@ -74,20 +77,15 @@ const BlogIndex: React.FC<any> = ({ pageContext }) => {
   }
   const [page, setPage] = useState(Number(pageContext?.currentPage || getPageFromUrl()))
 
-  // keep URL in sync when page or tag changes
-      useEffect(() => {
+  // keep URL in sync when page or tag changes (only perform string ops; avoid constructing URL object repeatedly)
+  useEffect(() => {
     try {
-      const url = new URL(window.location.href)
-      if (selectedTag) {
-        url.pathname = `${langPrefix}/blog/tag/${String(selectedTag).toLowerCase().replace(/[^a-z0-9]+/g, '-')}/`
-      } else {
-        url.pathname = `${langPrefix}/blog/`
-      }
-      if (page && page > 1) url.searchParams.set('page', String(page))
-      else url.searchParams.delete('page')
-      window.history.replaceState({}, '', url.toString())
+      const basePath = selectedTag ? `${langPrefix}/blog/tag/${String(selectedTag).toLowerCase().replace(/[^a-z0-9]+/g, '-')}/` : `${langPrefix}/blog/`;
+      const search = (page && page > 1) ? `?page=${page}` : '';
+      const newPath = basePath + search;
+      window.history.replaceState({}, '', newPath);
     } catch (e) {}
-  }, [selectedTag, page])
+  }, [selectedTag, page, langPrefix])
 
   const filtered = useMemo(() => {
     const f = selectedTag ? posts.filter((p: any) => p.tags.includes(selectedTag)) : posts
@@ -105,18 +103,26 @@ const BlogIndex: React.FC<any> = ({ pageContext }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  // Memoize a DateTimeFormat instance per language to avoid recreating it on each render
+  const dateFormatter = useMemo(() => {
+    try {
+      return new Intl.DateTimeFormat(i18n.language || 'en', { year: 'numeric', month: '2-digit', day: '2-digit' })
+    } catch (e) {
+      return null
+    }
+  }, [i18n.language])
+
   const fmtDate = (d: Date | null) => {
     if (!d) return null
     try {
-      return new Intl.DateTimeFormat(i18n.language || 'en', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(d)
-    } catch (e) {
-      return d.toISOString().slice(0,10)
-    }
+      return dateFormatter ? dateFormatter.format(d) : d.toISOString().slice(0,10)
+    } catch (e) { return d.toISOString().slice(0,10) }
   }
 
   return (
-    <Layout>
+    <Layout pageProps={props}>
       <main className="max-w-4xl mx-auto py-12 px-4">
+        <SeoHead title={String(translate('blog.title') || 'Blog')} lang={effectiveLang} />
   <h1 className="text-3xl font-bold mb-6">{String(translate('blog.title') || 'Blog')}</h1>
 
         <div className="mb-6">
@@ -189,3 +195,17 @@ const BlogIndex: React.FC<any> = ({ pageContext }) => {
 }
 
 export default BlogIndex
+
+export const query = graphql`
+  query BlogIndexLocales($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`

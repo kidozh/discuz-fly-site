@@ -5,10 +5,10 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Navbar from '../components/Navbar'
 import Layout from "../components/Layout"
 
-const NotFoundPage: React.FC<PageProps> = () => {
+const NotFoundPage: React.FC<PageProps> = (props) => {
   const { t } = useTranslation()
   return (
-    <Layout>
+    <Layout pageProps={props}>
       <main className="min-h-screen font-sans bg-theme text-theme transition-colors p-6">
       <h1 className="text-4xl font-semibold mb-16 max-w-xs">{t('404_heading')}</h1>
       <p className="mb-12">

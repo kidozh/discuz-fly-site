@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
+import { Link as GLink } from 'gatsby-plugin-react-i18next'
+const Link: any = GLink
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 const enTranslations = require('../locales/en/translation.json')
 const zhTranslations = require('../locales/zh/translation.json')
@@ -33,9 +35,9 @@ const Footer: React.FC<FooterProps> = ({ pageProps }) => {
   return (
     <footer className="w-full border-t border-gray-200 dark:border-gray-700 mt-12 py-6 bg-theme text-theme">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center space-x-3">
-        <a href="/" aria-label="Home">
+        <Link to="/" aria-label="Home">
           <StaticImage src="../images/disfly-logo.svg" alt="disfly" className="w-6 h-6" placeholder="none" />
-        </a>
+        </Link>
         <div className="text-sm text-center muted">
           {translate('footer_text')}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
+import LocalizedLink from './LocalizedLink'
 
 type DocSidebarProps = {
   nodes: any[]
@@ -10,11 +11,21 @@ type DocSidebarProps = {
 }
 
 const DocSidebar: React.FC<DocSidebarProps> = ({ nodes, language, docPrefix, activePath, showBack }) => {
-  const docBase = (lang: string) => `/${lang}/${docPrefix}`;
+  const docBase = () => `/${docPrefix}`;
   const { t } = useTranslation();
   const indexLabel = t('docs.index', 'Index');
   const backLabel = t('docs.back', 'Back to docs');
   const undatedLabel = t('docs.undated', 'No date');
+
+  const dateFormatter = React.useMemo(() => {
+    try {
+      return new Intl.DateTimeFormat(language || 'en')
+    } catch (e) { return null }
+  }, [language])
+
+  const formatDate = (d: any) => {
+    try { if (!d) return undatedLabel; return dateFormatter ? dateFormatter.format(new Date(d)) : String(d) } catch (e) { return String(d) }
+  }
 
   function computeSlug(node: any) {
     // If caller provided a normalized `path` (from gatsby-node pageContext), derive slug from it
@@ -68,20 +79,30 @@ const DocSidebar: React.FC<DocSidebarProps> = ({ nodes, language, docPrefix, act
         cursor.title = title;
         cursor.excerpt = node.excerpt || null;
         cursor.date = node.date || node.frontmatter?.date || null;
-        const path = `${docBase(language)}${slug === '' ? '' : '/' + slug}`;
+        const path = `${docBase()}${slug === '' ? '' : '/' + slug}`;
         cursor.path = path;
       }
     });
     if (parts.length === 0) {
       root.title = node.title || node.frontmatter?.title || 'Index';
-      root.path = `${docBase(language)}`;
+      root.path = `${docBase()}`;
     }
   });
 
+  function normalizeForCompare(p: any) {
+    let value = String(p || '').trim();
+    if (!value) return '';
+    if (!value.startsWith('/')) value = `/${value}`;
+    value = value.replace(/\/+$/g, '');
+    value = value.replace(/^\/[a-z]{2}(?=\/|$)/, '');
+    value = value.replace(/\/+/g, '/');
+    return value || '/';
+  }
+
   function nodeContainsActive(node: any): boolean {
     if (!activePath) return false;
-    const normalize = (p: any) => String(p || '').replace(/\/+$|^\s+|\s+$/g, '').replace(/\/$/, '');
-    if (node.path && normalize(node.path) === normalize(activePath)) return true;
+    const current = normalizeForCompare(activePath);
+    if (node.path && normalizeForCompare(node.path) === current) return true;
     const children = Array.from(node.children ? node.children.values() : []);
     return children.some((c: any) => nodeContainsActive(c));
   }
@@ -89,18 +110,19 @@ const DocSidebar: React.FC<DocSidebarProps> = ({ nodes, language, docPrefix, act
   function renderTree(node: any, prefix = ''): any {
     const items: any[] = [];
     if (node.title && node.path) {
-      const normalize = (p: any) => String(p || '').replace(/\/+$|^\s+|\s+$/g, '').replace(/\/$/, '');
-      const isActive = activePath && normalize(node.path) === normalize(activePath);
+      const current = normalizeForCompare(activePath);
+      const isActive = activePath && normalizeForCompare(node.path) === current;
       const activeBg = isActive ? 'bg-brand/10 dark:bg-brand-700 dark:text-white ring-2 ring-brand' : '';
       items.push(
         <li key={node.path} className="py-2">
-          <a
-            href={node.path}
+          <LocalizedLink
+            to={node.path}
             className={`block p-3 border border-gray-200 rounded-md shadow-sm transform transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:shadow-md ${activeBg}`}
+            prefetch="true"
           >
             <div className={`font-medium ${isActive ? 'text-brand' : 'text-theme'}`}>{node.title}</div>
-            <div className="text-xs text-gray-400 mt-1">{node.date ? new Date(node.date).toLocaleDateString() : undatedLabel}</div>
-          </a>
+            <div className="text-xs text-gray-400 mt-1">{node.date ? formatDate(node.date) : undatedLabel}</div>
+          </LocalizedLink>
         </li>
       );
     }
@@ -130,19 +152,20 @@ const DocSidebar: React.FC<DocSidebarProps> = ({ nodes, language, docPrefix, act
         );
       } else {
         const title = child.title || child.name;
-        const path = child.path || `${docBase(language)}/${[...childKey.split('/').filter(Boolean)].join('/')}`;
-        const normalize = (p: any) => String(p || '').replace(/\/+$|^\s+|\s+$/g, '').replace(/\/$/, '');
-        const isActive = activePath && normalize(path) === normalize(activePath);
+        const path = child.path || `${docBase()}/${[...childKey.split('/').filter(Boolean)].join('/')}`;
+        const current = normalizeForCompare(activePath);
+        const isActive = activePath && normalizeForCompare(path) === current;
         const activeBg = isActive ? 'bg-brand/10 dark:bg-brand-700 dark:text-white ring-2 ring-brand' : '';
         items.push(
           <li key={childKey} className="py-2">
-            <a
-              href={path}
+            <LocalizedLink
+              to={path}
               className={`block p-3 border border-gray-200 rounded-md shadow-sm transform transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:shadow-md ${activeBg}`}
+              prefetch="true"
             >
               <div className={`${isActive ? 'text-brand font-medium' : 'font-medium'}`}>{title}</div>
-              <div className="text-xs text-gray-400 mt-1">{child.date ? new Date(child.date).toLocaleDateString() : undatedLabel}</div>
-            </a>
+              <div className="text-xs text-gray-400 mt-1">{child.date ? formatDate(child.date) : undatedLabel}</div>
+            </LocalizedLink>
           </li>
         );
       }
@@ -154,15 +177,15 @@ const DocSidebar: React.FC<DocSidebarProps> = ({ nodes, language, docPrefix, act
     <nav>
       <div className="mb-3">
         {showBack ? (
-          <a href={`/${language}/${docPrefix}/`} className="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-brand">
+          <LocalizedLink to={`${docBase()}/`} className="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-brand" prefetch="true">
             <span className="mr-2">←</span>
             <span>{backLabel}</span>
-          </a>
+          </LocalizedLink>
         ) : (
           root.path ? (
-            <a href={root.path} className="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-brand">
+            <LocalizedLink to={root.path} className="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-brand" prefetch="true">
               ← <span className="ml-2">{root.title || indexLabel}</span>
-            </a>
+            </LocalizedLink>
           ) : null
         )}
       </div>
