@@ -12,12 +12,6 @@
     "language": "zh"
   },
   {
-    "id": "76cac228-0d09-5ffe-9a20-c5c5e43ca5d3",
-    "path": "/en/doc/term_of_services/",
-    "language": "en",
-    "title": "Terms of Services"
-  },
-  {
     "id": "c33d8e59-5f9e-595d-8d12-821d630f1eaf",
     "path": "/zh/doc/term_of_services/",
     "language": "zh",
@@ -48,15 +42,21 @@
     "title": "开源与许可证"
   },
   {
-    "id": "a831ebda-8681-5f1c-90c8-59e31bac9bb3",
-    "path": "/zh/doc/intelligence-service/",
-    "language": "zh",
-    "title": "智能化服务文档"
-  },
-  {
     "id": "ec0479b8-86ef-553b-8bf5-95f47d936732",
     "path": "/en/doc/intelligence-service/",
     "language": "en",
     "title": "Intelligent Experience Technical Documentation"
+  },
+  {
+    "id": "76cac228-0d09-5ffe-9a20-c5c5e43ca5d3",
+    "path": "/en/doc/term_of_services/",
+    "language": "en",
+    "title": "Terms of Services"
+  },
+  {
+    "id": "a831ebda-8681-5f1c-90c8-59e31bac9bb3",
+    "path": "/zh/doc/intelligence-service/",
+    "language": "zh",
+    "title": "智能化服务文档"
   }
 ]
