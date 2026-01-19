@@ -7,6 +7,39 @@
     <language>en-us</language>
     
     <item>
+      <title><![CDATA[谈坛目前整合了Apple Foundation服务框架]]></title>
+      <link>https://discuzhub.kidozh.com/blog/apple-intelligence-service-integration/</link>
+      <guid>https://discuzhub.kidozh.com/blog/apple-intelligence-service-integration/</guid>
+      <pubDate>Mon, 19 Jan 2026 04:04:05 GMT</pubDate>
+      <description><![CDATA[您可以在应用里使用原生大模型了]]></description>
+      <content:encoded><![CDATA[<h1>谈坛 · 本地智能宣言</h1>
+<p>谈坛现已深度集成 <strong>Apple Foundation Model Framework</strong>，为您带来无需云端、完全在设备端运行的下一代智能体验。</p>
+<h2>为什么是「本地智能」？</h2>
+<ul>
+<li><strong>隐私至上</strong>：您的所有对话与数据，<strong>永不离开您的设备</strong>。这是我们的核心承诺。</li>
+<li><strong>瞬时响应</strong>：得益于 Apple Silicon 芯片的深度优化，一切思考都在瞬间完成，如本能般流畅。</li>
+<li><strong>离线自由</strong>：无需网络连接，智慧始终在线。在飞机上、旅途中，体验完整无缺。</li>
+</ul>
+<h2>核心能力一览</h2>
+<p>您的设备，现在拥有了一位私密、高效的智能伙伴：</p>
+<ul>
+<li><strong>秒级摘要</strong>：化繁为简，快速提取长文核心。</li>
+<li><strong>写作增强</strong>：根据上下文，实时润色、续写与优化您的表达。</li>
+<li><strong>私密翻译</strong>：支持完全离线的跨语言实时交流。</li>
+<li><strong>懂你的推荐</strong>：仅在本地分析您的兴趣，提供更精准的内容。</li>
+</ul>
+<h2>重要说明</h2>
+<ul>
+<li><strong>专属体验</strong>：此功能为 <strong>Apple 生态独占</strong>，深度依赖于系统框架，目前<strong>无法在 Android 或 Web 端提供</strong>。</li>
+<li><strong>运行要求</strong>：需要搭载 Apple Silicon 芯片（A17 Pro / M1 或更新）的设备，并升级至 iOS 18 / macOS Sequoia 或更高版本。</li>
+</ul>
+<hr>
+<p>我们相信，真正的智能应同时尊重您的效率与隐私。在谈坛，智慧生于本地，忠于您一人。</p>
+<p>立即在您的 Apple 设备上，开启这段更安全、更迅捷的探索。</p>
+<p>更多信息，您可以在<a href="/doc/intelligence-service/">智能化服务</a>获得详细信息。</p>]]></content:encoded>
+    </item>
+
+    <item>
       <title><![CDATA[谈坛将暂时在App Store下架]]></title>
       <link>https://discuzhub.kidozh.com/blog/app-store-unemployed/</link>
       <guid>https://discuzhub.kidozh.com/blog/app-store-unemployed/</guid>
