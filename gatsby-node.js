@@ -216,36 +216,27 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             }
           });
 
-          // Create language-aware redirects for common legacy routes
-          const legacySlugs = ['privacy_policy', 'term_of_services', 'terms_of_services', 'terms_of_service', 'terms'];
-          // ensure unique mapping to our canonical slugs
-          const canonical = {
+          // Preserve the policy URLs used by app settings and older releases.
+          const policyAliases = {
             privacy_policy: 'privacy_policy',
+            term_of_use: 'term_of_services',
             term_of_services: 'term_of_services',
             terms_of_services: 'term_of_services',
             terms_of_service: 'term_of_services',
             terms: 'term_of_services',
           };
-
-          // root-level redirects to default language
-          legacySlugs.forEach((s) => {
-            const toSlug = canonical[s] || s;
-            const toPath = `${docRoot}${toSlug}/`;
-            createRedirect({ fromPath: `/${s}/`, toPath, isPermanent: true, redirectInBrowser: true });
-            createRedirect({ fromPath: `/${s}`, toPath, isPermanent: true, redirectInBrowser: true });
-          });
-
-          // language-prefixed redirects: /zh/privacy_policy -> /zh/doc/privacy_policy/
-          languagesArr.forEach((lang) => {
-            legacySlugs.forEach((s) => {
-              const toSlug = canonical[s] || s;
-              const fromA = `/${lang}/${s}`.replace(/\/+/g, '/');
-              const fromB = `/${lang}/${s}/`.replace(/\/+/g, '/');
-              const toPath = localizedDocPath(lang, `${docRoot}${toSlug}/`);
-              createRedirect({ fromPath: fromA, toPath, isPermanent: true, redirectInBrowser: true });
-              createRedirect({ fromPath: fromB, toPath, isPermanent: true, redirectInBrowser: true });
-            });
-          });
+          const policyPrefixes = [
+            { prefix: '', language: defaultLang },
+            ...languagesArr.map(language => ({ prefix: `/${language}`, language })),
+          ];
+          for (const [alias, slug] of Object.entries(policyAliases)) {
+            for (const { prefix, language } of policyPrefixes) {
+              const fromPath = `${prefix}/${alias}`;
+              const toPath = localizedDocPath(language, `${docRoot}${slug}/`);
+              createRedirect({ fromPath, toPath, isPermanent: true, redirectInBrowser: true });
+              createRedirect({ fromPath: `${fromPath}/`, toPath, isPermanent: true, redirectInBrowser: true });
+            }
+          }
         }
       }
     } catch (e) {
