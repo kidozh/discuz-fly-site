@@ -1,0 +1,180 @@
+.home-screenshot {
+  position: relative;
+  display: block;
+  min-width: 0;
+  cursor: zoom-in;
+}
+
+.home-screenshot > .gatsby-image-wrapper {
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+}
+
+.home-screenshot-expand {
+  position: absolute;
+  right: 0.45rem;
+  bottom: 0.45rem;
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border: 1px solid rgb(var(--home-ui-edge) / 0.45);
+  border-radius: 50%;
+  background: rgb(var(--home-toolbar-bg) / 0.95);
+  color: rgb(var(--home-hero-text));
+  box-shadow: 0 2px 8px var(--home-device-shadow);
+  pointer-events: none;
+}
+
+.home-screenshot-expand::before {
+  width: 0.62rem;
+  height: 0.62rem;
+  margin: -0.16rem 0.14rem 0 0;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  content: "";
+}
+
+.home-screenshot-expand::after {
+  position: absolute;
+  top: 57%;
+  left: 53%;
+  width: 0.36rem;
+  height: 1.5px;
+  border-radius: 1px;
+  background: currentColor;
+  transform: rotate(45deg);
+  transform-origin: left center;
+  content: "";
+}
+
+.home-screenshot:hover .home-screenshot-expand,
+.home-screenshot:focus-visible .home-screenshot-expand {
+  border-color: rgb(var(--home-accent));
+  color: rgb(var(--home-accent));
+}
+
+html:has(.home-screenshot-dialog[open]) {
+  overflow: hidden;
+}
+
+.home-screenshot-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(72rem, calc(100% - 1.5rem));
+  height: min(58rem, calc(100dvh - 1.5rem));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid var(--home-border);
+  border-radius: 1rem;
+  background: rgb(var(--home-toolbar-bg));
+  color: rgb(var(--home-hero-text));
+  box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 0.35);
+}
+
+.home-screenshot-dialog[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.home-screenshot-dialog::backdrop {
+  background: rgb(24 35 61 / 0.58);
+}
+
+.dark .home-screenshot-dialog::backdrop {
+  background: rgb(0 0 0 / 0.76);
+}
+
+.home-screenshot-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--home-border);
+}
+
+.home-screenshot-toolbar h2 {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.home-screenshot-zoom {
+  display: flex;
+  width: fit-content;
+  border: 1px solid var(--home-border);
+  border-radius: 0.6rem;
+  background: var(--home-surface);
+}
+
+.home-screenshot-toolbar button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding-inline: 0.55rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.home-screenshot-toolbar button:enabled:hover {
+  background: var(--home-preview-active);
+}
+
+.home-screenshot-toolbar button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.home-screenshot-close {
+  border: 1px solid var(--home-border);
+  background: var(--home-surface);
+}
+
+.home-screenshot-scroll {
+  display: flex;
+  container-type: size;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0.7rem;
+  background: var(--home-surface);
+}
+
+.home-screenshot-scroll:focus-visible {
+  outline: 2px solid rgb(var(--home-accent));
+  outline-offset: -2px;
+}
+
+.home-screenshot-scroll img {
+  flex: none;
+  width: min(
+    calc(100cqw * var(--screenshot-zoom)),
+    calc(100cqh * var(--screenshot-ratio) * var(--screenshot-zoom)),
+    calc(var(--screenshot-native-width) * var(--screenshot-zoom))
+  );
+  max-width: none;
+  height: auto;
+  margin: auto;
+}
+
+@media (max-width: 640px) {
+  .home-screenshot-dialog {
+    width: calc(100% - 0.75rem);
+    height: calc(100dvh - 0.75rem);
+  }
+
+  .home-screenshot-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .home-screenshot-toolbar h2 {
+    grid-column: 1 / -1;
+  }
+}

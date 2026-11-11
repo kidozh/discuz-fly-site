@@ -10,7 +10,7 @@ export type DocumentEntry = {
 }
 
 const projectSlugs = ['privacy_policy', 'term_of_services', 'open_source']
-const guideSlugs = ['android-translation', 'intelligence-service']
+const guideSlugs = ['apple-watch', 'android-background-reminders', 'android-translation', 'intelligence-service']
 
 function orderDocuments(documents: DocumentEntry[], preferred: string[]) {
   return [...documents].sort((a, b) => {

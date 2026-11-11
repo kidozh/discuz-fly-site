@@ -3,6 +3,7 @@ import { graphql, type HeadFC, type PageProps } from 'gatsby'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Layout from '../components/Layout'
 import HomeFeatures from '../components/home/HomeFeatures'
+import { HomeScreenshotGallery } from '../components/home/HomeScreenshots'
 import ProductPreview from '../components/home/ProductPreview'
 import SeoHead, { bilingualAlternates } from '../components/SeoHead'
 import en from '../locales/en/translation.json'
@@ -31,46 +32,48 @@ const IndexPage: React.FC<PageProps> = (props) => {
 
   return (
     <Layout pageProps={props} className="disfly-home">
-      <section className="home-hero" aria-labelledby="home-title">
-        <div className="home-shell home-hero-layout">
-          <div className="home-hero-copy">
-            <p className="home-hero-label">{t('home_hero_eyebrow')}</p>
-            <h1 id="home-title" className="home-hero-title">
-              {t('home_hero_title')} <span>{t('home_hero_title_accent')}</span>
-            </h1>
-            <p className="home-hero-summary">{t('home_hero_subtitle')}</p>
+      <HomeScreenshotGallery>
+        <section className="home-hero" aria-labelledby="home-title">
+          <div className="home-shell home-hero-layout">
+            <div className="home-hero-copy">
+              <p className="home-hero-label">{t('home_hero_eyebrow')}</p>
+              <h1 id="home-title" className="home-hero-title">
+                {t('home_hero_title')} <span>{t('home_hero_title_accent')}</span>
+              </h1>
+              <p className="home-hero-summary">{t('home_hero_subtitle')}</p>
 
-            <div className="home-downloads">
-              {downloadLinks.map(({ label, href }) => (
-                <a key={label} href={href}>{t(label)}</a>
-              ))}
+              <div className="home-downloads">
+                {downloadLinks.map(({ label, href }) => (
+                  <a key={label} href={href}>{t(label)}</a>
+                ))}
+              </div>
+              <div className="home-hero-links">
+                <a href={releases}>{t('home_release_notes')}</a>
+                <a href={repository}>{t('home_source_code')}</a>
+              </div>
             </div>
-            <div className="home-hero-links">
-              <a href={releases}>{t('home_release_notes')}</a>
-              <a href={repository}>{t('home_source_code')}</a>
-            </div>
+
+            <ProductPreview />
           </div>
+        </section>
 
-          <ProductPreview />
-        </div>
-      </section>
+        <HomeFeatures />
 
-      <HomeFeatures />
-
-      <section className="home-shell home-section" aria-labelledby="home-communities">
-        <h2 id="home-communities" className="home-section-heading">{t('home_explore_title')}</h2>
-        <ul className="home-community-list">
-          {communities.map(({ title, desc, url }) => (
-            <li key={url}>
-              <a href={url}>
-                <span className="home-community-name">{title}</span>
-                <span className="home-community-description">{t(desc)}</span>
-                <span className="home-card-arrow" aria-hidden="true">↗</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
+        <section className="home-shell home-section" aria-labelledby="home-communities">
+          <h2 id="home-communities" className="home-section-heading">{t('home_explore_title')}</h2>
+          <ul className="home-community-list">
+            {communities.map(({ title, desc, url }) => (
+              <li key={url}>
+                <a href={url}>
+                  <span className="home-community-name">{title}</span>
+                  <span className="home-community-description">{t(desc)}</span>
+                  <span className="home-card-arrow" aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </HomeScreenshotGallery>
     </Layout>
   )
 }

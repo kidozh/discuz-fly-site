@@ -22,7 +22,6 @@
   --home-device-frame: linear-gradient(150deg, #fff, #b3c4df 48%, #eef4ff);
   --home-device-shadow: rgb(34 57 110 / 0.24);
   --home-back-device-brightness: 0.98;
-  --home-tablet-frame: #8598ba;
   --home-border: #dfe5ee;
   --home-surface: #f6f8fc;
   --home-violet: #f3f1ff;
@@ -54,7 +53,6 @@
   --home-device-frame: linear-gradient(150deg, #50617d, #121a2b 48%, #536481);
   --home-device-shadow: rgb(1 5 20 / 0.52);
   --home-back-device-brightness: 0.82;
-  --home-tablet-frame: #162238;
   --home-border: #334155;
   --home-surface: #172236;
   --home-violet: #221d3b;
@@ -267,30 +265,13 @@
   transform: translate(-50%, -50%) rotate(9deg);
 }
 
-.home-preview-crop {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 264 / 564;
-  margin: 0;
+.home-preview-display {
+  width: 100%;
   border-radius: clamp(1rem, 2vw, 1.55rem);
   background: #fafbfd;
 }
 
-/* Crop the publisher's marketing frames to the in-app screen. */
-.home-preview-crop > .gatsby-image-wrapper {
-  position: absolute;
-  top: -23.8%;
-  left: -13%;
-  width: 126%;
-  max-width: none;
-}
-
-.home-preview-crop-summary > .gatsby-image-wrapper {
-  left: -13.9%;
-  width: 128%;
-}
-
-.home-preview-device-front .home-preview-crop {
+.home-preview-device-front .home-preview-display {
   animation: home-preview-in 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -464,7 +445,7 @@
     transition: none;
   }
 
-  .home-preview-device-front .home-preview-crop {
+  .home-preview-device-front .home-preview-display {
     animation: none;
   }
 }
