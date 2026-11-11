@@ -48,6 +48,44 @@ html[data-theme-ready="true"] {
 .text-theme { color: rgb(var(--text)); }
 .text-muted, .muted { color: rgb(var(--muted)); }
 
+.site-toolbar {
+  --toolbar-hover: #f0f5fc;
+  --toolbar-selected-bg: #e7f0ff;
+  --toolbar-selected-text: #20488e;
+}
+
+.dark .site-toolbar {
+  --toolbar-hover: #202d45;
+  --toolbar-selected-bg: #263d60;
+  --toolbar-selected-text: #c0d6ff;
+}
+
+.site-nav-link,
+.site-toolbar-button {
+  border-radius: 0.5rem;
+  color: rgb(var(--text));
+}
+
+.site-nav-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+}
+
+.site-toolbar :is(.site-nav-link, .site-toolbar-button):hover {
+  background-color: var(--toolbar-hover);
+}
+
+.site-toolbar :is(.site-nav-link[aria-current], .site-toolbar-button[aria-pressed="true"], .site-toolbar-button[aria-expanded="true"]) {
+  background-color: var(--toolbar-selected-bg);
+  color: var(--toolbar-selected-text);
+}
+
+.site-toolbar :is(a, button):focus-visible {
+  outline: 2px solid var(--toolbar-selected-text);
+  outline-offset: 3px;
+}
+
 /* Brand utilities moved into Tailwind config as `brand` color */
 
 /* Simple entrance animations */

@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby-plugin-react-i18next'
+import { Link, useTranslation } from 'gatsby-plugin-react-i18next'
 import { StaticImage } from 'gatsby-plugin-image'
 import LanguageSwitcher from './LanguageSwitcher'
-import { useTranslation } from 'gatsby-plugin-react-i18next'
 const enTranslations = require('../locales/en/translation.json')
 const zhTranslations = require('../locales/zh/translation.json')
 
 type NavbarProps = { pageProps?: any }
+
+type NavLinkProps = Pick<React.ComponentProps<typeof Link>, 'to' | 'className' | 'aria-current' | 'children'>
+// The i18next declaration marks unused DOM props as required.
+const NavLink = Link as unknown as React.ComponentType<NavLinkProps>
+
+const navigation = [
+  { to: '/', label: 'nav_home' },
+  { to: '/doc/', label: 'nav_docs' },
+  { to: '/blog/', label: 'blog.title' },
+  { to: '/about/', label: 'nav_about' },
+]
 
 const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
   const [open, setOpen] = useState(false)
@@ -58,52 +68,30 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
     return tFallback(key)
   }
 
-  // Wrapper to avoid strict Link prop typings causing TS errors in this file
-  const NavLink: React.FC<any> = (props) => {
-    return <Link {...props} />
-  }
+  const pathname = pageProps?.location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '/')
+  const activePath = pathname.replace(/^\/(?:en|zh)(?=\/|$)/, '').replace(/\/+$/, '') + '/'
+  const navigationLinks = navigation.map(({ to, label }) => {
+    const currentPage = activePath === to
+    const currentSection = to !== '/' && activePath.startsWith(to)
 
-  // Determine current path for active link highlighting.
-  const getCurrentPath = () => {
-    const fromProps = pageProps?.location?.pathname
-    if (fromProps) return fromProps
-    if (typeof window !== 'undefined') return window.location.pathname
-    return '/'
-  }
-
-  const normalizePath = (p: string) => {
-    if (!p) return '/'
-    // remove trailing slashes
-    let s = p.replace(/\/+$|^\/+ /g, '/')
-    // remove leading language segment like /en or /zh
-    s = s.replace(/^\/[a-z]{2}(?=\/|$)/, '')
-    // ensure starts with /
-    if (!s.startsWith('/')) s = '/' + s
-    // collapse multiple slashes
-    s = s.replace(/\/+/g, '/')
-    // remove trailing slash except root
-    if (s.length > 1 && s.endsWith('/')) s = s.slice(0, -1)
-    return s
-  }
-
-  const activePath = normalizePath(getCurrentPath())
-
-  const navLinkClass = (to: string, base = 'text-theme dark:text-theme hover:text-brand transition-colors') => {
-    const toNorm = normalizePath(to)
-    const isActive = to === '/' ? activePath === '/' : activePath.startsWith(toNorm)
-    const activeCls = isActive ? 'bg-brand text-white' : ''
-    const paddingCls = 'px-3 py-2 rounded-md'
-    // If active, remove hover classes so hover doesn't change color
-    const effectiveBase = isActive ? base.replace(/hover:[^\s]+/g, '').replace(/dark:hover:[^\s]+/g, '') : base
-    return `${paddingCls} ${activeCls} ${effectiveBase}`.trim()
-  }
+    return (
+      <NavLink
+        key={to}
+        to={to}
+        className="site-nav-link"
+        aria-current={currentPage ? 'page' : currentSection ? 'location' : undefined}
+      >
+        {translate(label)}
+      </NavLink>
+    )
+  })
 
   return (
-  <header className="bg-theme dark:bg-theme shadow-sm">
+    <header className="site-toolbar bg-theme dark:bg-theme shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <NavLink to="/" placeholder="" className="flex items-center space-x-3">
+            <NavLink to="/" className="flex items-center space-x-3">
               <StaticImage src="../images/disfly-logo.svg" alt="disfly" className="w-8 h-8" placeholder="none" />
               <span className="text-lg font-semibold text-theme dark:text-theme">{translate('title')}</span>
             </NavLink>
@@ -111,17 +99,14 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
 
           <div className="hidden md:flex md:items-center md:space-x-6">
             <nav className="flex space-x-4" aria-label="Main navigation">
-              <NavLink to="/" placeholder="" className={navLinkClass('/')}>{translate('nav_home')}</NavLink>
-              <NavLink to="/doc/" placeholder="" className={navLinkClass('/doc/')}>{translate('nav_docs')}</NavLink>
-              <NavLink to={`/blog/`} placeholder="" className={navLinkClass(`/blog/`)}>{translate('blog.title')}</NavLink>
-              <NavLink to="/about/" placeholder="" className={navLinkClass('/about/')}>{translate('nav_about')}</NavLink>
+              {navigationLinks}
             </nav>
             <div className="ml-4 flex items-center space-x-4">
               <LanguageSwitcher pageProps={pageProps} />
               <button
                 type="button"
                 onClick={toggleTheme}
-                className="p-2 rounded-md bg-theme dark:bg-theme text-theme dark:text-theme hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+                className="site-toolbar-button p-2"
                 aria-pressed={dark}
                 aria-label={translate('theme_toggle')}
               >
@@ -141,7 +126,7 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
               aria-controls="mobile-menu"
               aria-expanded={open}
               onClick={() => setOpen((s) => !s)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-theme hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors"
+              className="site-toolbar-button inline-flex items-center justify-center p-2"
             >
               <span className="sr-only">Open main menu</span>
               {open ? (
@@ -161,10 +146,9 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
       {/* Mobile menu, show/hide based on menu state. */}
       <div className={`${open ? 'block' : 'hidden'} md:hidden`} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-theme dark:bg-theme transition-colors duration-200">
-          <NavLink to="/" placeholder="" className={`${navLinkClass('/', 'text-base font-medium text-theme dark:text-theme hover:text-brand dark:hover:bg-gray-700')} block`}>{translate('nav_home')}</NavLink>
-          <NavLink to="/doc/" placeholder="" className={`${navLinkClass('/doc/', 'text-base font-medium text-theme dark:text-theme hover:text-brand dark:hover:bg-gray-700')} block`}>{translate('nav_docs')}</NavLink>
-          <NavLink to="/blog/" placeholder="" className={`${navLinkClass('/blog/', 'text-base font-medium text-theme dark:text-theme hover:text-brand dark:hover:bg-gray-700')} block`}>{translate('blog.title')}</NavLink>
-          <NavLink to="/about/" placeholder="" className={`${navLinkClass('/about/', 'text-base font-medium text-theme dark:text-theme hover:text-brand dark:hover:bg-gray-700')} block`}>{translate('nav_about')}</NavLink>
+          <nav className="space-y-1" aria-label="Main navigation">
+            {navigationLinks}
+          </nav>
           <div className="px-3 py-2">
             <LanguageSwitcher pageProps={pageProps} />
           </div>
@@ -174,7 +158,7 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
               onClick={toggleTheme}
               aria-pressed={dark}
               aria-label={translate('theme_toggle')}
-              className="p-2 rounded-md bg-theme dark:bg-theme text-theme dark:text-theme hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+              className="site-toolbar-button p-2"
             >
               <span className="dark:hidden">{translate('theme_switch_to_dark')}</span>
               <span className="hidden dark:inline">{translate('theme_switch_to_light')}</span>

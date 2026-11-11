@@ -71,12 +71,7 @@
   border-bottom: 1px solid rgb(var(--home-ui-edge) / 0.18);
 }
 
-.disfly-home > header a.bg-brand {
-  background: rgb(var(--home-accent) / 0.13);
-  color: rgb(var(--home-hero-text));
-}
-
-.disfly-home :is(header, main) :is(a, button):focus-visible {
+.disfly-home main :is(a, button):focus-visible {
   outline: 2px solid rgb(var(--home-accent));
   outline-offset: 4px;
 }
