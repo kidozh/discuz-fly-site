@@ -1,7 +1,7 @@
 [
   {
     "id": "index-en",
-    "path": "/en/doc/",
+    "path": "/doc/",
     "type": "index",
     "language": "en"
   },
@@ -12,6 +12,12 @@
     "language": "zh"
   },
   {
+    "id": "76cac228-0d09-5ffe-9a20-c5c5e43ca5d3",
+    "path": "/doc/term_of_services/",
+    "language": "en",
+    "title": "Terms of Services"
+  },
+  {
     "id": "c33d8e59-5f9e-595d-8d12-821d630f1eaf",
     "path": "/zh/doc/term_of_services/",
     "language": "zh",
@@ -19,7 +25,7 @@
   },
   {
     "id": "a15caeff-e222-5f59-b697-5eb5fd7669a7",
-    "path": "/en/doc/privacy_policy/",
+    "path": "/doc/privacy_policy/",
     "language": "en",
     "title": "Privacy Policy"
   },
@@ -31,9 +37,15 @@
   },
   {
     "id": "cf01af0f-f1cd-5e73-a96d-f756dea5272b",
-    "path": "/en/doc/open_source/",
+    "path": "/doc/open_source/",
     "language": "en",
     "title": "Open Source & License"
+  },
+  {
+    "id": "ec0479b8-86ef-553b-8bf5-95f47d936732",
+    "path": "/doc/intelligence-service/",
+    "language": "en",
+    "title": "On-device AI model disclosure"
   },
   {
     "id": "37d33619-1c86-58a4-ae2d-e32bb87810a4",
@@ -42,21 +54,21 @@
     "title": "开源与许可证"
   },
   {
-    "id": "ec0479b8-86ef-553b-8bf5-95f47d936732",
-    "path": "/en/doc/intelligence-service/",
-    "language": "en",
-    "title": "Intelligent Experience Technical Documentation"
-  },
-  {
-    "id": "76cac228-0d09-5ffe-9a20-c5c5e43ca5d3",
-    "path": "/en/doc/term_of_services/",
-    "language": "en",
-    "title": "Terms of Services"
-  },
-  {
     "id": "a831ebda-8681-5f1c-90c8-59e31bac9bb3",
     "path": "/zh/doc/intelligence-service/",
     "language": "zh",
-    "title": "智能化服务文档"
+    "title": "本机 AI 模型使用声明"
+  },
+  {
+    "id": "4cbb275e-7e54-518c-8c44-a5c7d36f3747",
+    "path": "/doc/android-translation/",
+    "language": "en",
+    "title": "Android post translation"
+  },
+  {
+    "id": "a15a198e-8231-5093-9f1c-0ba82e58ec3d",
+    "path": "/zh/doc/android-translation/",
+    "language": "zh",
+    "title": "Android 正文翻译"
   }
 ]
