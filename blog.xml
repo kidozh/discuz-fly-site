@@ -35,21 +35,21 @@
       <guid>https://discuzhub.kidozh.com/blog/platform-support-statement/</guid>
       <pubDate>Wed, 30 Jul 2025 04:04:05 GMT</pubDate>
       <description><![CDATA[我们目前没有支持新操作系统的计划]]></description>
-      <content:encoded><![CDATA[<h1>移动客户端</h1>
+      <content:encoded><![CDATA[<h1 id="移动客户端">移动客户端</h1>
 <p>我们目前支持的移动平台信息如下：</p>
-<h2>谈坛：</h2>
+<h2 id="谈坛">谈坛：</h2>
 <ul>
 <li>iOS/iPadOS/MacOS（通过兼容模式实现）</li>
 <li>Android</li>
 </ul>
 <p>由于我们全面转向维护Flutter客户端以支持更多设备，因此我们放弃了针对Discuz Hub的维护。您可以使用谈坛完成论坛的访问，两者在功能上是一致的。</p>
-<h2>Discuz Hub （未积极维护）</h2>
+<h2 id="discuz-hub-未积极维护">Discuz Hub （未积极维护）</h2>
 <ul>
 <li>Android</li>
 </ul>
-<h1>桌面客户端</h1>
+<h1 id="桌面客户端">桌面客户端</h1>
 <p>对于桌面操作系统，我们推荐您使用网页访问论坛以获得完整的服务。</p>
-<h1>未来开发计划</h1>
+<h1 id="未来开发计划">未来开发计划</h1>
 <p>同时，因为开发计划的原因，我们目前没有也不会有对于新的操作系统兼容的计划。由于谈坛是开源软件，您可以使用<strong>MIT</strong>协议在新平台上编译我们的代码以获得此服务。</p>]]></content:encoded>
     </item>
 
@@ -59,7 +59,7 @@
       <guid>https://discuzhub.kidozh.com/blog/exit-china-mainland-appstore/</guid>
       <pubDate>Mon, 02 Oct 2023 23:07:00 GMT</pubDate>
       <description><![CDATA[由于备案审核，我们的应用即将在中国大陆地区下架]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>根据<a href="https://www.gov.cn/zhengce/zhengceku/202308/content_6897341.htm">工信部信管〔2023〕105号</a>通知规定，在我国境内从事互联网信息服务的App主办者，应当履行备案手续，否则不得从事App互联网信息服务。 由于开发者本人还在海外学习，无法进行备案，因此我们的应用将在中国大陆地区下架。 我们会尽量在未来的某个时间点完成应用的备案，但是目前还没有确切的时间表（留学时间可能比较长）。</p>
 <p>现行的规定仍然有10个月的过渡期，但是App store已经事实上禁止所有未备案应用更新内容，因此位于中国大陆地区的用户可能无法收到最新的更新和功能。 为了避免这种情况，请切换到其他地区的App Store或者使用Google Play下载我们的应用。我们理解到这可能会给您带来不便，但是我们目前也无法提出更好的解决办法。</p>
 <p>感谢您对于我们的支持。</p>]]></content:encoded>
@@ -71,11 +71,11 @@
       <guid>https://discuzhub.kidozh.com/blog/add-weibo-channel/</guid>
       <pubDate>Tue, 15 Nov 2022 23:07:00 GMT</pubDate>
       <description><![CDATA[欢迎在微博上关注我们，并向我们提出您的反馈]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们很高兴的宣布，我们已经在微博上开设了我们的账号，现在你可以通过微博私信、评论与我们取得联系。</p>
 <p>请访问 <a href="https://weibo.com/u/7436177109">https://weibo.com/u/7436177109</a>获得我们的最新进展</p>
 <p>感谢您对于我们的支持。</p>
-<h1>赞助我们的工作</h1>
+<h1 id="赞助我们的工作">赞助我们的工作</h1>
 <p>您可以通过微信支付和支付宝赞助我们的工作。在此表示谢意！</p>]]></content:encoded>
     </item>
 
@@ -85,9 +85,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-release-v1.1.5/</guid>
       <pubDate>Tue, 15 Nov 2022 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.1.5版本的谈坛]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.1.5版本的谈坛</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>修复了深色模式下iOS样式禁用的BUG</li>
 <li>修复了iOS下颜色无法选择的BUG</li>
@@ -114,9 +114,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-release-v1.1.0/</guid>
       <pubDate>Sun, 26 Jun 2022 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.1.0版本的谈坛]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.1.0版本的谈坛</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>修复了验证码BUG</li>
 <li>新增推送服务</li>
@@ -133,17 +133,17 @@
       <guid>https://discuzhub.kidozh.com/blog/how-push-service-works/</guid>
       <pubDate>Sun, 26 Jun 2022 00:07:00 GMT</pubDate>
       <description><![CDATA[我们会向你介绍推送服务是如何工作的]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们非常感谢您使用推送服务，在此文中，我们会向您介绍推送服务是如何运行的。</p>
-<h1>前提条件</h1>
-<h2>客户端</h2>
+<h1 id="前提条件">前提条件</h1>
+<h2 id="客户端">客户端</h2>
 <p>推送服务仅在以下设备推送：</p>
 <ul>
 <li>苹果设备（基于APNs）</li>
 <li>带有GMS服务下的Android设备</li>
 </ul>
 <p>同时受到某些不可抗力的因素，在Android设备下的推送基于的FCM可能在中国大陆地区不可用。此时我们的推送服务亦不可用。</p>
-<h2>论坛端</h2>
+<h2 id="论坛端">论坛端</h2>
 <p>Discuz论坛需要安装dhpush这个插件，打开此插件并配置允许推送的群组。并且向我们申请推送key。</p>
 <p>当您的论坛满足以下条件时，我们才会为您发送推送key</p>
 <ul>
@@ -154,7 +154,7 @@
 <blockquote>
 <p>我们目前仍然在开发申请系统，目前仅供部分内测论坛使用。您可以通过联系我们获得进一步的详情。</p>
 </blockquote>
-<h1>步骤</h1>
+<h1 id="步骤">步骤</h1>
 <p>推送服务分为三步</p>
 <ol>
 <li>用户主动在客户端中打开推送服务开关，论坛正确安装dhpush插件</li>
@@ -163,7 +163,7 @@
 </ol>
 <p>您需要注意的是，我们对于推送不做任何承诺及义务。同时我们会尽可能向您留下的邮箱发送推送失败消息及进一步消息。</p>
 <p>同时，用户的推送密钥保存在论坛服务器中，我们只负责推送所有设备。</p>
-<h1>请注意</h1>
+<h1 id="请注意">请注意</h1>
 <p>请勿滥用我们的服务。您仅能在法律（包括适用的出口和再出口管制法律和法规）允许的范围内使用我们的服务。如果您不遵守我们的条款或政策，或者我们在调查可疑的不当行为，我们可以暂停或停止向您提供服务。</p>
 <p>我们对推送服务均不作任何具体承诺。例如，我们对服务内容、服务的具体功能，或其可靠性、可用性或满足您需要的能力不作任何承诺。服务是“按原样”提供的。</p>]]></content:encoded>
     </item>
@@ -174,9 +174,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-release-v1.0.11/</guid>
       <pubDate>Mon, 06 Jun 2022 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.0.11版本的谈坛]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.0.11版本的谈坛</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>修复了最新帖子的错位问题</li>
 <li>新增表情包随存功能</li>
@@ -192,9 +192,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-release-v1.0.10/</guid>
       <pubDate>Sat, 28 May 2022 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.0.10版本的谈坛]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.0.10版本的谈坛</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>彻底修复了表情包的重排BUG</li>
 <li>修复了历史记录顺序排列的BUG</li>
@@ -212,9 +212,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-upgrading-to-v1.0.7-notification/</guid>
       <pubDate>Thu, 26 May 2022 08:33:00 GMT</pubDate>
       <description><![CDATA[因Floor的废弃以及苹果审核要求，我们大幅度修改了内容]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，两件事情极大程度影响了我们最近的更新</p>
-<h1>Floor库的废弃</h1>
+<h1 id="floor库的废弃">Floor库的废弃</h1>
 <p>我们最近一直在观望floor库的更新，然而距今已经8个月，floor始终没有更新版本。根据其<a href="https://github.com/vitusortner/floor">项目地址</a>的README，我们有理由认为floor可能会遭到永久废弃，因此我们正着手于我们应用的数据库后端更新。</p>
 <p>我们选择了<a href="">hive</a>作为新的数据库存储后端，并进行了一系列的重构以及适配。我们非常高兴的宣布已经适配完成。然而，鉴于floor的废弃，您旧有的数据无法迁移到hive数据中。我们非常遗憾的通知您，您的所有旧有的数据将无法迁移。</p>
 <p>您可以重新录入、登陆账号于您所在的论坛服务器同步以获得部分数据同步。但是以下数据我们确定已经消失：</p>
@@ -223,7 +223,7 @@
 </ul>
 <p>需要注意的是，您的设置项不会受到此次大迁移的影响。</p>
 <p>同时由于我们迁移到新的数据后台，以及Flutter 3的发布，我们计划为Windows、Linux以及浏览器用户（直接访问网页就好？似乎？）提供全面的支持。</p>
-<h1>Apple的审核</h1>
+<h1 id="apple的审核">Apple的审核</h1>
 <p>我们收到了苹果对于我们上一个版本的审核，经过了两个月的审核，很遗憾苹果不允许我们为苹果用户提供以下功能</p>
 <ul>
 <li>使用网页登陆</li>
@@ -241,12 +241,12 @@
       <guid>https://discuzhub.kidozh.com/blog/dhpush-service-test-suspended/</guid>
       <pubDate>Tue, 26 Apr 2022 21:31:45 GMT</pubDate>
       <description><![CDATA[出现了一个较大的更新，我们目前正在停机检查维护中]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <blockquote>
 <p>请参考 <a href="/dev-blog/dhpush-service-beta-test/">我们正在测试推送插件</a> 获得我们对于推送系统的更新。</p>
 </blockquote>
 <p>正如标题所示，我们正在测试推送插件，由于一个安全问题，我们目前暂停了推送服务的测试。</p>
-<h1>安全问题</h1>
+<h1 id="安全问题">安全问题</h1>
 <p>我们检测到我们正在承受一些异常流量的影响，导致了我们在高峰时间的推送服务出现明显延迟和错误，我们正在排查原因。</p>
 <p>同时我们也认知到Tornado是真遭不住高并发，我们计划迁移到其他语言上，项目目前是鸽鸽的状态。</p>
 <p>我们目前已经暂时关闭了我们位于香港的服务器，请关闭内测插件以避免不必要的流量交互。</p>
@@ -261,9 +261,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-release-v1.0.6/</guid>
       <pubDate>Sun, 13 Mar 2022 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.0.6版本的谈坛]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.0.6版本的谈坛</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>继续修复了一个表情包无法重排的BUG</li>
 <li>添加了收藏帖子和论坛的功能</li>
@@ -281,9 +281,9 @@
       <guid>https://discuzhub.kidozh.com/blog/dhpush-service-beta-test/</guid>
       <pubDate>Thu, 03 Mar 2022 21:31:45 GMT</pubDate>
       <description><![CDATA[我们正在制作推送插件，能让客户端实时接受最新的论坛消息]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正在测试推送插件，通过安装推送插件，Discuz Hub以及谈坛用户能够实时的获取信息更新推送。我们有望在4月份推出此服务。</p>
-<h2>过程</h2>
+<h2 id="过程">过程</h2>
 <p>首先，您需要在Discuz应用中心中下载插件DH Push Services，并启用此插件。接下来，请在设置选项中，选择允许推送的用户组以及我们向您分配的令牌。我们的推送插件已经可以开始工作了。</p>
 <p>每当用户回复某个帖子的时候，我们的插件会自动推送消息到我们位于中国香港特别行政区的服务器，通过Firebase、小米推送或者APNs向帖子楼主的设备发出推送通知。我们的服务是按照原样向您提供的，除了法律允许的范围内，我们排除所有担保。对于苹果设备的通知是通过“谈坛”来进行的，其与Discuz Hub共享相同的隐私政策以及使用条款。</p>
 <p>我们正在测试此插件的合法性。</p>
@@ -309,10 +309,10 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v5.5/</guid>
       <pubDate>Fri, 04 Feb 2022 21:55:00 GMT</pubDate>
       <description><![CDATA[我们发布了5.5版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了5.5版本的Discuz Hub，修复了一些BUG。</p>
 <p>我们在此感谢<a href="https://github.com/CaveNightingale">@CaveNightingale</a>和<a href="https://github.com/laozhoubuluo">@laozhoubuluo</a>的反馈</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v5.5/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -332,11 +332,11 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v5.4/</guid>
       <pubDate>Sat, 29 Jan 2022 21:55:00 GMT</pubDate>
       <description><![CDATA[我们发布了5.4版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了5.4版本的Discuz Hub，修复了一些BUG。</p>
 <p>我们紧急发表了5.3版本的应用，修复了一个发帖错误</p>
 <p>我们在此感谢<a href="https://github.com/CaveNightingale">@CaveNightingale</a>的反馈</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v5.4/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -353,10 +353,10 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v5.2/</guid>
       <pubDate>Mon, 24 Jan 2022 21:55:00 GMT</pubDate>
       <description><![CDATA[我们发布了5.2版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了5.2版本的Discuz Hub，修复了一些BUG，更新了部分界面，新增了管理员管理帖子功能。</p>
 <p>我们在此感谢<a href="https://github.com/laozhoubuluo">@老周部落</a>的反馈</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v5.2/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -373,9 +373,9 @@
       <guid>https://discuzhub.kidozh.com/blog/modification-on-terms-of-services/</guid>
       <pubDate>Thu, 13 Jan 2022 04:04:05 GMT</pubDate>
       <description><![CDATA[我们不允许使用我们的法律发表任何违反法律法规的内容]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们修改了我们的使用条款，不允许用户发表令人反感、违法违规的内容。同时我们也禁止滥用行为。</p>
-<h1>原因</h1>
+<h1 id="原因">原因</h1>
 <p>根据Apple store审核意见，我们修改了我们的使用条款以符合App Store评价标准。</p>
 <p>感谢您的支持。</p>]]></content:encoded>
     </item>
@@ -386,9 +386,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-release-v1.0.5/</guid>
       <pubDate>Wed, 12 Jan 2022 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.0.5版本的谈坛]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.0.5版本的谈坛</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>继续修复了一个表情包无法重排的BUG（依然有BUG）</li>
 <li>添加了屏蔽用户功能</li>
@@ -406,9 +406,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-release-v1.0.4/</guid>
       <pubDate>Tue, 04 Jan 2022 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.0.4版本的谈坛]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.0.4版本的谈坛</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>修复了一个表情包无法重排的BUG</li>
 <li>更改了错误的样式</li>
@@ -425,10 +425,10 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v5.1/</guid>
       <pubDate>Wed, 29 Dec 2021 21:55:00 GMT</pubDate>
       <description><![CDATA[我们发布了5.1版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了5.1版本的Discuz Hub，修复了一些BUG，更新了部分界面。</p>
 <p>我们在此感谢<a href="https://github.com/laozhoubuluo">@老周部落</a>的反馈</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v5.1/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -445,9 +445,9 @@
       <guid>https://discuzhub.kidozh.com/blog/disfly-release-v1.0.3/</guid>
       <pubDate>Wed, 29 Dec 2021 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.0.3版本的谈坛]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.0.3版本的谈坛</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>支持了上传图片的压缩功能</li>
 <li>修复了深色状态下一个显示错误</li>
@@ -465,7 +465,7 @@
       <guid>https://discuzhub.kidozh.com/blog/discuzfly-website-keep-with-discuzhub/</guid>
       <pubDate>Mon, 27 Dec 2021 19:07:00 GMT</pubDate>
       <description><![CDATA[我们目前没有规划新站点的计划]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>日前我们使用Dart开发的DisFly目前已上线Google Play商店以及App Store，您可以选择在相应的平台下载并使用我们的服务。</p>
 <table>
 <thead>
@@ -485,11 +485,11 @@
 </tr>
 </tbody>
 </table>
-<h1>网页建立</h1>
+<h1 id="网页建立">网页建立</h1>
 <p>为了方便管理以及发布应用，再加上实质上Discuz Hub与DisFly的使用条款和隐私政策是完全一致的，因此我们目前不准备为DisFly（谈坛）建立新站。您可以通过本站了解DisFly的一系列更新，通知以及发布概况。</p>
-<h1>服务限制</h1>
+<h1 id="服务限制">服务限制</h1>
 <p>目前我们对于使用国家及地区无限制，后期可能会根据中华人民共和国相关法律法规进行一系列调整，我们会及时的通过网页告知您。</p>
-<h1>查看进度</h1>
+<h1 id="查看进度">查看进度</h1>
 <p>您可以在Github上围观我们的施工现场</p>
 <p><a href="https://github.com/kidozh/discuz_flutter">Discuz Flutter</a></p>
 <p>感谢您对于我们的支持。</p>]]></content:encoded>
@@ -501,7 +501,7 @@
       <guid>https://discuzhub.kidozh.com/blog/service-area-declearation-restore-tw/</guid>
       <pubDate>Mon, 27 Dec 2021 16:31:45 GMT</pubDate>
       <description><![CDATA[我们新增中国台湾为服务地区]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>出于合规性和相关安全法规的要求，我们很高兴的宣布，我们的服务可以于中国台湾省展开。我们已经修改了我们的使用政策，我们的应用将会尽快在台湾地区重新上线。</p>
 <p>目前我们暂时没有任何受限地区。</p>
 <p>我们将继续遵循中华人民共和国相关法律法规运营我们的服务地区。</p>
@@ -515,11 +515,11 @@
       <guid>https://discuzhub.kidozh.com/blog/discuzfly-release/</guid>
       <pubDate>Tue, 21 Dec 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[Discuz Hub for flutter正式上架Google Play商店]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们很高兴的宣布，我们开发的基于Flutter技术的Discuz客户端（命名为谈坛，DisFly），即将上架Google Play。</p>
 <p>此客户端能够运行于Windows，iOS以及Android客户端，我们预计将在不久之后上线App Store以及微软的Microsoft Store。</p>
 <p>我们即将建立谈坛的新站，届时关于谈坛的信息将会迁移至新站发布，不再与Discuz Hub公用站点。</p>
-<h2>查看进度</h2>
+<h2 id="查看进度">查看进度</h2>
 <p>您可以在Github上围观我们的施工现场</p>
 <p><a href="https://github.com/kidozh/discuz_flutter">Discuz Flutter</a></p>
 <p>您可以在Play商店下载我们的应用</p>
@@ -533,14 +533,14 @@
 <li>MacOS</li>
 <li>iOS / iPad OS</li>
 </ul>
-<h1>在Android设备下的截图</h1>
+<h1 id="在android设备下的截图">在Android设备下的截图</h1>
 <blockquote>
 <p>以下示例使用的是Keylol，请注意我们与其并未关系。</p>
 </blockquote>
 <p><img src="../assets/discuz_flutter_android_portal.png" alt="首页"></p>
 <p><img src="../assets/discuz_flutter_android_forum.png" alt="forum"></p>
 <p><img src="../assets/discuz_flutter_android_thread.png" alt="thread"></p>
-<h1>在Windows设备下的截图</h1>
+<h1 id="在windows设备下的截图">在Windows设备下的截图</h1>
 <blockquote>
 <p>以下示例使用的是Keylol，请注意我们与其并未关系。</p>
 </blockquote>
@@ -549,7 +549,7 @@
 <p><img src="../assets/discuz_flutter_windows_thread.png" alt="thread"></p>
 <p>请注意这并不代表我们的最终产品。最终产品形态可能随着计划的更改变动甚至取消。</p>
 <p>感谢您对于我们的支持。</p>
-<h1>赞助我们的工作</h1>
+<h1 id="赞助我们的工作">赞助我们的工作</h1>
 <p>您可以通过微信支付和支付宝赞助我们的工作。在此表示谢意！</p>]]></content:encoded>
     </item>
 
@@ -559,9 +559,9 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v5.0/</guid>
       <pubDate>Thu, 16 Dec 2021 21:55:00 GMT</pubDate>
       <description><![CDATA[我们发布了5.0版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了5.0版本的Discuz Hub，引入了Android 12L特性，引入了Material You，修复了若干BUG。</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v5.0/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -580,10 +580,10 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.11/</guid>
       <pubDate>Fri, 03 Dec 2021 21:30:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.11版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了4.11版本的Discuz Hub，修复了若干BUG。</p>
 <p>我们在此对于<a href="https://github.com/KHwang9883">@KHwang9883</a>以及<a href="https://github.com/DreamVoid">@DreamVoid</a>表示由衷的感谢</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.11/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -602,7 +602,7 @@
       <guid>https://discuzhub.kidozh.com/blog/service-area-declearation-hk/</guid>
       <pubDate>Wed, 24 Nov 2021 16:31:45 GMT</pubDate>
       <description><![CDATA[我们新增香港为服务地区]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>出于合规性和相关安全法规的要求，我们很高兴的宣布，我们的服务可以于中国香港展开。我们的应用将会尽快在香港地区重新上线。</p>
 <p>目前我们的受限地区为</p>
 <ul>
@@ -619,10 +619,10 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.10/</guid>
       <pubDate>Wed, 24 Nov 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.10版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了4.10版本的Discuz Hub，完成了对于Android 12的适配，更新了部分界面并且加入了快速跳转功能。</p>
 <p>我们在此对于<a href="https://github.com/CaveNightingale">@CaveNightingale</a>表示由衷的感谢</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.10/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -642,7 +642,7 @@
       <guid>https://discuzhub.kidozh.com/blog/discuz-flutter-region-changed/</guid>
       <pubDate>Thu, 19 Aug 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们更新了DiscuzHub for Flutter的地域限制]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>根据相关法规要求和风险性评估，某些用户的行为可能导致绝大多数的用户权益受损。因此我们决定，Discuz Hub以及Discuz Hub for flutter的服务（下称“本服务”）将不在以下地区（下称“受限地区”）展开</p>
 <ul>
 <li>中国台湾省(Taiwan, China)</li>
@@ -666,10 +666,10 @@
       <guid>https://discuzhub.kidozh.com/blog/discuz-flutter-development/</guid>
       <pubDate>Thu, 29 Apr 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[Discuz Hub for flutter正在开发中，预期将可以给更多设备的用户提供支持]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们很高兴的宣布，我们正在开发基于Flutter技术的Discuz客户端。由于Flutter的引入，我们的客户端目前可以运行在多个系统上。</p>
 <p>我们重新整理了接口，移除了一些不使用的冗余接口，使得访问更加轻量化。但是我们仍然推荐Android用户使用Discuz Hub以获得原生级服务。</p>
-<h2>查看进度</h2>
+<h2 id="查看进度">查看进度</h2>
 <p>您可以在Github上围观我们的施工现场</p>
 <p><a href="https://github.com/kidozh/discuz_flutter">Discuz Flutter</a></p>
 <p>我们预计为以下操作系统的用户提供支持和服务</p>
@@ -682,14 +682,14 @@
 <blockquote>
 <p>为了补偿在iOS上的年费<strong>99</strong>刀，我们预计会在iOS上引入由<strong>Google</strong>提供的广告。Android用户可以使用Discuz Hub，我们对于Discuz Hub在可预期的未来都没有植入广告的计划。</p>
 </blockquote>
-<h1>在Android设备下的截图</h1>
+<h1 id="在android设备下的截图">在Android设备下的截图</h1>
 <blockquote>
 <p>以下示例使用的是Keylol，请注意我们与其并未关系。</p>
 </blockquote>
 <p><img src="../assets/discuz_flutter_android_portal.png" alt="首页"></p>
 <p><img src="../assets/discuz_flutter_android_forum.png" alt="forum"></p>
 <p><img src="../assets/discuz_flutter_android_thread.png" alt="thread"></p>
-<h1>在Windows设备下的截图</h1>
+<h1 id="在windows设备下的截图">在Windows设备下的截图</h1>
 <blockquote>
 <p>以下示例使用的是Keylol，请注意我们与其并未关系。</p>
 </blockquote>
@@ -704,7 +704,7 @@
 </ul>
 <p>请注意这并不代表我们的最终产品。最终产品形态可能随着计划的更改变动甚至取消。</p>
 <p>感谢您对于我们的支持。</p>
-<h1>赞助我们的工作</h1>
+<h1 id="赞助我们的工作">赞助我们的工作</h1>
 <p>您可以通过微信支付和支付宝赞助我们的工作。在此表示谢意！</p>
 <p>请参考此链接<a href="/sponsor-us">赞助我们</a></p>
 <p><img src="../assets/alipay-sponsor.jpg" alt="支付宝"></p>]]></content:encoded>
@@ -716,9 +716,9 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.9/</guid>
       <pubDate>Thu, 25 Mar 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.9版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了4.9版本的Discuz Hub，主要修复了一些BUG</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.9/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -737,9 +737,9 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.8/</guid>
       <pubDate>Sun, 14 Mar 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.8版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了4.8版本的Discuz Hub，分页视图已添加。</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.8/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -757,7 +757,7 @@
       <guid>https://discuzhub.kidozh.com/blog/donate-to-us/</guid>
       <pubDate>Sat, 13 Mar 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[你可以通过支付宝支持我们做得更好，感谢您的慷慨支持]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们目前接受来自各位的捐赠，以帮助我们做的更好。</p>
 <p>您可以使用支付宝赞助我们，不胜感谢~</p>
 <p>请参考此链接<a href="/sponsor-us">赞助我们</a></p>]]></content:encoded>
@@ -769,9 +769,9 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.7/</guid>
       <pubDate>Mon, 01 Mar 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.7版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了4.7版本的Discuz Hub，主要更新在图文混排以及性能优化。</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.7/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -791,9 +791,9 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.6/</guid>
       <pubDate>Sun, 21 Feb 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.6版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们发布了4.6版本的Discuz Hub，这次更新比较小，主要聚集在干扰码的问题。</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.6/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -810,7 +810,7 @@
       <guid>https://discuzhub.kidozh.com/blog/service-area-declearation/</guid>
       <pubDate>Fri, 19 Feb 2021 20:31:45 GMT</pubDate>
       <description><![CDATA[我们的服务范围目前排除了中国台湾省]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>出于合规性和相关安全法规的要求，我们非常遗憾的宣布，从即日起暂停对于中国台湾省用户的进行服务，其他国家和地区的用户的服务状态保持不变。我们不会上架在台湾的应用商店，亦不会对在台湾地区的论坛提供服务与支持。我们会为目前使用的台湾用户提供一次性的、不可转让的授权，相关权利将会保留，但不会有所增益。当台湾地区的用户设备上移除我们的服务时，此授权亦随之终止并不可再生。</p>
 <p>此次变更服务并不会影响MIT开源协议，中国台湾地区的用户的使用该协议的权利依旧保持，但不应当包含我们的版权声明和许可声明。换言之，台湾地区的用户仍然可以使用自行编译的应用展开服务，但我们公版即不会提供技术支持和服务，也不会提供任何许可和保证。</p>
 <p>此次变更服务范围并不会影响到基于Discuz Hub开发的第三方应用的服务范围。换言之，基于公版驱动的第三方应用的服务范围由发行人自行决定。</p>
@@ -825,10 +825,10 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.5/</guid>
       <pubDate>Thu, 11 Feb 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.5版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>此版本为重要的安全更新，因此旧有的含有安全以及空指针隐患的数据（包括论坛、用户、历史记录等数据）都不会被保留。</p>
 <p>正值春节佳日，我们跳过了某个版本，发布了4.5这个版本。</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.5/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -848,9 +848,9 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.3/</guid>
       <pubDate>Thu, 28 Jan 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.3版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>你可以同时在Google play及Github上获得我们应用的最新版本和发布包。</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.3/app-release.apk">Github 发布</a></p>
 <p>此版本更新了以下内容：</p>
 <ul>
@@ -868,9 +868,9 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v4.1/</guid>
       <pubDate>Fri, 22 Jan 2021 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了4.1版本的DiscuzHub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们目前恢复了Github Release的更新，你可以同时在Google play及Github上获得我们应用的最新版本和发布包。</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v4.1/app-release.apk">Github 发布</a></p>
 <p>此版本相对于4.1版本，更新了以下内容：</p>
 <ul>
@@ -888,12 +888,12 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v3.3/</guid>
       <pubDate>Mon, 09 Nov 2020 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了3.3版本的DiscuzHub，主要针对了动画进行了更新]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了3.3版本的DiscuzHub，这个版本将立即提交Google Play审核，以期尽快上架Google Play。</p>
-<h2>下载链接</h2>
+<h2 id="下载链接">下载链接</h2>
 <p><a href="https://gitee.com/kidozh/DiscuzHub/releases/v3.3">Gitee发布（推荐国内用户下载）</a></p>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v3.3/app-release.apk">Github 发布</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>引入了新的Recyclerview动画</li>
 <li>变更了通知方式使得其不再恼人</li>
@@ -910,13 +910,13 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v3.1/</guid>
       <pubDate>Tue, 27 Oct 2020 00:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了3.1版本的DiscuzHub，紧急修复了一个容易引起闪退的bug]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了3.1版本的DiscuzHub，这个版本将立即提交Google Play审核，以期尽快上架Google Play。</p>
 <p>我们在此版本</p>
-<h2>下载链接 v3.1</h2>
+<h2 id="下载链接-v31">下载链接 v3.1</h2>
 <p><a href="https://gitee.com/kidozh/DiscuzHub/releases/v3.1">Gitee发布（推荐国内用户下载）</a></p>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v3.1/app-release.apk">Github 发布</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>移除了Butterknife以适配Gradle 5.0</li>
 <li>减小了安装包尺寸</li>
@@ -933,14 +933,14 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v3.0/</guid>
       <pubDate>Wed, 21 Oct 2020 14:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了3.0版本的DiscuzHub，更新了部分模块]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了3.0版本的DiscuzHub，这个版本将立即提交Google Play审核，以期尽快上架Google Play。</p>
-<h1>繁体中文支持</h1>
+<h1 id="繁体中文支持">繁体中文支持</h1>
 <p>我们收到了部分用户的建议，因此我们恢复了对于繁体中文的支持。繁体中文的翻译时直接由机器将简体中文转换为繁体中文，我们理解到繁简之间的语法差异，因此我们非常欢迎用户向我们反馈翻译意见以帮助我们做的更好</p>
-<h2>下载链接 v3.0</h2>
+<h2 id="下载链接-v30">下载链接 v3.0</h2>
 <p><a href="https://gitee.com/kidozh/DiscuzHub/attach_files/498655/download/app-release.apk">Gitee发布（推荐国内用户下载）</a></p>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v3.0/app-release.apk">Github 发布</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>支持了论坛搜索功能</li>
 <li>评论对话框置底在界面</li>
@@ -951,7 +951,7 @@
 <li>繁体中文支持</li>
 <li>其他BUG修复</li>
 </ul>
-<h1>下一个版本更新</h1>
+<h1 id="下一个版本更新">下一个版本更新</h1>
 <p>由于Gradle 5.0中注解不再是最终型，这对于我们的应用带来了较大的冲击，我们会再下一个版本对于ButterKnife进行移除以适配未来的版本。</p>
 <p>下一个版本更多的是针对架构的调整，界面的调整应该聊胜于无。</p>
 <p>如果您对于我们有任何建议、意见以及反馈，您可以通过<a href="/contact/">联系方式</a>来联系我们。我们非常欢迎您的来信！</p>
@@ -964,18 +964,18 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v2.6/</guid>
       <pubDate>Sat, 17 Oct 2020 14:07:00 GMT</pubDate>
       <description><![CDATA[我们发布了2.6版本的DiscuzHub，更新了部分模块]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了2.6版本的DiscuzHub，这个版本将立即提交Google Play审核，以期尽快上架Google Play。</p>
 <p>我们推荐您使用<strong>Google Play</strong>下载更新我们的应用。</p>
-<h1>跳版本更新说明</h1>
+<h1 id="跳版本更新说明">跳版本更新说明</h1>
 <p>由于我们已经上架Google Play，我们在Play商店上发布了2.5这个版本的Discuz Hub。然而，由于2.5这个版本只更新了QQ登录的支持，并且仍有一些Bug未修复，因此我们并未对外发布这个版本。在经过一些代码调整之后，我们认为2.6这个版本更适合用户安装，因此我们跳过了2.5这个版本进行了2.6发布。</p>
-<h2>下载链接 v2.6</h2>
+<h2 id="下载链接-v26">下载链接 v2.6</h2>
 <p><a href="https://gitee.com/kidozh/DiscuzHub/attach_files/495923/download/app-release.apk">Gitee发布（推荐国内用户下载）</a></p>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v2.6/app-release.apk">Github 发布</a></p>
 <blockquote>
 <p>我们注意到微云会要求下载部分捆绑软件，因此我们将不再提供微云下载链接，详情请查看<a href="/dev-blog/remove-weiyun-release-channel/">移除微云下载链接</a>。</p>
 </blockquote>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>支持了论坛的QQ账号登陆</li>
 <li>支持了论坛搜索功能</li>
@@ -984,7 +984,7 @@
 <li>部分界面样式变更</li>
 <li>其他BUG修复</li>
 </ul>
-<h1>下一个版本更新</h1>
+<h1 id="下一个版本更新">下一个版本更新</h1>
 <p>我们计划在2.7版本支持API 5的部分功能，我们再次呼吁论坛管理者升级API至5以获得更好的用户体验和功能支持。但是我们发布的APP仍然会支持4这个版本，但是部分新功能使用API 4的论坛将无法使用。</p>
 <p>我们预计会支持的功能</p>
 <ul>
@@ -1005,19 +1005,19 @@
       <guid>https://discuzhub.kidozh.com/blog/discuz_api_upload_4_to_5/</guid>
       <pubDate>Sat, 17 Oct 2020 00:04:05 GMT</pubDate>
       <description><![CDATA[我们推荐您将论坛默认4版本的掌上论坛API升级至5这个版本以获得更好的用户体验]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>我们最近收到来自一些论坛管理者的针对某些特定功能的来信，经过我们的调查，我们发现很多功能都在Discuz X掌上论坛的新版本中实现了，因此我们决定着手支持高级版本的掌上论坛API。因此我们再次请求各位论坛主升级API至5这个版本已实现更多的功能。</p>
 <p>我们目前已经接近完成了对于版本号为4的API的适配工作，我们正准备着手针对API5的支持，我们预计在2.7（也就是下个版本）着手针对5的功能支持。</p>
-<h1>升级步骤</h1>
+<h1 id="升级步骤">升级步骤</h1>
 <ol>
 <li>转到<a href="https://github.com/Comsenz/Discuz-Api">Github托管下的Discuz-API</a></li>
 <li>按照<code>README.md</code>的使用方法更新掌上论坛API</li>
 <li>完成更新</li>
 </ol>
-<h2>使用方法</h2>
+<h2 id="使用方法">使用方法</h2>
 <p><strong>此文本于2020年10月17日取自Github README.md</strong></p>
 <blockquote>
-<h2>使用方法</h2>
+<h2 id="使用方法-1">使用方法</h2>
 <ul>
 <li>修改配置文件，config_oauths.php， 将申请好的小程序 appkey appsecret 修改好</li>
 <li>把mobile目录覆盖(合并，注意不要<strong>替换</strong>否刚会把当前文件夹先删除换成现在的)discuz source/plugin/mobile目录</li>
@@ -1028,14 +1028,14 @@
 <li>该接口也适用于App调用(支持QQ和微信登录)，APP源码地址：iOS <a href="https://github.com/Comsenz/Discuz-iOS">https://github.com/Comsenz/Discuz-iOS</a> ，Android <a href="https://github.com/Comsenz/Discuz-Android">https://github.com/Comsenz/Discuz-Android</a></li>
 </ul>
 </blockquote>
-<h1>会有什么变化</h1>
+<h1 id="会有什么变化">会有什么变化</h1>
 <ul>
 <li>将会支持更多的功能</li>
 <li>能够保持对于API 4的兼容</li>
 </ul>
-<h1>API 5标识</h1>
+<h1 id="api-5标识">API 5标识</h1>
 <p>我们将会在论坛中标识出<span style="color:var(--theme-ui-colors-background,#3498db)">最新API</span>的支持。</p>
-<h1>更新计划</h1>
+<h1 id="更新计划">更新计划</h1>
 <p>我们将会在内部测试后尽速发布2.6版本，这个版本将会适配目前API 4的大部分功能。</p>
 <p>如果您对于我们有任何建议、意见以及反馈，您可以通过<a href="/contact/">联系方式</a>来联系我们。我们非常欢迎您的来信！</p>
 <p>感谢您的支持。</p>]]></content:encoded>
@@ -1047,12 +1047,12 @@
       <guid>https://discuzhub.kidozh.com/blog/remove-weiyun-release-channel/</guid>
       <pubDate>Fri, 16 Oct 2020 16:20:05 GMT</pubDate>
       <description><![CDATA[我们移除了微云的发布渠道]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们将会移除Gitee这个发布渠道。</p>
-<h1>原因</h1>
+<h1 id="原因">原因</h1>
 <p>我们注意到部分用户使用微云下载时，微云可能会要求您使用某款特定的软件，然而这并不是我们明示要求的，我们也不提供任何的担保。我们认为目前Gitee能够很好的提供中国大陆用户的下载需求，因此我们将移除微云这个下载渠道。</p>
 <p>旧有的下载链接将不会受到影响。</p>
-<h1>声明</h1>
+<h1 id="声明">声明</h1>
 <p>我们再次重申，Discuz Hub并不捆绑任何附加软件，我们的隐私政策也不会要求应用收集您的隐私信息。</p>
 <p>我们推荐您使用Google Play下载更新我们的应用。我们理解到中国大陆用户可能无法正常使用Google Play商店下载更新应用，我们再次重申我们发布于Github和Gitee上的应用与Google Play的版本是一致的，但是用户可能无法及时的收集到我们的更新信息，我们推荐您及时查看本网页以获得最新的更新。</p>
 <p>如果您对于我们有任何建议、意见以及反馈，您可以通过<a href="/contact/">联系方式</a>来联系我们。我们非常欢迎您的来信！</p>
@@ -1065,9 +1065,9 @@
       <guid>https://discuzhub.kidozh.com/blog/rebrand-blog-system/</guid>
       <pubDate>Thu, 15 Oct 2020 09:04:05 GMT</pubDate>
       <description><![CDATA[我们已经完成了页面更新]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，因<code>GatsbyJS</code>配置出错，我们旧有的网站无法继续使用，因此我们将紧急迁移至新网站上，在此期间某些内容发生了变更</p>
-<h1>调整内容</h1>
+<h1 id="调整内容">调整内容</h1>
 <ul>
 <li>样式变更</li>
 <li>博客网址变更</li>
@@ -1077,7 +1077,7 @@
 </ul>
 </li>
 </ul>
-<h1>提示</h1>
+<h1 id="提示">提示</h1>
 <p>我们未对隐私政策、使用条款等固定条款进行变更，其法律有效性依然延续。</p>
 <p>如果您对于我们有任何建议、意见以及反馈，您可以通过<a href="/contact/">联系方式</a>来联系我们。我们非常欢迎您的来信！</p>
 <p>感谢您的支持。</p>]]></content:encoded>
@@ -1089,9 +1089,9 @@
       <guid>https://discuzhub.kidozh.com/blog/google-play-requirements/</guid>
       <pubDate>Fri, 09 Oct 2020 09:04:05 GMT</pubDate>
       <description><![CDATA[我们预计将在2.5版本上架Google Play]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们未来版本上架Google Play商店，因此我们将会对网页进行调整</p>
-<h1>调整内容</h1>
+<h1 id="调整内容">调整内容</h1>
 <ul>
 <li>移除所有的下载链接
 <ul>
@@ -1114,22 +1114,22 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v2.4/</guid>
       <pubDate>Thu, 03 Sep 2020 04:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了2.4版本的DiscuzHub，移除了不安全的HTTPS认证]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了2.4版本的DiscuzHub</p>
 <p>请注意，在2.4版本中，我们已经移除允许不安全的HTTPS访问这个设置，并强制要求所有的<strong>HTTPS访问</strong>都必须经过严格认证。</p>
-<h2>新下载通知</h2>
+<h2 id="新下载通知">新下载通知</h2>
 <p>正如<a href="/dev-blog/add-gitee-release/">新增Gitee发布渠道</a>这个博文所述，我们在2.4版本中加入了Gitee下载链接。</p>
-<h2>下载链接 v2.4</h2>
+<h2 id="下载链接-v24">下载链接 v2.4</h2>
 <p><a href="https://gitee.com/kidozh/DiscuzHub/attach_files/470254/download">Gitee发布（推荐国内用户下载）</a></p>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v2.4/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/AZ0VAIYd">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>移除不安全的HTTPS认证</li>
 <li>通知和推送服务更新</li>
 <li>简洁模式的加入</li>
 </ul>
-<h1>下一个版本更新</h1>
+<h1 id="下一个版本更新">下一个版本更新</h1>
 <ul>
 <li>搜索功能加入</li>
 <li>点赞/踩功能</li>
@@ -1145,9 +1145,9 @@
       <guid>https://discuzhub.kidozh.com/blog/add-gitee-release/</guid>
       <pubDate>Thu, 03 Sep 2020 04:04:05 GMT</pubDate>
       <description><![CDATA[我们新增了Gitee作为我们的新的发布渠道]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们将会新增Gitee这个发布渠道。</p>
-<h1>原因</h1>
+<h1 id="原因">原因</h1>
 <p>我们希望添加一个国内的镜像以改善国内用户的下载体验，经过测试和选择，我们将使用Gitee作为我们的新的下载渠道。</p>
 <p>我们将会在2.4这个版本后开始新增Gitee下载渠道，并且在首页展示这个下载渠道。其他渠道的下载不会因此受到影响。</p>
 <p>如果您对于我们有任何建议、意见以及反馈，您可以通过<a href="/contact/">联系方式</a>来联系我们。我们非常欢迎您的来信！</p>
@@ -1160,13 +1160,13 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v2.3/</guid>
       <pubDate>Sun, 16 Aug 2020 18:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了2.3版本的DiscuzHub，补全了链接跳转问题]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了2.3版本的DiscuzHub，新增了收藏功能</p>
 <p>请注意，这是我们最后一个支持不安全HTTPS访问的版本。在2.4版本中，我们即将移除这个设置并强制要求所有的<strong>HTTPS访问</strong>都必须经过严格认证。</p>
-<h2>下载链接 v2.3</h2>
+<h2 id="下载链接-v23">下载链接 v2.3</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v2.3/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/AZ0VAIYd">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>支持了个人主页的URL跳转</li>
 <li>支持了收藏帖子和板块的功能</li>
@@ -1174,7 +1174,7 @@
 <li>帖子、论坛界面更新</li>
 <li>一些BUG的修复</li>
 </ul>
-<h1>下一个版本更新</h1>
+<h1 id="下一个版本更新">下一个版本更新</h1>
 <ul>
 <li>移除不安全的HTTPS认证</li>
 <li>通知和推送服务更新</li>
@@ -1190,17 +1190,17 @@
       <guid>https://discuzhub.kidozh.com/blog/remove-unsafe-https-verifier/</guid>
       <pubDate>Tue, 28 Jul 2020 09:04:05 GMT</pubDate>
       <description><![CDATA[我们预计将在2.4版本中强制移除不安全的HTTPS认证方式]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们将会在未来两个版本中发布Discuz Hub，此版本及之后版本将不再允许使用不安全的HTTPS的认证方式访问网络。</p>
-<h2>原因</h2>
+<h2 id="原因">原因</h2>
 <p>众所周知，由于Android版本问题以及论坛HTTPS证书配置问题，论坛的HTTPS证书有时不能被Android设备所识别。我们在Discuz Hub源工程<a href="https://github.com/kidozh/NpuHelper">NpuHelper</a>中，为了兼容<a href="https://bbs.nwpu.edu.cn">西工大三航四方</a>的HTTPS证书，允许用户无条件的信任任何HTTPS协议证书，此选项在设置中可以开启。然而，此选项将会使得其他论坛的安全也跟着遭殃。尽管开启此选项可以使得Discuz Hub访问那些未被正确配置HTTPS的论坛，并且我们已经在设置中强调了关闭 <strong>“使用安全的HTTPS认证方式”</strong> 的危险，但是出于我们对于安全的隐患的顾虑，我们将会彻底移除这个危险选项以保证数据传输过程中的安全。</p>
-<h2>可能产生的结果</h2>
+<h2 id="可能产生的结果">可能产生的结果</h2>
 <p>对于没有正确配置的HTTPS论坛，更新版本后的Discuz Hub将无法正常访问。您可以采用下面的方法尝试解决这个问题：</p>
 <ul>
 <li>请联系网站管理员请求他们正确配置兼容Android设备的HTTPS证书以完成正常的访问操作。</li>
 <li>使用HTTP协议（通常使用HTTPS的网站将会强制跳转HTTP访问，HTTP协议将会重定向至未正确配置的HTTPS协议，还是将引起访问失败）</li>
 </ul>
-<h2>如何鉴别HTTPS配置是否正确</h2>
+<h2 id="如何鉴别https配置是否正确">如何鉴别HTTPS配置是否正确</h2>
 <p>我们使用的是系统信任的HTTPS证书，因此您可以使用<strong>系统自带的浏览器</strong>访问论坛的任何一个网页。如果您的浏览器能顺利访问网站（没有弹出证书不安全的提示），那么该网站的HTTPS证书应当是被正确配置的。</p>
 <p>如果您对于我们有任何建议、意见以及反馈，您可以通过<a href="/contact/">联系方式</a>来联系我们。我们非常欢迎您的来信！</p>
 <p>感谢您的支持。</p>]]></content:encoded>
@@ -1212,12 +1212,12 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v2.2/</guid>
       <pubDate>Sun, 19 Jul 2020 18:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了2.2版本的DiscuzHub，补全了链接跳转问题]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了2.2版本的DiscuzHub，修复了论坛内连接跳转的问题。</p>
-<h2>下载链接 v2.2</h2>
+<h2 id="下载链接-v22">下载链接 v2.2</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v2.2/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/VDh0Zrjk">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>支持了更多页面的URL智能跳转</li>
 <li>支持了分享功能</li>
@@ -1232,12 +1232,12 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v2.1/</guid>
       <pubDate>Sun, 19 Jul 2020 02:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了2.0版本的DiscuzHub，更新了论坛内链接跳转问题]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了2.1版本的DiscuzHub，修复了论坛内连接跳转的问题。</p>
-<h2>下载链接 v2.1</h2>
+<h2 id="下载链接-v21">下载链接 v2.1</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v2.1/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/p4HvemDN">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>修复了论坛因编码造成的URL打开不正确的问题</li>
 <li>支持了论坛内打开URL自动识别并跳转的</li>
@@ -1254,12 +1254,12 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v2.0/</guid>
       <pubDate>Sat, 18 Jul 2020 11:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了2.0版本的DiscuzHub，更新了成吨的内容]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了2.0版本的DiscuzHub，这是一个大版本更新，我们非常推荐用户升级到这个新的版本。</p>
-<h2>下载链接 v2.0</h2>
+<h2 id="下载链接-v20">下载链接 v2.0</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v2.0/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/xQvLw5GX">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>采用抽屉式的论坛管理方式</li>
 <li>支持了回复时的发帖高级功能</li>
@@ -1277,16 +1277,16 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v1.9/</guid>
       <pubDate>Mon, 08 Jun 2020 11:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.9版本的DiscuzHub，修复了登录时的问题]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.9版本的DiscuzHub，修复了一个登陆时智能联想的问题</p>
-<h2>下载链接 v1.9</h2>
+<h2 id="下载链接-v19">下载链接 v1.9</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v1.9/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/iQ3dxrql">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>修复了一个登陆时智能联想的问题</li>
 </ul>
-<h2>下个版本优化对象</h2>
+<h2 id="下个版本优化对象">下个版本优化对象</h2>
 <ul>
 <li>优化私信和公共消息部分</li>
 <li>空白界面的优化</li>
@@ -1301,18 +1301,18 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v1.8/</guid>
       <pubDate>Mon, 01 Jun 2020 11:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.8版本的DiscuzHub，支持验证码以及修复了超大图卡顿的问题]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.8版本的DiscuzHub，现在app支持原生的验证码验证服务，并且我们也修复了超大图卡顿的问题</p>
-<h2>下载链接 v1.8</h2>
+<h2 id="下载链接-v18">下载链接 v1.8</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v1.8/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/cFuedMiQ">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>支持原生的验证码验证</li>
 <li>修复了超大图卡顿的问题</li>
 <li>修复了登录时可能出现的BUG</li>
 </ul>
-<h2>下个版本优化对象</h2>
+<h2 id="下个版本优化对象">下个版本优化对象</h2>
 <ul>
 <li>优化私信和公共消息部分</li>
 <li>空白界面的优化</li>
@@ -1327,15 +1327,15 @@
       <guid>https://discuzhub.kidozh.com/blog/china-edition-release/</guid>
       <pubDate>Thu, 28 May 2020 10:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了专门为中国大陆应用商店所适配的Discuz Hub]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>为了让我们在中国大陆地区应用商店能够上架应用，我们特地推出了基于中国大陆版本的Discuz Hub，其应用的构建类型为<strong>chinaEdition</strong>。</p>
 <p>因为大陆地区几乎所有应用商店都规定个人不能上架聊天社交类软件，所以我们将会移除所有聊天（对应私信和公共消息）的功能以确保符合国内应用商店的要求。</p>
-<h2>主要变更内容</h2>
+<h2 id="主要变更内容">主要变更内容</h2>
 <ul>
 <li>移除了私信以及公共消息功能（您仍能通过访问网页来查询私信以及论坛拥有者所发布的官方消息）</li>
 <li>移除了关注功能</li>
 </ul>
-<h2>其他功能说明</h2>
+<h2 id="其他功能说明">其他功能说明</h2>
 <p>对于其他内容，不管是Github Release还是微云所上传的应用，我们都可以确保中国大陆版和我们官方所挂的版本具有<strong>完全一致</strong>的性质和产品体验。</p>
 <p>如果您对于我们有任何建议、意见以及反馈，您可以通过<a href="/contact/">联系方式</a>来联系我们。我们非常欢迎您的来信！</p>
 <p>感谢您的支持。</p>]]></content:encoded>
@@ -1347,16 +1347,16 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v1.7/</guid>
       <pubDate>Thu, 28 May 2020 03:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.7版本的DiscuzHub，紧急修复了对超大型论坛的支持]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.7版本的DiscuzHub，紧急修复了一个仅在超大型论坛复现的BUG，这个BUG将会导致帖子详细内容的加载失败。</p>
-<h2>下载链接 v1.7</h2>
+<h2 id="下载链接-v17">下载链接 v1.7</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v1.7/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/AvEwEyjj">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>修复了对超大型论坛的支持</li>
 </ul>
-<h2>下个版本优化对象</h2>
+<h2 id="下个版本优化对象">下个版本优化对象</h2>
 <ul>
 <li>论坛验证码的支持</li>
 <li>私信的支持</li>
@@ -1371,25 +1371,25 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v1.6/</guid>
       <pubDate>Wed, 27 May 2020 03:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.6版本的DiscuzHub，主要优化了个人主页项目]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.6版本的DiscuzHub，优化了个人主页项目</p>
-<h2>下载链接 v1.6</h2>
+<h2 id="下载链接-v16">下载链接 v1.6</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v1.6/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/DTpuKr6K">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>优化了个人主页</li>
 <li>对论坛的富文本标签和标题进行了进一步支持</li>
 </ul>
-<h2>修复了下面的BUG</h2>
+<h2 id="修复了下面的bug">修复了下面的BUG</h2>
 <ul>
 <li>个人主页的闪退的情况</li>
 </ul>
-<h2>优化了</h2>
+<h2 id="优化了">优化了</h2>
 <ul>
 <li>动画卡顿的情况</li>
 </ul>
-<h2>下个版本优化对象</h2>
+<h2 id="下个版本优化对象">下个版本优化对象</h2>
 <ul>
 <li>论坛验证码的支持</li>
 <li>私信的支持</li>
@@ -1404,12 +1404,12 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v1.5/</guid>
       <pubDate>Sun, 17 May 2020 04:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.5版本的DiscuzHub，更新了非常多的内容]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.5版本的DiscuzHub，本次更新我们对于整个APP进行了较大程度的重构，提升了用户的体验和流畅度</p>
-<h2>下载链接 v1.5</h2>
+<h2 id="下载链接-v15">下载链接 v1.5</h2>
 <p><a href="https://github.com/kidozh/DiscuzHub/releases/download/v1.5/app-release.apk">Github 发布</a></p>
 <p><a href="https://share.weiyun.com/aZiCEfIr">微云下载</a></p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>对于论坛JSON解析的全面支持</li>
 <li>添加了附件的相关信息</li>
@@ -1418,17 +1418,17 @@
 <li>修正了少量英文翻译问题</li>
 <li>帖子内容的HTML富文本的支持</li>
 </ul>
-<h2>修复了下面的BUG</h2>
+<h2 id="修复了下面的bug">修复了下面的BUG</h2>
 <ul>
 <li>省流量模式下点击图片加载和放大的操作BUG</li>
 <li>因论坛返回JSON格式不正确引起的“幽灵”贴出现</li>
 <li>滚动时的卡顿与拒止</li>
 </ul>
-<h2>优化了</h2>
+<h2 id="优化了">优化了</h2>
 <ul>
 <li>图文混排时帖子卡顿的情况</li>
 </ul>
-<h2>下个版本优化对象</h2>
+<h2 id="下个版本优化对象">下个版本优化对象</h2>
 <ul>
 <li>个人界面的更新与优化</li>
 <li>浮动按钮的正确隐藏和显示</li>
@@ -1444,33 +1444,33 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v1.4/</guid>
       <pubDate>Tue, 12 May 2020 09:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.4版本的DiscuzHub，连续升级了两个版本]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.4版本的DiscuzHub</p>
-<h2>原因</h2>
+<h2 id="原因">原因</h2>
 <ul>
 <li>更新的内容和代码较多</li>
 <li><del>作者手贱Version Code多写了一个版本</del></li>
 </ul>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>对于发帖附件的支持</li>
 <li>对于发送密码贴的支持</li>
 <li>全屏模式支持广色域图片显示</li>
 </ul>
-<h2>修复了下面的BUG</h2>
+<h2 id="修复了下面的bug">修复了下面的BUG</h2>
 <ul>
 <li>附件页因为缓存原因，没有及时消去信息</li>
 </ul>
-<h2>优化了</h2>
+<h2 id="优化了">优化了</h2>
 <ul>
 <li>图文混排时帖子卡顿的情况</li>
 </ul>
-<h2>下个版本优化对象</h2>
+<h2 id="下个版本优化对象">下个版本优化对象</h2>
 <ul>
 <li>添加论坛时界面优化</li>
 <li>首页界面的更新</li>
 </ul>
-<h2>已知BUG</h2>
+<h2 id="已知bug">已知BUG</h2>
 <ul>
 <li>附件无法随着草稿的保存而保存</li>
 </ul>
@@ -1484,19 +1484,19 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v1.2/</guid>
       <pubDate>Mon, 27 Apr 2020 07:10:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.2版本的DiscuzHub，在界面、帖子内容上进行了更新]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.2版本的DiscuzHub</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>对于帖子状态的全支持（关闭、存档、高亮、精华），但是密码贴的支持正在进行</li>
 <li>对于帖子加载完毕的判定的优化及提醒</li>
 <li>更新了夜间模式的颜色</li>
 </ul>
-<h2>修复了下面的BUG</h2>
+<h2 id="修复了下面的bug">修复了下面的BUG</h2>
 <ul>
 <li>活动在重绘时发生标签选中信息的丢失</li>
 </ul>
-<h2>下个版本优化对象</h2>
+<h2 id="下个版本优化对象">下个版本优化对象</h2>
 <ul>
 <li>对于发帖进行全面支持和优化</li>
 <li>繁体中文的本地化支持</li>
@@ -1511,20 +1511,20 @@
       <guid>https://discuzhub.kidozh.com/blog/release-v1.1/</guid>
       <pubDate>Tue, 21 Apr 2020 08:33:00 GMT</pubDate>
       <description><![CDATA[我们发布了1.1版本的DiscuzHub，其能对论坛功能有很大程度的提升]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们正式发布了1.1版本的DiscuzHub</p>
-<h2>主要更新内容</h2>
+<h2 id="主要更新内容">主要更新内容</h2>
 <ul>
 <li>使用ViewModel保证在界面旋转/重绘时,不会重复向服务器请求信息</li>
 <li>增加了对异常情况的支持</li>
 <li>提供了匿名状态下更多论坛交互的支持</li>
 <li>使用原生的API对于发帖功能的重构，更加稳定</li>
 </ul>
-<h2>已知的BUG</h2>
+<h2 id="已知的bug">已知的BUG</h2>
 <ul>
 <li>活动在重绘时发生标签选中信息的丢失</li>
 </ul>
-<h1>下个版本优化对象</h1>
+<h1 id="下个版本优化对象">下个版本优化对象</h1>
 <ul>
 <li>将对帖子的更多状态（如密码贴、存档、关闭状态）进行支持</li>
 <li>繁体中文的本地化支持</li>
@@ -1539,7 +1539,7 @@
       <guid>https://discuzhub.kidozh.com/blog/traditional-chinese-web-support/</guid>
       <pubDate>Thu, 09 Apr 2020 21:31:45 GMT</pubDate>
       <description><![CDATA[我们的网页目前正式支持了繁体中文，该本体化主要针对港澳]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>正如标题所示，我们的网页正式支持了繁体中文，对于应用的繁体中文的支持也在进行之中，尽情期待。</p>
 <p>我们预计将于2个小版本之后上线对于繁体中文的支持，目前我们仍然致力于对于验证码的支持。</p>
 <p>如果您对于我们有任何建议、意见以及反馈，您可以通过<a href="/contact/">联系方式</a>来联系我们。我们非常欢迎您的来信！</p>
@@ -1552,7 +1552,7 @@
       <guid>https://discuzhub.kidozh.com/blog/failed-to-publish-at-domestic-store/</guid>
       <pubDate>Wed, 01 Apr 2020 20:28:45 GMT</pubDate>
       <description><![CDATA[出于国内应用商店限制，我们暂时无法在应用商店提供安装包]]></description>
-      <content:encoded><![CDATA[<h1>简介</h1>
+      <content:encoded><![CDATA[<h1 id="简介">简介</h1>
 <p>由于国内商店目前<strong>不支持</strong>个人类的聊天软件，然而我们的应用支持了私信读取发送的API，即使我们以及应用并不提供聊天服务和储存，私信服务都是由相对应的论坛方提供，因此目前上线较为困难。</p>
 <p>目前，我们正寻求上架Google Play。相应的工作正在进行中。</p>
 <p>感谢您的支持。</p>]]></content:encoded>
@@ -1564,7 +1564,7 @@
       <guid>https://discuzhub.kidozh.com/blog/dev-blog-opened/</guid>
       <pubDate>Mon, 16 Mar 2020 21:25:44 GMT</pubDate>
       <description><![CDATA[我们将在此发布有关应用的更新、细节披露以及技术路线]]></description>
-      <content:encoded><![CDATA[<h3>简介</h3>
+      <content:encoded><![CDATA[<h3 id="简介">简介</h3>
 <p>正如你所看到的，我们在主页上开设了开发者博客，在这里我们将发表我们有关于本应用的更新、细节披露以及技术信息。</p>
 <p>我们正在着力于优化下面的方面</p>
 <ul>
