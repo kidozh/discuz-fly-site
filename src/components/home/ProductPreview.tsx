@@ -5,7 +5,6 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 const screens = [
   { id: 'forums', label: 'home_preview_forums' },
   { id: 'reading', label: 'home_preview_reading' },
-  { id: 'summary', label: 'home_preview_summary' },
 ] as const
 
 type Screen = typeof screens[number]['id']
@@ -29,15 +28,12 @@ export default function ProductPreview() {
           </div>
         </div>
         <div className="home-preview-device home-preview-device-front" aria-live="polite">
-          <figure key={active} className={`home-preview-crop home-preview-crop-${active}`}>
+          <figure key={active} className="home-preview-crop">
             {active === 'forums' && (
               <StaticImage src="../../images/iphone-home.webp" alt={t('home_preview_forums_alt')} width={640} loading="eager" />
             )}
             {active === 'reading' && (
               <StaticImage src="../../images/iphone-reading.webp" alt={t('home_preview_alt')} width={640} loading="eager" />
-            )}
-            {active === 'summary' && (
-              <StaticImage src="../../images/iphone-summary.webp" alt={t('home_preview_summary_alt')} width={640} loading="eager" />
             )}
           </figure>
         </div>

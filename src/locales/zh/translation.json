@@ -24,12 +24,12 @@
   ,"404_dev_hint_prefix": "尝试在"
   ,"404_go_home": "返回首页"
   ,"home_hero_title": "把喜欢的论坛"
-  ,"home_hero_subtitle": "浏览 Discuz X 论坛、关注版块、收藏好帖。外语帖子可直接翻译，兼容设备还能在本机生成摘要。"
+  ,"home_hero_subtitle": "浏览多个 Discuz X 论坛，关注喜欢的版块。通过收藏和浏览历史，随时找回想读的帖子。"
   ,"home_search_placeholder": "搜索扩展、文档或示例"
   ,"home_search_button": "搜索"
   ,"home_get_started": "快速开始"
   ,"home_docs": "文档"
-  ,"home_features_title": "新版谈坛"
+  ,"home_features_title": "功能亮点"
   ,"home_feat_performance_title": "性能"
   ,"home_feat_performance_desc": "优化渲染与更小的包体积以获得更快加载。"
   ,"home_feat_extensible_title": "可扩展"
@@ -79,12 +79,6 @@
   "home_hero_eyebrow": "谈坛 · Discuz X 客户端",
   "home_download_apk": "下载 Android APK",
   "home_preview_alt": "谈坛的 iPhone 界面，正在阅读一篇图文帖子",
-  "home_guides_title": "翻译与本机 AI",
-  "home_guides_intro": "了解翻译和 AI 分别由什么模型提供，以及内容如何处理。",
-  "home_android_translation": "Android 正文翻译",
-  "home_android_translation_desc": "由 Google 翻译提供。下载语言包后，可在设备上翻译正文，随时切回原文。",
-  "home_on_device_ai": "本机 AI 模型使用声明",
-  "home_on_device_ai_desc": "了解 Apple Foundation Models 和 Android Gemini Nano 的适用条件，以及摘要和 AI 对话的数据处理方式。",
   "home_feature_forums_title": "管理多个论坛",
   "home_feature_forums_desc": "添加常逛的 Discuz X 站点，在同一个应用里切换账号、浏览版块和查看收藏。",
   "home_feature_reading_title": "在大屏上并排阅读",
@@ -98,7 +92,5 @@
   "home_preview_forums": "论坛动态",
   "home_preview_forums_alt": "谈坛在 iPhone 上显示日常小馆的最新帖子列表",
   "home_preview_reading": "帖子正文",
-  "home_preview_summary": "摘要示例",
-  "home_preview_summary_alt": "谈坛的帖子正文上方显示一段 AI 摘要示例",
   "home_preview_tablet_alt": "谈坛在 iPad 上并排显示帖子列表和正文"
 }

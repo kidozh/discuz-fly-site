@@ -43,8 +43,7 @@ const Footer: React.FC<FooterProps> = ({ pageProps }) => {
         </div>
         <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
           {[
-            ['/doc/android-translation/', 'home_android_translation'],
-            ['/doc/intelligence-service/', 'home_on_device_ai'],
+            ['/doc/', 'nav_docs'],
             ['/doc/privacy_policy/', 'footer_privacy'],
             ['/doc/term_of_services/', 'footer_terms'],
           ].map(([path, label]) => (

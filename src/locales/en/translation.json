@@ -30,7 +30,7 @@
   "404_go_home": "Go home",
 
   "home_hero_title": "Your forums,",
-  "home_hero_subtitle": "Browse Discuz X forums, follow boards, and save threads. Translate posts as you read and generate summaries on compatible devices.",
+  "home_hero_subtitle": "Browse your Discuz X forums, follow your favorite boards, and revisit threads through bookmarks and browsing history.",
   "home_search_placeholder": "Search extensions, docs, or examples",
   "home_search_button": "Search",
   "home_get_started": "Get Started",
@@ -90,12 +90,6 @@
   "home_hero_eyebrow": "DisFly · Discuz X client",
   "home_download_apk": "Download Android APK",
   "home_preview_alt": "DisFly on iPhone displaying a forum post with text and an image",
-  "home_guides_title": "Translation and on-device AI",
-  "home_guides_intro": "See which models power these features and how they handle your content.",
-  "home_android_translation": "Android post translation",
-  "home_android_translation_desc": "Powered by Google Translate. Download language packs to translate posts on your device, and switch back to the original at any time.",
-  "home_on_device_ai": "On-device AI model disclosure",
-  "home_on_device_ai_desc": "See when Apple Foundation Models and Gemini Nano are available, and how DisFly handles summaries and AI conversations.",
   "home_feature_forums_title": "Manage multiple forums",
   "home_feature_forums_desc": "Add your Discuz X sites, switch accounts, browse boards, and revisit favorites in one app.",
   "home_feature_reading_title": "Read side by side",
@@ -109,7 +103,5 @@
   "home_preview_forums": "Forum feed",
   "home_preview_forums_alt": "DisFly on iPhone showing a feed of recent forum posts",
   "home_preview_reading": "Reading a post",
-  "home_preview_summary": "Sample summary",
-  "home_preview_summary_alt": "A sample AI summary above a forum post in DisFly",
   "home_preview_tablet_alt": "DisFly on iPad showing the thread list and selected post side by side"
 }

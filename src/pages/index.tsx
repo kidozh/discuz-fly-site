@@ -3,7 +3,6 @@ import { graphql, type HeadFC, type PageProps } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Layout from '../components/Layout'
-import LocalizedLink from '../components/LocalizedLink'
 import ProductPreview from '../components/home/ProductPreview'
 import SeoHead from '../components/SeoHead'
 import en from '../locales/en/translation.json'
@@ -17,11 +16,6 @@ const downloadLinks = [
   { label: 'home_download_appstore', href: 'https://apps.apple.com/us/app/%E8%B0%88%E5%9D%9B/id1601703772' },
   { label: 'home_download_play', href: 'https://play.google.com/store/apps/details?id=com.kidozh.discuz_flutter' },
   { label: 'home_download_apk', href: `${releases}/latest` },
-]
-
-const guides = [
-  { title: 'home_android_translation', description: 'home_android_translation_desc', path: 'android-translation' },
-  { title: 'home_on_device_ai', description: 'home_on_device_ai_desc', path: 'intelligence-service' },
 ]
 
 const communities = [
@@ -54,26 +48,10 @@ const IndexPage: React.FC<PageProps> = (props) => {
             <div className="home-hero-links">
               <a href={releases}>{t('home_release_notes')}</a>
               <a href={repository}>{t('home_source_code')}</a>
-              <a href="#home-guides">{t('home_guides_title')} <span aria-hidden="true">↓</span></a>
             </div>
           </div>
 
           <ProductPreview />
-        </div>
-      </section>
-
-      <section className="home-shell home-section" aria-labelledby="home-guides">
-        <h2 id="home-guides" className="home-section-heading">{t('home_guides_title')}</h2>
-        <div className="home-guide-grid">
-          {guides.map(({ title, description, path }) => (
-            <LocalizedLink key={path} to={`/doc/${path}/`} className={`home-guide home-guide-${path}`}>
-              <div>
-                <h3>{t(title)}</h3>
-                <p>{t(description)}</p>
-              </div>
-              <span className="home-card-arrow" aria-hidden="true">→</span>
-            </LocalizedLink>
-          ))}
         </div>
       </section>
 
