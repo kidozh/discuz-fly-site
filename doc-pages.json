@@ -60,6 +60,18 @@
     "title": "本机 AI 模型使用声明"
   },
   {
+    "id": "cfcd9508-0ec6-5690-9ea9-eb5ba43d2624",
+    "path": "/doc/apple-watch/",
+    "language": "en",
+    "title": "Apple Watch companion app"
+  },
+  {
+    "id": "40f622c0-f32a-5849-ad7c-4a57721eb3e8",
+    "path": "/zh/doc/apple-watch/",
+    "language": "zh",
+    "title": "Apple Watch 配套应用"
+  },
+  {
     "id": "4cbb275e-7e54-518c-8c44-a5c7d36f3747",
     "path": "/doc/android-translation/",
     "language": "en",
@@ -70,5 +82,17 @@
     "path": "/zh/doc/android-translation/",
     "language": "zh",
     "title": "Android 正文翻译"
+  },
+  {
+    "id": "496fa49e-da25-5224-82e3-24fca9f1a753",
+    "path": "/doc/android-background-reminders/",
+    "language": "en",
+    "title": "Android background new-post alerts"
+  },
+  {
+    "id": "e4b3a44f-5a38-5390-afb6-58823d870ff8",
+    "path": "/zh/doc/android-background-reminders/",
+    "language": "zh",
+    "title": "Android 新帖后台提醒"
   }
 ]
