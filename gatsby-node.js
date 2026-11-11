@@ -337,11 +337,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const base = `/${lang}/blog`;
     const baseIndex = `${base}/`;
     // index page
-  createPage({ path: baseIndex, component: blogIndexComponent, context: { language: lang, posts: postsForContext, currentPage: 1, totalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: baseIndex } } });
+  createPage({ path: baseIndex, component: blogIndexComponent, context: { language: lang, posts: postsForContext, currentPage: 1, totalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: baseIndex.slice(lang.length + 1) } } });
     // paginated pages
     for (let i = 2; i <= totalPages; i++) {
   const pagePath = `${base}/page/${i}/`;
-  createPage({ path: pagePath, component: blogIndexComponent, context: { language: lang, posts: postsForContext, currentPage: i, totalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: pagePath } } });
+  createPage({ path: pagePath, component: blogIndexComponent, context: { language: lang, posts: postsForContext, currentPage: i, totalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: pagePath.slice(lang.length + 1) } } });
     }
   });
 
@@ -365,10 +365,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   languagesArr.forEach((lang) => {
     const base = `/${lang}/blog/tag/${tagSlug}`;
     const baseIndex = `${base}/`;
-  createPage({ path: baseIndex, component: blogIndexComponent, context: { language: lang, posts: tagPostsForContext, selectedTag: tag, currentPage: 1, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: baseIndex } } });
+  createPage({ path: baseIndex, component: blogIndexComponent, context: { language: lang, posts: tagPostsForContext, selectedTag: tag, currentPage: 1, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: baseIndex.slice(lang.length + 1) } } });
     for (let i = 2; i <= tagTotalPages; i++) {
   const tagPagePath = `${base}/page/${i}/`;
-  createPage({ path: tagPagePath, component: blogIndexComponent, context: { language: lang, posts: tagPostsForContext, selectedTag: tag, currentPage: i, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: tagPagePath } } })
+  createPage({ path: tagPagePath, component: blogIndexComponent, context: { language: lang, posts: tagPostsForContext, selectedTag: tag, currentPage: i, totalPages: tagTotalPages, pageSize: PAGE_SIZE, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: tagPagePath.slice(lang.length + 1) } } })
     }
   });
         // additional pages (unprefixed)
@@ -387,7 +387,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         // per-language tags
         languagesArr.forEach((lang) => {
           const base = `/${lang}/tags/`;
-          createPage({ path: base, component: tagsComponent, context: { tags: tagsWithCounts, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: base } } });
+          createPage({ path: base, component: tagsComponent, context: { tags: tagsWithCounts, i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: '/tags/' } } });
         });
       } catch (e) {
         // non-fatal
@@ -430,7 +430,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               excerpt: p.excerpt || null,
               previous: previous ? { id: previous.id, title: previous.title, slug: previous.slug, path: `/${lang}${previous.path}`.replace(/\/+/g, '/'), date: previous.date || null, excerpt: previous.excerpt || null } : null,
               next: next ? { id: next.id, title: next.title, slug: next.slug, path: `/${lang}${next.path}`.replace(/\/+/g, '/'), date: next.date || null, excerpt: next.excerpt || null } : null,
-              i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: langPath },
+              i18n: { language: lang, languages: languagesArr, defaultLanguage: defaultLang, generateDefaultLanguagePage: false, routed: true, originalPath: p.path },
             },
           });
         });

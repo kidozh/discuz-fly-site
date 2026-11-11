@@ -96,5 +96,18 @@
   "docs.seo_description": "查阅谈坛的使用说明，包括 Android 正文翻译、本机 AI、隐私政策和服务条款。",
   "blog.seo_description": "阅读谈坛的版本说明、公告和 Discuz X 客户端开发动态。",
   "blog.seo_page": "第 {{page}} 页",
-  "blog.tags_title": "博客标签"
+  "blog.tags_title": "博客标签",
+  "docs.landing_title": "谈坛文档",
+  "docs.overview": "文档概览",
+  "docs.group_guides": "使用指南",
+  "docs.group_project": "项目与政策",
+  "docs.browse": "浏览文档",
+  "docs.on_this_page": "本页目录",
+  "docs.updated": "更新于",
+  "blog.latest_article": "最新文章",
+  "blog.more_articles": "更多文章",
+  "blog.archive": "文章",
+  "blog.pagination": "博客分页",
+  "blog.newer": "较新文章",
+  "blog.older": "较早文章"
 }

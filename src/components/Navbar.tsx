@@ -165,6 +165,7 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-theme dark:bg-theme transition-colors duration-200">
           <NavLink to="/" placeholder="" className={`${navLinkClass('/', 'text-base font-medium text-theme dark:text-theme hover:text-brand dark:hover:bg-gray-700')} block`}>{translate('nav_home')}</NavLink>
           <NavLink to="/doc/" placeholder="" className={`${navLinkClass('/doc/', 'text-base font-medium text-theme dark:text-theme hover:text-brand dark:hover:bg-gray-700')} block`}>{translate('nav_docs')}</NavLink>
+          <NavLink to="/blog/" placeholder="" className={`${navLinkClass('/blog/', 'text-base font-medium text-theme dark:text-theme hover:text-brand dark:hover:bg-gray-700')} block`}>{translate('blog.title')}</NavLink>
           <NavLink to="/about/" placeholder="" className={`${navLinkClass('/about/', 'text-base font-medium text-theme dark:text-theme hover:text-brand dark:hover:bg-gray-700')} block`}>{translate('nav_about')}</NavLink>
           <div className="px-3 py-2">
             <LanguageSwitcher pageProps={pageProps} />

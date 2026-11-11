@@ -1,44 +1,75 @@
 import React from 'react'
-import { graphql, type HeadFC } from 'gatsby'
+import { graphql, Link, type HeadFC, type PageProps } from 'gatsby'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Layout from '../components/Layout'
-import LocalizedLink from '../components/LocalizedLink'
+import DocSidebar, { groupDocuments, type DocumentEntry } from '../components/DocSidebar'
 import SeoHead, { bilingualAlternates } from '../components/SeoHead'
 import en from '../locales/en/translation.json'
 import zh from '../locales/zh/translation.json'
+import '../styles/editorial.css'
 
-const DocumentIndex = ({ data, pageContext, location }: any) => {
+type DocumentIndexData = {
+  allFile: {
+    nodes: {
+      relativePath: string
+      childMarkdownRemark?: {
+        excerpt?: string
+        frontmatter: { title?: string; slug?: string; language?: string; excerpt?: string }
+      }
+    }[]
+  }
+}
+
+type DocumentIndexContext = { language: string; docPrefix: string }
+
+const DocumentIndex = ({ data, pageContext, location }: PageProps<DocumentIndexData, DocumentIndexContext>) => {
   const { t } = useTranslation()
-  const language = pageContext.language
-  const docs = data.allFile.nodes.flatMap(({ relativePath, childMarkdownRemark: markdown }: any) => {
+  const indexPath = location.pathname.replace(/\/?$/, '/')
+  const documents = data.allFile.nodes.flatMap(({ relativePath, childMarkdownRemark: markdown }): DocumentEntry[] => {
     if (!markdown) return []
     const { frontmatter, excerpt } = markdown
     const fileLanguage = relativePath.match(/\.([a-z]{2})\.md$/i)?.[1]
-    if ((frontmatter.language || fileLanguage || 'en') !== language) return []
+    if ((frontmatter.language || fileLanguage || 'en') !== pageContext.language) return []
     const slug = frontmatter.slug || relativePath.replace(/\.[a-z]{2}\.md$|\.md$/i, '').replace(/\/index$/i, '')
-    return [{ slug, title: frontmatter.title || slug, excerpt: frontmatter.excerpt || excerpt, date: frontmatter.date }]
-  }).sort((a: any, b: any) => (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0))
+    return [{ slug, title: frontmatter.title || slug, excerpt: frontmatter.excerpt || excerpt, path: `${indexPath}${slug}/` }]
+  })
 
   return (
-    <Layout pageProps={{ pageContext, location }}>
-      <section className="mx-auto max-w-5xl px-6 py-12 sm:px-8">
-        <h1 className="mb-6 text-3xl font-bold">{t('docs.documents_title')}</h1>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {docs.map(({ slug, title, excerpt }: any) => (
-            <li key={slug}>
-              <LocalizedLink to={`/${pageContext.docPrefix}/${slug}/`} className="block h-full rounded-xl border border-slate-200 bg-theme-alt p-5 transition-colors hover:border-brand dark:border-slate-700 dark:hover:border-brand">
-                <h2 className="mb-2 text-lg font-semibold text-brand">{title}</h2>
-                <p className="text-sm leading-relaxed text-muted">{excerpt}</p>
-              </LocalizedLink>
-            </li>
-          ))}
-        </ul>
-      </section>
+    <Layout pageProps={{ pageContext, location }} className="editorial">
+      <div className="editorial-shell docs-index-layout">
+        <DocSidebar documents={documents} indexPath={indexPath} activePath={indexPath} />
+        <div className="docs-index-content">
+          <header className="docs-index-header">
+            <h1>{t('docs.landing_title')}</h1>
+            <p>{t('docs.seo_description')}</p>
+          </header>
+          <div className="docs-index-groups">
+            {groupDocuments(documents).map(group => (
+              <section key={group.id} aria-labelledby={`docs-${group.id}`}>
+                <h2 id={`docs-${group.id}`}>{t(group.label)}</h2>
+                <ul className="docs-entry-list">
+                  {group.documents.map(doc => (
+                    <li key={doc.path}>
+                      <Link to={doc.path} className="docs-entry">
+                        <div>
+                          <h3>{doc.title}</h3>
+                          {doc.excerpt && <p>{doc.excerpt}</p>}
+                        </div>
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
 
-export const Head: HeadFC<unknown, { language: string; docPrefix: string }> = ({ pageContext, location }) => {
+export const Head: HeadFC<unknown, DocumentIndexContext> = ({ pageContext, location }) => {
   const { language, docPrefix } = pageContext
   const copy = language === 'zh' ? zh : en
   return <SeoHead title={copy['docs.documents_title']} description={copy['docs.seo_description']} lang={language} pathname={location.pathname} alternates={bilingualAlternates(`/${docPrefix}/`)} />
@@ -54,7 +85,6 @@ export const query = graphql`
             title
             slug
             language
-            date
             excerpt
           }
           excerpt(pruneLength: 140)

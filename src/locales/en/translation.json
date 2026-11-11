@@ -107,5 +107,18 @@
   "docs.seo_description": "Read DisFly’s app documentation, including translation, on-device AI, privacy, and terms of service.",
   "blog.seo_description": "Read DisFly release notes, announcements, and updates on the Discuz X forum client.",
   "blog.seo_page": "Page {{page}}",
-  "blog.tags_title": "Blog tags"
+  "blog.tags_title": "Blog tags",
+  "docs.landing_title": "DisFly documentation",
+  "docs.overview": "Overview",
+  "docs.group_guides": "Guides",
+  "docs.group_project": "Project and policies",
+  "docs.browse": "Browse documentation",
+  "docs.on_this_page": "On this page",
+  "docs.updated": "Updated",
+  "blog.latest_article": "Latest article",
+  "blog.more_articles": "More articles",
+  "blog.archive": "Articles",
+  "blog.pagination": "Blog pages",
+  "blog.newer": "Newer article",
+  "blog.older": "Older article"
 }

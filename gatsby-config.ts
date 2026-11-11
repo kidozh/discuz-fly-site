@@ -69,7 +69,12 @@ const config: GatsbyConfig = {
         icon: 'src/images/icon.png',
       },
     },
-  { resolve: "gatsby-transformer-remark" },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [{ resolve: "gatsby-remark-autolink-headers", options: { icon: false } }],
+      },
+    },
     { resolve: "gatsby-plugin-sharp" },
     { resolve: "gatsby-transformer-sharp" },
     {
