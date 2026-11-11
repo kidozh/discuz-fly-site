@@ -18,6 +18,12 @@
     "title": "Terms of Services"
   },
   {
+    "id": "c33d8e59-5f9e-595d-8d12-821d630f1eaf",
+    "path": "/zh/doc/term_of_services/",
+    "language": "zh",
+    "title": "服务条款"
+  },
+  {
     "id": "a15caeff-e222-5f59-b697-5eb5fd7669a7",
     "path": "/doc/privacy_policy/",
     "language": "en",
@@ -28,12 +34,6 @@
     "path": "/zh/doc/privacy_policy/",
     "language": "zh",
     "title": "隐私政策"
-  },
-  {
-    "id": "cf01af0f-f1cd-5e73-a96d-f756dea5272b",
-    "path": "/doc/open_source/",
-    "language": "en",
-    "title": "Open Source & License"
   },
   {
     "id": "37d33619-1c86-58a4-ae2d-e32bb87810a4",
@@ -54,10 +54,10 @@
     "title": "本机 AI 模型使用声明"
   },
   {
-    "id": "4cbb275e-7e54-518c-8c44-a5c7d36f3747",
-    "path": "/doc/android-translation/",
+    "id": "cf01af0f-f1cd-5e73-a96d-f756dea5272b",
+    "path": "/doc/open_source/",
     "language": "en",
-    "title": "Android post translation"
+    "title": "Open Source & License"
   },
   {
     "id": "a15a198e-8231-5093-9f1c-0ba82e58ec3d",
@@ -66,9 +66,9 @@
     "title": "Android 正文翻译"
   },
   {
-    "id": "c33d8e59-5f9e-595d-8d12-821d630f1eaf",
-    "path": "/zh/doc/term_of_services/",
-    "language": "zh",
-    "title": "服务条款"
+    "id": "4cbb275e-7e54-518c-8c44-a5c7d36f3747",
+    "path": "/doc/android-translation/",
+    "language": "en",
+    "title": "Android post translation"
   }
 ]
