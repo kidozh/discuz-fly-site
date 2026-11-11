@@ -2,7 +2,8 @@ import * as React from "react"
 import { Link, HeadFC, PageProps, graphql } from "gatsby"
 import SeoHead from '../components/SeoHead'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import Navbar from '../components/Navbar'
+import en from '../locales/en/translation.json'
+import zh from '../locales/zh/translation.json'
 import Layout from "../components/Layout"
 
 const NotFoundPage: React.FC<PageProps> = (props) => {
@@ -34,13 +35,10 @@ const NotFoundPage: React.FC<PageProps> = (props) => {
 
 export default NotFoundPage
 
-export const Head: HeadFC<PageProps> = (props) => {
-  const ctx: any = props as any
-  const pageI18n = ctx.pageContext?.i18n || {}
-  const lang = pageI18n.language || 'en'
-  // pageContext should have localized strings provided by plugin nodes; fallback to static
-  const title = pageI18n?.title || 'Not Found'
-  return <SeoHead title={title} lang={lang} />
+export const Head: HeadFC<unknown, { language?: string }> = ({ pageContext }) => {
+  const lang = pageContext.language === 'zh' ? 'zh' : 'en'
+  const copy = lang === 'zh' ? zh : en
+  return <SeoHead title={copy['404_heading']} lang={lang} noIndex />
 }
 
 

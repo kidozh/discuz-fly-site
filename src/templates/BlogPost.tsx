@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, type HeadFC } from 'gatsby'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import LocalizedLink from '../components/LocalizedLink'
 const enTranslations = require('../locales/en/translation.json')
@@ -52,7 +52,6 @@ const BlogPost: React.FC<any> = (props) => {
 
   return (
     <Layout pageProps={props}>
-      <SeoHead title={title} description={pageContext?.excerpt ? String(pageContext.excerpt) : undefined} />
       <main className="max-w-4xl mx-auto py-12 px-4">
         <h1 className="text-3xl font-bold mb-4">{title}</h1>
         {date ? <div className="text-sm text-gray-500 mb-6">{String(translate('blog.post_date_prefix') || '')} {date}</div> : null}
@@ -111,14 +110,34 @@ const BlogPost: React.FC<any> = (props) => {
   )
 }
 
+type BlogPostHeadData = {
+  markdownRemark?: { excerpt?: string; frontmatter?: { title?: string; language?: string } }
+}
+
+export const Head: HeadFC<BlogPostHeadData, { title?: string; excerpt?: string }> = ({ data, pageContext, location }) => {
+  const post = data.markdownRemark
+  const canonicalPath = location.pathname.replace(/^\/(?:en|zh)(?=\/blog\/)/, '')
+  return (
+    <SeoHead
+      title={pageContext.title || post?.frontmatter?.title}
+      description={pageContext.excerpt || post?.excerpt}
+      lang={post?.frontmatter?.language || 'zh'}
+      pathname={canonicalPath}
+      type="article"
+    />
+  )
+}
+
 export const query = graphql`
   query BlogPostById($id: String, $language: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
+      excerpt(pruneLength: 155)
       frontmatter {
         title
         date
+        language
       }
     }
     locales: allLocale(filter: { language: { eq: $language } }) {

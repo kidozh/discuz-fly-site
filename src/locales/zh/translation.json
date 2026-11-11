@@ -9,7 +9,7 @@
   "about_members_heading": "成员",
   "about_github_label": "项目主页"
   ,"about_single_developer": "kidozh — 负责架构、实现与维护"
-  ,"about_seo_title": "关于 — 谈坛"
+  ,"about_seo_title": "关于"
   ,"about_seo_description": "关于谈坛 — 项目目的、许可与贡献信息。"
   ,"contribute_prompt": "如要贡献，请在 GitHub 仓库中提交 Issue 或 Pull Request。"
   ,"about_contact_title": "联系方式"
@@ -92,5 +92,9 @@
   "home_preview_forums": "论坛动态",
   "home_preview_forums_alt": "谈坛在 iPhone 上显示日常小馆的最新帖子列表",
   "home_preview_reading": "帖子正文",
-  "home_preview_tablet_alt": "谈坛在 iPad 上并排显示帖子列表和正文"
+  "home_preview_tablet_alt": "谈坛在 iPad 上并排显示帖子列表和正文",
+  "docs.seo_description": "查阅谈坛的使用说明，包括 Android 正文翻译、本机 AI、隐私政策和服务条款。",
+  "blog.seo_description": "阅读谈坛的版本说明、公告和 Discuz X 客户端开发动态。",
+  "blog.seo_page": "第 {{page}} 页",
+  "blog.tags_title": "博客标签"
 }

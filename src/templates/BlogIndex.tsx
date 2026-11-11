@@ -3,8 +3,8 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 const enTranslations = require('../locales/en/translation.json')
 const zhTranslations = require('../locales/zh/translation.json')
 import Layout from '../components/Layout'
-import SeoHead from '../components/SeoHead'
-import { Link, navigate, graphql } from 'gatsby'
+import SeoHead, { bilingualAlternates } from '../components/SeoHead'
+import { Link, navigate, graphql, type HeadFC } from 'gatsby'
 
 const PAGE_SIZE = 5
 
@@ -63,29 +63,23 @@ const BlogIndex: React.FC<any> = (props) => {
     return Array.from(s).sort()
   }, [posts])
 
-  // Support reading selectedTag from pageContext (tag pages) and from URL query
-  const initialTag = pageContext?.selectedTag || null
-  const [selectedTag, setSelectedTag] = useState<string | null>(initialTag)
+  const initialTag = pageContext.selectedTag || null
+  const pathname = props.location.pathname as string
+  const archivePath = pathname.replace(/^\/en(?=\/blog\/)/, '').replace(/\/page\/\d+\/?$/, '/')
+  const [filter, setFilter] = useState<{ pathname: string; tag: string | null; page: number } | null>(null)
+  const activeFilter = filter?.pathname === pathname ? filter : null
+  const selectedTag = activeFilter ? activeFilter.tag : initialTag
+  const routePage = Number(pageContext.currentPage || 1)
+  const page = activeFilter?.page || routePage
 
-  // page state synchronized with ?page=<n> and can be seeded from pageContext (SSR)
-  const getPageFromUrl = () => {
-    try {
-      const qp = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '')
-      const p = parseInt(qp.get('page') || String(pageContext?.currentPage || '1'), 10)
-      return Number.isFinite(p) && p > 0 ? p : 1
-    } catch (e) { return Number(pageContext?.currentPage || 1) }
+  function selectTag(tag: string | null) {
+    if (tag === initialTag) {
+      setFilter(null)
+      if (routePage > 1) navigate(archivePath)
+    } else {
+      setFilter({ pathname, tag, page: 1 })
+    }
   }
-  const [page, setPage] = useState(Number(pageContext?.currentPage || getPageFromUrl()))
-
-  // keep URL in sync when page or tag changes (only perform string ops; avoid constructing URL object repeatedly)
-  useEffect(() => {
-    try {
-      const basePath = selectedTag ? `${langPrefix}/blog/tag/${String(selectedTag).toLowerCase().replace(/[^a-z0-9]+/g, '-')}/` : `${langPrefix}/blog/`;
-      const search = (page && page > 1) ? `?page=${page}` : '';
-      const newPath = basePath + search;
-      window.history.replaceState({}, '', newPath);
-    } catch (e) {}
-  }, [selectedTag, page, langPrefix])
 
   const filtered = useMemo(() => {
     const f = selectedTag ? posts.filter((p: any) => p.tags.includes(selectedTag)) : posts
@@ -97,10 +91,29 @@ const BlogIndex: React.FC<any> = (props) => {
   const start = (current - 1) * PAGE_SIZE
   const paged = filtered.slice(start, start + PAGE_SIZE)
 
-  function gotoPage(n: number) {
-    const next = Math.max(1, Math.min(totalPages, n))
-    setPage(next)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  useEffect(() => {
+    const legacyPage = Number(new URLSearchParams(props.location.search).get('page'))
+    if (Number.isInteger(legacyPage) && legacyPage > 1 && legacyPage <= totalPages && legacyPage !== routePage) {
+      navigate(`${archivePath}page/${legacyPage}/`, { replace: true })
+    }
+  }, [archivePath, props.location.search, routePage, totalPages])
+
+  function paginationLink(number: number, label: string) {
+    const className = 'inline-block px-3 py-1 rounded bg-gray-100 dark:bg-slate-800'
+    if (number < 1 || number > totalPages) {
+      return <span className={`${className} opacity-50`} aria-disabled="true">{label}</span>
+    }
+    if (activeFilter) {
+      return (
+        <button type="button" className={className} onClick={() => {
+          setFilter({ ...activeFilter, page: number })
+          window.scrollTo(0, 0)
+        }}>
+          {label}
+        </button>
+      )
+    }
+    return <Link to={number === 1 ? archivePath : `${archivePath}page/${number}/`} className={className}>{label}</Link>
   }
 
   // Memoize a DateTimeFormat instance per language to avoid recreating it on each render
@@ -122,20 +135,19 @@ const BlogIndex: React.FC<any> = (props) => {
   return (
     <Layout pageProps={props}>
       <main className="max-w-4xl mx-auto py-12 px-4">
-        <SeoHead title={String(translate('blog.title') || 'Blog')} lang={effectiveLang} />
   <h1 className="text-3xl font-bold mb-6">{String(translate('blog.title') || 'Blog')}</h1>
 
         <div className="mb-6">
           <div className="flex items-center space-x-3 flex-wrap">
             <button
-              onClick={() => { setSelectedTag(null); setPage(1) }}
+              onClick={() => selectTag(null)}
               className={`px-3 py-1 rounded ${selectedTag === null ? 'bg-brand text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}>
               {String(translate('blog.all', { count: posts.length }))}
             </button>
             {allTags.map((t) => (
               <button
                 key={t}
-                onClick={() => { setSelectedTag(t); setPage(1) }}
+                onClick={() => selectTag(t)}
                 className={`px-3 py-1 rounded ${selectedTag === t ? 'bg-brand text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}>
                 {t}
               </button>
@@ -170,7 +182,7 @@ const BlogIndex: React.FC<any> = (props) => {
                   {p.tags.map((t: string) => (
                     <button
                       key={t}
-                      onClick={(e) => { e.stopPropagation(); setSelectedTag(t); setPage(1) }}
+                      onClick={(e) => { e.stopPropagation(); selectTag(t) }}
                       className="text-sm px-2 py-1 bg-gray-100 rounded"
                     >
                       {t}
@@ -183,9 +195,9 @@ const BlogIndex: React.FC<any> = (props) => {
         </ul>
 
         <div className="mt-6 flex items-center justify-between">
-          <div>
-            <button onClick={() => gotoPage(page - 1)} disabled={page <= 1} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-50">{String(translate('blog.previous') || 'Previous')}</button>
-            <button onClick={() => gotoPage(page + 1)} disabled={page >= totalPages} className="ml-2 px-3 py-1 rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-50">{String(translate('blog.next') || 'Next')}</button>
+          <div className="flex gap-2">
+            {paginationLink(current - 1, String(translate('blog.previous')))}
+            {paginationLink(current + 1, String(translate('blog.next')))}
           </div>
           <div className="text-sm text-gray-600">{String(translate('blog.showing_range', { start: start + 1, end: Math.min(start + PAGE_SIZE, filtered.length), total: filtered.length }))}</div>
         </div>
@@ -195,6 +207,18 @@ const BlogIndex: React.FC<any> = (props) => {
 }
 
 export default BlogIndex
+
+export const Head: HeadFC<unknown, { i18n?: { language?: string }; selectedTag?: string; currentPage?: number }> = ({ pageContext, location }) => {
+  const lang = pageContext.i18n?.language === 'zh' ? 'zh' : 'en'
+  const copy = lang === 'zh' ? zhTranslations : enTranslations
+  const basePath = location.pathname.replace(/^\/(?:en|zh)(?=\/blog\/)/, '')
+  const alternates = bilingualAlternates(basePath)
+  const parts = [pageContext.selectedTag, copy['blog.title']]
+  if (pageContext.currentPage && pageContext.currentPage > 1) {
+    parts.push(copy['blog.seo_page'].replace('{{page}}', String(pageContext.currentPage)))
+  }
+  return <SeoHead title={parts.filter(Boolean).join(' · ')} description={copy['blog.seo_description']} lang={lang} pathname={alternates[lang]} alternates={alternates} />
+}
 
 export const query = graphql`
   query BlogIndexLocales($language: String!) {

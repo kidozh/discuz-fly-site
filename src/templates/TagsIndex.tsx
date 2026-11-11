@@ -3,7 +3,8 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 const enTranslations = require('../locales/en/translation.json')
 const zhTranslations = require('../locales/zh/translation.json')
 import Layout from '../components/Layout'
-import { Link } from 'gatsby'
+import { Link, type HeadFC } from 'gatsby'
+import SeoHead from '../components/SeoHead'
 
 const TagsIndex: React.FC<any> = (props) => {
   const { pageContext } = props
@@ -65,6 +66,12 @@ const TagsIndex: React.FC<any> = (props) => {
       </main>
     </Layout>
   )
+}
+
+export const Head: HeadFC<unknown, { i18n?: { language?: string } }> = ({ pageContext }) => {
+  const lang = pageContext.i18n?.language === 'zh' ? 'zh' : 'en'
+  const copy = lang === 'zh' ? zhTranslations : enTranslations
+  return <SeoHead title={copy['blog.tags_title']} lang={lang} noIndex />
 }
 
 export default TagsIndex

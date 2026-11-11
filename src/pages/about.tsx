@@ -2,7 +2,9 @@ import * as React from 'react'
 import { graphql, type HeadFC, type PageProps } from 'gatsby'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Layout from '../components/Layout'
-import SeoHead from '../components/SeoHead'
+import SeoHead, { bilingualAlternates } from '../components/SeoHead'
+import en from '../locales/en/translation.json'
+import zh from '../locales/zh/translation.json'
 
 const AboutPage: React.FC<PageProps> = (props) => {
   const { t } = useTranslation()
@@ -39,9 +41,10 @@ const AboutPage: React.FC<PageProps> = (props) => {
 
 export default AboutPage
 
-export const Head: HeadFC = () => {
-  const { t } = useTranslation()
-  return <SeoHead title={String(t('about_seo_title'))} description={String(t('about_seo_description'))} />
+export const Head: HeadFC<unknown, { language?: string }> = ({ pageContext, location }) => {
+  const lang = pageContext.language === 'zh' ? 'zh' : 'en'
+  const copy = lang === 'zh' ? zh : en
+  return <SeoHead title={copy.about_seo_title} description={copy.about_seo_description} lang={lang} pathname={location.pathname} alternates={bilingualAlternates('/about/')} />
 }
 
 export const query = graphql`

@@ -47,3 +47,10 @@
 Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
 
 [<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+
+## Website analytics
+
+The production site uses the GA4 web stream configured in `site-config.json`.
+For Gatsby client-side navigation, keep **Page views → Page changes based on
+browser history events** enabled in the web stream’s Enhanced Measurement settings.
+Google's tag handles page views on initial loads and route changes.

@@ -4,7 +4,7 @@ tags: [Notification,]
 keywords: [版本发布,更新]
 date: 2024-12-24T14:07:00.226Z
 cover: in-xinjiang.jpg
-excerpt: Full text of terms of service
+excerpt: Read how DisFly collects and uses app usage and diagnostic data.
 ---
 
 <Message>The privacy policy is at 2nd version, updated and take effect at Dec 24, 2024</Message>

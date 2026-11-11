@@ -72,17 +72,36 @@ const MarkdownDocument: React.FC<Props> = ({ data, pageContext, location }) => {
 
 export default MarkdownDocument
 
-export const Head: HeadFC<unknown, { title?: string; language: string }> = ({ pageContext, location }) =>
-  <SeoHead title={pageContext.title} lang={pageContext.language} pathname={location.pathname} />
+type DocumentHeadData = {
+  markdownRemark?: { excerpt: string; frontmatter?: { excerpt?: string } }
+}
+
+type DocumentHeadContext = {
+  title?: string
+  language: string
+  alternates?: Record<string, string>
+}
+
+export const Head: HeadFC<DocumentHeadData, DocumentHeadContext> = ({ data, pageContext, location }) => (
+  <SeoHead
+    title={pageContext.title}
+    description={data.markdownRemark?.frontmatter?.excerpt || data.markdownRemark?.excerpt}
+    lang={pageContext.language}
+    pathname={location.pathname}
+    alternates={pageContext.alternates}
+  />
+)
 
 export const query = graphql`
   query MarkdownDocumentQuery($id: String!, $language: String!) {
     markdownRemark(id: { eq: $id }) {
+      excerpt(pruneLength: 155)
       html
       frontmatter {
         title
         slug
         language
+        excerpt
       }
     }
     locales: allLocale(filter: { language: { eq: $language } }) {

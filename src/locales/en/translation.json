@@ -10,7 +10,7 @@
   "about_members_heading": "Members",
   "about_github_label": "Project homepage",
   "about_single_developer": "kidozh — architecture, implementation and maintenance",
-  "about_seo_title": "About — DisFly",
+  "about_seo_title": "About",
   "about_seo_description": "About DisFly — project purpose, license and contribution information.",
 
   "about_contact_title": "Contact",
@@ -103,5 +103,9 @@
   "home_preview_forums": "Forum feed",
   "home_preview_forums_alt": "DisFly on iPhone showing a feed of recent forum posts",
   "home_preview_reading": "Reading a post",
-  "home_preview_tablet_alt": "DisFly on iPad showing the thread list and selected post side by side"
+  "home_preview_tablet_alt": "DisFly on iPad showing the thread list and selected post side by side",
+  "docs.seo_description": "Read DisFly’s app documentation, including translation, on-device AI, privacy, and terms of service.",
+  "blog.seo_description": "Read DisFly release notes, announcements, and updates on the Discuz X forum client.",
+  "blog.seo_page": "Page {{page}}",
+  "blog.tags_title": "Blog tags"
 }

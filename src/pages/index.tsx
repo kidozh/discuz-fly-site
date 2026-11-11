@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Layout from '../components/Layout'
 import ProductPreview from '../components/home/ProductPreview'
-import SeoHead from '../components/SeoHead'
+import SeoHead, { bilingualAlternates } from '../components/SeoHead'
 import en from '../locales/en/translation.json'
 import zh from '../locales/zh/translation.json'
 import '../styles/home.css'
@@ -99,7 +99,7 @@ export default IndexPage
 export const Head: HeadFC<unknown, { language?: string }> = ({ pageContext, location }) => {
   const isChinese = pageContext.language === 'zh'
   const copy = isChinese ? zh : en
-  return <SeoHead title={copy.home_hero_eyebrow} description={copy.home_hero_subtitle} lang={isChinese ? 'zh' : 'en'} pathname={location.pathname} />
+  return <SeoHead title={copy.home_hero_eyebrow} description={copy.home_hero_subtitle} lang={isChinese ? 'zh' : 'en'} pathname={location.pathname} alternates={bilingualAlternates('/')} />
 }
 
 export const query = graphql`

@@ -4,7 +4,7 @@ tags: [Notification,]
 keywords: [版本发布,更新]
 date: 2024-12-24T14:07:00.226Z
 cover: in-xinjiang.jpg
-excerpt: 隐私政策全文
+excerpt: 了解谈坛如何收集和使用应用使用数据与崩溃数据。
 ---
 
 <Message>这是第2版的隐私政策，于2024年12月24日更新，2024年12月24日生效</Message>

@@ -3,7 +3,7 @@ import { graphql, type HeadFC } from 'gatsby'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Layout from '../components/Layout'
 import LocalizedLink from '../components/LocalizedLink'
-import SeoHead from '../components/SeoHead'
+import SeoHead, { bilingualAlternates } from '../components/SeoHead'
 import en from '../locales/en/translation.json'
 import zh from '../locales/zh/translation.json'
 
@@ -38,9 +38,10 @@ const DocumentIndex = ({ data, pageContext, location }: any) => {
   )
 }
 
-export const Head: HeadFC<unknown, { language: string }> = ({ pageContext, location }) => {
-  const lang = pageContext.language
-  return <SeoHead title={(lang === 'zh' ? zh : en)['docs.documents_title']} lang={lang} pathname={location.pathname} />
+export const Head: HeadFC<unknown, { language: string; docPrefix: string }> = ({ pageContext, location }) => {
+  const { language, docPrefix } = pageContext
+  const copy = language === 'zh' ? zh : en
+  return <SeoHead title={copy['docs.documents_title']} description={copy['docs.seo_description']} lang={language} pathname={location.pathname} alternates={bilingualAlternates(`/${docPrefix}/`)} />
 }
 
 export const query = graphql`

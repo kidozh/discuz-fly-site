@@ -173,7 +173,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
           const component = require.resolve('./src/templates/MarkdownDocument.tsx');
 
+          const translations = new Map();
+          docsList.forEach(({ originalPath, language, path }) => {
+            if (!translations.has(originalPath)) translations.set(originalPath, {});
+            translations.get(originalPath)[language] = path;
+          });
+
           docsList.forEach((doc) => {
+            const paths = translations.get(doc.originalPath);
+            const alternates = Object.keys(paths).length > 1
+              ? { ...paths, ...(paths[defaultLang] ? { 'x-default': paths[defaultLang] } : {}) }
+              : undefined;
             createPage({
               path: doc.path,
               component,
@@ -182,6 +192,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 language: doc.language,
                 html: doc.html || null,
                 title: doc.title || null,
+                alternates,
                 docPrefix: DOC_PREFIX,
                 docPages: docsList,
                 i18n: {
@@ -474,10 +485,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 exports.onPostBuild = ({ store }) => {
   const fs = require('fs');
   const path = require('path');
+  const { siteUrl } = require('./site-config.json');
   const { pages, redirects } = store.getState();
   const docPrefix = process.env.DOC_PREFIX || 'doc';
   const staticPath = /^\/(?:[a-z0-9_-]+\/)*[a-z0-9_-]+\/$/i;
   const written = new Set();
+
+  fs.writeFileSync('public/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${new URL('sitemap-index.xml', siteUrl).href}\n`);
 
   for (const { fromPath, toPath } of redirects) {
     const from = fromPath.endsWith('/') ? fromPath : fromPath + '/';
@@ -487,8 +501,20 @@ exports.onPostBuild = ({ store }) => {
 
     const dir = path.join('public', from.slice(1));
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'index.html'),
-      `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${toPath}"><link rel="canonical" href="${toPath}"><title>Redirecting</title><a href="${toPath}">Continue</a>\n`);
+    const canonicalUrl = new URL(toPath, siteUrl).href;
+    const lang = toPath.startsWith('/zh/') ? 'zh' : 'en';
+    const title = lang === 'zh' ? '正在跳转' : 'Redirecting';
+    fs.writeFileSync(path.join(dir, 'index.html'), `<!doctype html>
+<html lang="${lang}">
+  <head>
+    <meta charset="utf-8">
+    <title>${title}</title>
+    <link rel="canonical" href="${canonicalUrl}">
+    <meta http-equiv="refresh" content="0;url=${toPath}">
+  </head>
+  <body><a href="${toPath}">${title}</a></body>
+</html>
+`);
     written.add(from);
   }
 };
