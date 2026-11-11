@@ -59,17 +59,18 @@
 /* Documentation */
 .docs-index-layout,
 .docs-reading-layout {
-  --docs-serif: Charter, Georgia, "PT Serif", "Times New Roman", serif;
-  --docs-body-leading: 1.8;
+  --docs-body-leading: 1.65;
   display: grid;
   align-items: start;
   column-gap: clamp(1.5rem, 3.4vw, 3.5rem);
   padding-block: clamp(2rem, 5vw, 4.25rem);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial,
+    "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 :is(.docs-index-layout, .docs-reading-layout):lang(zh) {
-  --docs-serif: Charter, Georgia, "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "Noto Serif SC", SimSun, serif;
-  --docs-body-leading: 1.9;
+  --docs-body-leading: 1.75;
 }
 
 .docs-index-layout {
@@ -150,9 +151,8 @@
 
 .docs-index-header h1,
 .docs-article-header h1 {
-  font-family: var(--docs-serif);
-  font-size: clamp(2.1rem, 4.3vw, 3.45rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 3.9vw, 3.15rem);
+  font-weight: 650;
   letter-spacing: -0.025em;
   line-height: 1.2;
   text-wrap: balance;
@@ -167,8 +167,7 @@
   max-width: 43rem;
   margin-top: 0.9rem;
   color: var(--ed-muted);
-  font-family: var(--docs-serif);
-  font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
   line-height: var(--docs-body-leading);
 }
 
@@ -308,14 +307,12 @@
 }
 
 .docs-article {
-  font-family: var(--docs-serif);
-  font-size: clamp(1.0625rem, 1.45vw, 1.1875rem);
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
   line-height: var(--docs-body-leading);
 }
 
 .docs-article :is(table, message) {
-  font-family: system-ui, sans-serif;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .editorial-prose > :first-child {

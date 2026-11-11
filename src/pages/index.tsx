@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { graphql, type HeadFC, type PageProps } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import Layout from '../components/Layout'
+import HomeFeatures from '../components/home/HomeFeatures'
 import ProductPreview from '../components/home/ProductPreview'
 import SeoHead, { bilingualAlternates } from '../components/SeoHead'
 import en from '../locales/en/translation.json'
@@ -55,26 +55,7 @@ const IndexPage: React.FC<PageProps> = (props) => {
         </div>
       </section>
 
-      <section className="home-shell home-section" aria-labelledby="home-features">
-        <h2 id="home-features" className="home-section-heading">{t('home_features_title')}</h2>
-        <div className="home-feature-grid">
-          <article className="home-feature home-feature-reading">
-            <div>
-              <h3>{t('home_feature_reading_title')}</h3>
-              <p>{t('home_feature_reading_desc')}</p>
-            </div>
-            <div className="home-tablet">
-              <StaticImage src="../images/ipad-reading.webp" alt={t('home_preview_tablet_alt')} width={960} />
-            </div>
-          </article>
-          {['forums', 'reminders'].map((feature) => (
-            <article key={feature} className={`home-feature home-feature-${feature}`}>
-              <h3>{t(`home_feature_${feature}_title`)}</h3>
-              <p>{t(`home_feature_${feature}_desc`)}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <HomeFeatures />
 
       <section className="home-shell home-section" aria-labelledby="home-communities">
         <h2 id="home-communities" className="home-section-heading">{t('home_explore_title')}</h2>

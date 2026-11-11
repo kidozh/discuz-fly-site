@@ -42,7 +42,7 @@ export default function ProductPreview() {
           </figure>
         </div>
       </div>
-      <div className="home-preview-controls" role="group" aria-label={String(t('home_preview_label'))}>
+      <div className="home-preview-controls home-segmented" role="group" aria-label={String(t('home_preview_label'))}>
         {screens.map(({ id, label }) => (
           <button key={id} type="button" aria-controls="home-preview-screen" aria-pressed={active === id} onClick={() => setActive(id)}>
             {t(label)}
