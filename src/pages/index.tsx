@@ -1,152 +1,128 @@
-import * as React from "react"
-import { graphql, type HeadFC, type PageProps } from "gatsby"
+import * as React from 'react'
+import { graphql, type HeadFC, type PageProps } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import Layout from "../components/Layout"
+import Layout from '../components/Layout'
+import LocalizedLink from '../components/LocalizedLink'
+import ProductPreview from '../components/home/ProductPreview'
 import SeoHead from '../components/SeoHead'
-import CtaTrust from '../components/CtaTrust'
+import en from '../locales/en/translation.json'
+import zh from '../locales/zh/translation.json'
+import '../styles/home.css'
 
-// Using Tailwind + theme utilities for layout and colors
+const repository = 'https://github.com/kidozh/discuz_flutter'
+const releases = `${repository}/releases`
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative" as "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
+const downloadLinks = [
+  { label: 'home_download_appstore', href: 'https://apps.apple.com/us/app/%E8%B0%88%E5%9D%9B/id1601703772' },
+  { label: 'home_download_play', href: 'https://play.google.com/store/apps/details?id=com.kidozh.discuz_flutter' },
+  { label: 'home_download_apk', href: `${releases}/latest` },
+]
 
-const IndexPage: React.FC<PageProps> = () => {
+const guides = [
+  { title: 'home_android_translation', description: 'home_android_translation_desc', path: 'android-translation' },
+  { title: 'home_on_device_ai', description: 'home_on_device_ai_desc', path: 'intelligence-service' },
+]
+
+const communities = [
+  { title: '其乐 Keylol', desc: 'explore_keylol_desc', url: 'https://keylol.com/' },
+  { title: 'QZZN', desc: 'explore_qzzn_desc', url: 'https://bbs.qzzn.com/' },
+  { title: '北交大知行', desc: 'explore_bjt_zx_desc', url: 'https://zhixing.bjtu.edu.cn/' },
+  { title: 'Stage1st', desc: 'explore_stage1st_desc', url: 'https://stage1st.com/2b/' },
+  { title: '瀚思彼岸', desc: 'explore_hassbian_desc', url: 'https://bbs.hassbian.com/forum.php' },
+]
+
+const IndexPage: React.FC<PageProps> = (props) => {
   const { t } = useTranslation()
 
   return (
-    <Layout pageProps={{}}>
-      <CtaTrust />
-      <main className="min-h-screen font-sans bg-theme text-theme transition-colors">
-        <section className="relative overflow-hidden relative-blobs">
-          <div className="absolute -left-28 -top-24 pointer-events-none">
-            <span aria-hidden="true" className="bg-blob blob-3" />
-          </div>
-          <div className="absolute -right-16 bottom-8 pointer-events-none">
-            <span aria-hidden="true" className="bg-blob blob-2" />
-          </div>
-          <div className="max-w-7xl mx-auto px-6 py-20 lg:py-32">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">{t('home_hero_title')}</h1>
-                <p className="text-lg text-muted mb-6">{t('home_hero_subtitle')}</p>
+    <Layout pageProps={props} className="disfly-home">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="home-shell home-hero-layout">
+          <div className="home-hero-copy">
+            <p className="home-hero-label">{t('home_hero_eyebrow')}</p>
+            <h1 id="home-title" className="home-hero-title">
+              {t('home_hero_title')} <span>{t('home_hero_title_accent')}</span>
+            </h1>
+            <p className="home-hero-summary">{t('home_hero_subtitle')}</p>
 
-                <div className="flex flex-wrap gap-3 items-center">
-                  <div className="flex gap-2 items-center">
-                    <a href="https://play.google.com/store/apps/details?id=com.kidozh.discuz_flutter" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-800 to-blue-600 text-blue-100 dark:text-blue-100 font-medium shadow-lg transform transition-all hover:-translate-y-0.5" aria-label={String(t('home_source_code'))}>
-                      <span>{t('home_source_code')}</span>
-                    </a>
-
-                    <a href="https://apps.apple.com/us/app/%E8%B0%88%E5%9D%9B/id1601703772" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-gray-800 to-gray-600 text-white text-base font-medium shadow-lg transform transition-all hover:-translate-y-0.5 dark:from-white dark:to-gray-300 dark:text-black" aria-label={String(t('home_push_service'))}>
-                      <span className="text-base">{t('home_push_service')}</span>
-                    </a>
-                  </div>
-
-                  {/* <a
-                    href="https://github.com/kidozh/discuz_flutter"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-black text-white hover:bg-zinc-800 dark:bg-zinc-900 dark:text-slate-100 dark:hover:bg-zinc-800"
-                    aria-label={String(t('home_source_code'))}
-                    >
-                    
-                    <span className="text-sm font-medium">{t('home_source_code')}</span>
-                  </a>
-
-                  <a
-                    href="https://dhp.kidozh.com"
-                    className="inline-block px-4 py-2 bg-transparent border border-gray-200 rounded-md hover:bg-gray-50 dark:border-zinc-700 dark:hover:bg-zinc-800"
-                    aria-label={String(t('home_push_service'))}
-                  >
-                    {t('home_push_service')}
-                  </a> */}
-                </div>
-              </div>
-
-              <div className="order-first lg:order-last">
-                <div className="w-full rounded-lg shadow-lg overflow-hidden 
-                bg-gradient-to-br from-slate-800 to-slate-700 p-6 text-white">
-                  <div className="text-sm font-medium mb-2">{t('home_latest_release_label')}</div>
-                  <div className="text-2xl font-semibold mb-2">{t('home_latest_release_version')}</div>
-                  <p className="text-sm text-slate-200">{t('home_latest_release_note')}</p>
-                  <div className="mt-4 flex gap-2">
-                    <button className="px-3 py-1 bg-white/10 rounded">{t('home_release_notes')}</button>
-                    <button className="px-3 py-1 bg-white/10 rounded">{t('home_download')}</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-theme-alt py-12">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-2xl font-semibold mb-6">{t('home_features_title')}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="p-6 bg-slate-100 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-transform dark:bg-slate-800 dark:border dark:border-zinc-700">
-                <h3 className="font-semibold mb-2 text-theme">{t('home_feat_performance_title')}</h3>
-                <p className="text-sm text-muted">{t('home_feat_performance_desc')}</p>
-              </div>
-              <div className="p-6 bg-slate-100 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-transform dark:bg-slate-800 dark:border dark:border-zinc-700">
-                <h3 className="font-semibold mb-2 text-theme">{t('home_feature_open_source_title')}</h3>
-                <p className="text-sm text-muted">{t('home_feature_open_source_desc')}</p>
-              </div>
-              <div className="p-6 bg-slate-100 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-transform dark:bg-slate-800 dark:border dark:border-zinc-700">
-                <h3 className="font-semibold mb-2 text-theme">{t('home_feat_cross_title')}</h3>
-                <p className="text-sm text-muted">{t('home_feat_cross_desc')}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-12">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-2xl font-semibold mb-6">{t('home_explore_title')}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { title: 'keylol', desc: t('explore_keylol_desc'), url: 'https://keylol.com' },
-                { title: 'QZZN', desc: t('explore_qzzn_desc'), url: 'https://bbs.qzzn.com' },
-                { title: '北京交通知行', desc: t('explore_bjt_zx_desc'), url: 'https://zhixing.bjtu.edu.cn' },
-                { title: 'stage1st', desc: t('explore_stage1st_desc'), url: 'https://stage1st.com' },
-                { title: '远景论坛', desc: t('explore_vista_desc'), url: 'https://bbs.pcbeta.com' },
-                { title: '瀚思彼岸', desc: t('explore_hassbian_desc'), url: 'https://bbs.hassbian.com' },
-              ].map((it, i) => (
-                <article key={i} className="border rounded-lg hover:shadow-lg transition-shadow bg-theme-foreground">
-                  <a href={it.url} target="_blank" rel="noopener noreferrer" className="block p-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 rounded-md bg-brand/20 flex items-center justify-center text-brand font-bold">{it.title[0] ?? 'E'}</div>
-                      <div>
-                        <h3 className="font-semibold">{it.title}</h3>
-                        <p className="text-sm text-muted">{it.desc}</p>
-                      </div>
-                    </div>
-                  </a>
-                </article>
+            <div className="home-downloads">
+              {downloadLinks.map(({ label, href }) => (
+                <a key={label} href={href}>{t(label)}</a>
               ))}
             </div>
+            <div className="home-hero-links">
+              <a href={releases}>{t('home_release_notes')}</a>
+              <a href={repository}>{t('home_source_code')}</a>
+              <a href="#home-guides">{t('home_guides_title')} <span aria-hidden="true">↓</span></a>
+            </div>
           </div>
-        </section>
-      </main>
-                      
+
+          <ProductPreview />
+        </div>
+      </section>
+
+      <section className="home-shell home-section" aria-labelledby="home-guides">
+        <h2 id="home-guides" className="home-section-heading">{t('home_guides_title')}</h2>
+        <div className="home-guide-grid">
+          {guides.map(({ title, description, path }) => (
+            <LocalizedLink key={path} to={`/doc/${path}/`} className={`home-guide home-guide-${path}`}>
+              <div>
+                <h3>{t(title)}</h3>
+                <p>{t(description)}</p>
+              </div>
+              <span className="home-card-arrow" aria-hidden="true">→</span>
+            </LocalizedLink>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-shell home-section" aria-labelledby="home-features">
+        <h2 id="home-features" className="home-section-heading">{t('home_features_title')}</h2>
+        <div className="home-feature-grid">
+          <article className="home-feature home-feature-reading">
+            <div>
+              <h3>{t('home_feature_reading_title')}</h3>
+              <p>{t('home_feature_reading_desc')}</p>
+            </div>
+            <div className="home-tablet">
+              <StaticImage src="../images/ipad-reading.webp" alt={t('home_preview_tablet_alt')} width={960} />
+            </div>
+          </article>
+          {['forums', 'reminders'].map((feature) => (
+            <article key={feature} className={`home-feature home-feature-${feature}`}>
+              <h3>{t(`home_feature_${feature}_title`)}</h3>
+              <p>{t(`home_feature_${feature}_desc`)}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-shell home-section" aria-labelledby="home-communities">
+        <h2 id="home-communities" className="home-section-heading">{t('home_explore_title')}</h2>
+        <ul className="home-community-list">
+          {communities.map(({ title, desc, url }) => (
+            <li key={url}>
+              <a href={url}>
+                <span className="home-community-name">{title}</span>
+                <span className="home-community-description">{t(desc)}</span>
+                <span className="home-card-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
     </Layout>
   )
 }
 
 export default IndexPage
 
-export const Head: HeadFC = () => <SeoHead title="Home Page" description="Discuz Fly site homepage" />
+export const Head: HeadFC<unknown, { language?: string }> = ({ pageContext, location }) => {
+  const isChinese = pageContext.language === 'zh'
+  const copy = isChinese ? zh : en
+  return <SeoHead title={copy.home_hero_eyebrow} description={copy.home_hero_subtitle} lang={isChinese ? 'zh' : 'en'} pathname={location.pathname} />
+}
 
 export const query = graphql`
   query($language: String!) {

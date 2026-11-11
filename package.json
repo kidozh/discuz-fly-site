@@ -13,10 +13,10 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "deploy": "gatsby build && gh-pages -d public -b main",
-  "develop:no-markdown": "gatsby develop",
-  "develop:with-markdown": "gatsby develop",
-  "build:no-markdown": "gatsby build",
-  "build:with-markdown": "gatsby build",
+    "develop:no-markdown": "gatsby develop",
+    "develop:with-markdown": "gatsby develop",
+    "build:no-markdown": "gatsby build",
+    "build:with-markdown": "gatsby build",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit"
   },
@@ -49,6 +49,7 @@
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
+    "baseline-browser-mapping": "^2.9.15",
     "gh-pages": "^6.3.0",
     "typescript": "^5.3.3"
   }

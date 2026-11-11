@@ -33,10 +33,8 @@ const DocSidebar: React.FC<DocSidebarProps> = ({ nodes, language, docPrefix, act
       let p = node.path;
       // normalize: remove leading slashes
       p = p.replace(/^\/+/, '');
-      // remove leading language/docPrefix like "en/doc/" or "zh/doc/"
-      p = p.replace(new RegExp(`^[a-z]{2}\/${docPrefix}\/?`), '');
-      // if still prefixed by language, strip it (e.g. "en/..." remaining)
-      p = p.replace(/^[a-z]{2}\//, '');
+      // Default-language documents are unprefixed; other languages include their locale.
+      p = p.replace(new RegExp(`^(?:[a-z]{2}/)?${docPrefix}(?:/|$)`), '');
       p = String(p).replace(/^\/+|\/+$/g, '');
       return p;
     }
@@ -79,7 +77,7 @@ const DocSidebar: React.FC<DocSidebarProps> = ({ nodes, language, docPrefix, act
         cursor.title = title;
         cursor.excerpt = node.excerpt || null;
         cursor.date = node.date || node.frontmatter?.date || null;
-        const path = `${docBase()}${slug === '' ? '' : '/' + slug}`;
+        const path = `${docBase()}/${slug}/`;
         cursor.path = path;
       }
     });

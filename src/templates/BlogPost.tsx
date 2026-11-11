@@ -60,15 +60,23 @@ const BlogPost: React.FC<any> = (props) => {
 
         {/* Prev / Next navigation styled like modern blog cards */}
         <div className="mt-12 border-t pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {pageContext?.previous ? (
-              <Link to={pageContext.previous.path} className="group block p-5 rounded-lg border bg-white dark:bg-gray-900 hover:shadow-lg transition-shadow duration-200">
-                <div className="flex items-start">
-                  <div className="mr-4 text-3xl text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200">◀</div>
+              <Link
+                to={pageContext.previous.path}
+                className="group relative block rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-800 dark:from-gray-950 dark:to-gray-900"
+              >
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-transparent group-hover:ring-brand/30" />
+                <div className="relative flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-2xl text-gray-400 transition-colors group-hover:text-brand dark:border-gray-800 dark:bg-gray-950">
+                    ◀
+                  </div>
                   <div className="flex-1">
-                    <div className="text-xs text-gray-500 mb-1">{translate('blog.previous') || 'Previous'}</div>
-                    <div className="font-semibold text-lg text-theme dark:text-theme">{pageContext.previous.title}</div>
-                    {pageContext.previous.date ? <div className="text-sm text-gray-400 mt-1">{dateFormatter ? dateFormatter.format(new Date(pageContext.previous.date)) : String(pageContext.previous.date)}</div> : null}
+                    <div className="inline-flex items-center rounded-full border border-gray-200 bg-white px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:border-gray-800 dark:bg-gray-950">
+                      {translate('blog.previous') || 'Previous'}
+                    </div>
+                    <div className="mt-3 text-lg font-semibold text-theme dark:text-theme">{pageContext.previous.title}</div>
+                    {pageContext.previous.date ? <div className="text-sm text-gray-500 mt-1">{dateFormatter ? dateFormatter.format(new Date(pageContext.previous.date)) : String(pageContext.previous.date)}</div> : null}
                     {pageContext.previous.excerpt ? <div className="text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-2">{pageContext.previous.excerpt}</div> : null}
                   </div>
                 </div>
@@ -76,15 +84,23 @@ const BlogPost: React.FC<any> = (props) => {
             ) : (<div />)}
 
             {pageContext?.next ? (
-              <Link to={pageContext.next.path} className="group block p-5 rounded-lg border bg-white dark:bg-gray-900 hover:shadow-lg transition-shadow duration-200">
-                <div className="flex items-start justify-end text-right">
+              <Link
+                to={pageContext.next.path}
+                className="group relative block rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-800 dark:from-gray-950 dark:to-gray-900"
+              >
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-transparent group-hover:ring-brand/30" />
+                <div className="relative flex items-start justify-end gap-4 text-right">
                   <div className="flex-1">
-                    <div className="text-xs text-gray-500 mb-1">{translate('blog.next') || 'Next'}</div>
-                    <div className="font-semibold text-lg text-theme dark:text-theme">{pageContext.next.title}</div>
-                    {pageContext.next.date ? <div className="text-sm text-gray-400 mt-1">{dateFormatter ? dateFormatter.format(new Date(pageContext.next.date)) : String(pageContext.next.date)}</div> : null}
+                    <div className="inline-flex items-center rounded-full border border-gray-200 bg-white px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:border-gray-800 dark:bg-gray-950">
+                      {translate('blog.next') || 'Next'}
+                    </div>
+                    <div className="mt-3 text-lg font-semibold text-theme dark:text-theme">{pageContext.next.title}</div>
+                    {pageContext.next.date ? <div className="text-sm text-gray-500 mt-1">{dateFormatter ? dateFormatter.format(new Date(pageContext.next.date)) : String(pageContext.next.date)}</div> : null}
                     {pageContext.next.excerpt ? <div className="text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-2">{pageContext.next.excerpt}</div> : null}
                   </div>
-                  <div className="ml-4 text-3xl text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200">▶</div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-2xl text-gray-400 transition-colors group-hover:text-brand dark:border-gray-800 dark:bg-gray-950">
+                    ▶
+                  </div>
                 </div>
               </Link>
             ) : (<div />)}

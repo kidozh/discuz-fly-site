@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, type HeadFC } from 'gatsby'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import DocSidebar from '../components/DocSidebar'
+import LocalizedLink from '../components/LocalizedLink'
 
 type Props = {
   data: any
@@ -33,7 +34,7 @@ const MarkdownDocument: React.FC<Props> = ({ data, pageContext, location }) => {
   }
   // pageContext.language will be set by createPages
   // Ensure i18n is initialized and set to the page language on the client.
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   useEffect(() => {
     const langFromContext = pageContext?.i18n?.language || pageContext?.language;
     if (langFromContext && i18n && i18n.language !== langFromContext) {
@@ -50,17 +51,18 @@ const MarkdownDocument: React.FC<Props> = ({ data, pageContext, location }) => {
   const activePath = (location && location.pathname) || pageContext?.i18n?.originalPath || pageContext?.path || pageContext?.slug
 
   return (
-    <Layout pageProps={{ pageContext }}>
-      <SeoHead title={title || undefined} lang={pageContext?.i18n?.language || pageContext?.language} pathname={activePath} />
+    <Layout pageProps={{ pageContext, location }}>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto py-12 px-4">
         <aside className="hidden md:block">
           <DocSidebar nodes={nodes} language={pageContext?.i18n?.language || pageContext?.language} docPrefix={pageContext?.docPrefix || 'doc'} activePath={activePath} showBack />
         </aside>
-        <main className="md:col-span-3">
+        <div className="min-w-0 md:col-span-3">
+          <LocalizedLink to={`/${pageContext?.docPrefix || 'doc'}/`} className="mb-5 inline-flex text-sm font-semibold text-brand hover:underline md:hidden">
+            ← {t('docs.back')}
+          </LocalizedLink>
           {title ? <h1 className="text-2xl font-bold mb-6">{title}</h1> : null}
-          <article className="prose lg:prose-lg dark:prose-invert" dangerouslySetInnerHTML={{ __html: html || '' }}>
-          </article>
-        </main>
+          <article className="prose max-w-none break-words prose-table:my-3 prose-td:align-top dark:prose-invert lg:prose-lg" dangerouslySetInnerHTML={{ __html: html || '' }} />
+        </div>
       </div>
     </Layout>
   )
@@ -69,6 +71,9 @@ const MarkdownDocument: React.FC<Props> = ({ data, pageContext, location }) => {
 
 
 export default MarkdownDocument
+
+export const Head: HeadFC<unknown, { title?: string; language: string }> = ({ pageContext, location }) =>
+  <SeoHead title={pageContext.title} lang={pageContext.language} pathname={location.pathname} />
 
 export const query = graphql`
   query MarkdownDocumentQuery($id: String!, $language: String!) {

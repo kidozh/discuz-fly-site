@@ -34,13 +34,23 @@ const Footer: React.FC<FooterProps> = ({ pageProps }) => {
 
   return (
     <footer className="w-full border-t border-gray-200 dark:border-gray-700 mt-12 py-6 bg-theme text-theme">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center space-x-3">
-        <Link to="/" aria-label="Home">
-          <StaticImage src="../images/disfly-logo.svg" alt="disfly" className="w-6 h-6" placeholder="none" />
-        </Link>
-        <div className="text-sm text-center muted">
-          {translate('footer_text')}
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 sm:px-8 lg:flex-row">
+        <div className="flex items-center gap-3 text-sm text-muted">
+          <Link to="/" aria-label={translate('nav_home')}>
+            <StaticImage src="../images/disfly-logo.svg" alt="" className="w-6 h-6" placeholder="none" />
+          </Link>
+          <span>{translate('footer_text')}</span>
         </div>
+        <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
+          {[
+            ['/doc/android-translation/', 'home_android_translation'],
+            ['/doc/intelligence-service/', 'home_on_device_ai'],
+            ['/doc/privacy_policy/', 'footer_privacy'],
+            ['/doc/term_of_services/', 'footer_terms'],
+          ].map(([path, label]) => (
+            <li key={path}><Link to={path} className="hover:underline">{translate(label)}</Link></li>
+          ))}
+        </ul>
       </div>
     </footer>
   )

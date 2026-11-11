@@ -30,7 +30,7 @@ Some of our Services are available on mobile devices. Do not use such Services i
 
 # Privacy and Copyright Protection
 
-Discuzhub's [privacy policies](/privacy_policy/) explain how we treat your personal data and protect your privacy when you use our Services. By using our Services, you agree that Discuzhub can use such data in accordance with our privacy policies.
+Discuzhub's [privacy policies](/doc/privacy_policy/) explain how we treat your personal data and protect your privacy when you use our Services. By using our Services, you agree that Discuzhub can use such data in accordance with our privacy policies.
 
 # Your Content in our Services
 

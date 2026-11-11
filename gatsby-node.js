@@ -53,10 +53,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const languages = (process.env.SITE_LANGUAGES || 'en,zh').split(',');
   const defaultLang = process.env.DEFAULT_LANGUAGE || 'en';
   const languagesArr = languages.map((l) => l.trim()).filter(Boolean);
+  const docRoot = `/${DOC_PREFIX}/`;
+  const localizedDocPath = (lang, path = docRoot) => lang === defaultLang ? path : `/${lang}${path}`;
   // Always enable markdown page generation so docs are produced in all environments
   const ENABLE_MARKDOWN_PAGES = true;
 
   const generated = [];
+
+  // The default language uses the site's unprefixed routes.
+  createRedirect({ fromPath: `/${defaultLang}${docRoot}`, toPath: docRoot, isPermanent: true, redirectInBrowser: true });
 
   // create index pages per language
   try {
@@ -64,7 +69,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     languagesArr.forEach((lang) => {
       if (!lang) return;
       createPage({
-        path: `/${lang}/${DOC_PREFIX}/`,
+        path: localizedDocPath(lang),
         component: indexComponent,
         context: {
           language: lang,
@@ -79,7 +84,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           },
         },
       });
-      generated.push({ id: `index-${lang}`, path: `/${lang}/${DOC_PREFIX}/`, type: 'index', language: lang });
+      generated.push({ id: `index-${lang}`, path: localizedDocPath(lang), type: 'index', language: lang });
     });
   } catch (e) {
     reporter.warn('Failed to create document index pages');
@@ -144,10 +149,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             const langPrefix = `${lang}/`;
             if (slug.startsWith(langPrefix)) slug = slug.slice(langPrefix.length);
 
-            const docBase = `/${lang}/${DOC_PREFIX}`;
-            const slugPart = slug === '' ? '' : `/${slug}`;
-            const docPathForLang = `${docBase}${slugPart}`.replace(/\/+/g, '/');
-            const pagePath = docPathForLang.endsWith('/') ? docPathForLang : `${docPathForLang}/`;
+            const originalPath = `${docRoot}${slug}/`.replace(/\/+/g, '/');
+            const pagePath = localizedDocPath(lang, originalPath);
 
             let title = md.frontmatter && md.frontmatter.title;
             if (!title) {
@@ -165,13 +168,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               }
             }
 
-            return { id: md.id, path: pagePath, language: lang, title: title || null, slug, html: md.html || null, date: md.frontmatter?.date || null };
+            return { id: md.id, path: pagePath, originalPath, language: lang, title: title || null, slug, html: md.html || null, date: md.frontmatter?.date || null };
           }).filter(Boolean);
 
           const component = require.resolve('./src/templates/MarkdownDocument.tsx');
 
           docsList.forEach((doc) => {
-            const originalPath = `/${DOC_PREFIX}${doc.slug === '' ? '/' : '/' + doc.slug + '/'}`.replace(/\/+/g, '/');
             createPage({
               path: doc.path,
               component,
@@ -188,18 +190,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                   defaultLanguage: defaultLang,
                   generateDefaultLanguagePage: false,
                   routed: true,
-                  originalPath: originalPath,
+                  originalPath: doc.originalPath,
                 },
               },
             });
 
             generated.push({ id: doc.id, path: doc.path, language: doc.language, title: doc.title || null });
 
-            const previous = doc.slug === '' ? `/${doc.language}` : `/${doc.language}/${doc.slug}`;
-            const previousNormalized = previous.replace(/\/+/g, '/');
-            const previousWithSlash = previousNormalized.endsWith('/') ? previousNormalized : `${previousNormalized}/`;
-            if (previousWithSlash !== doc.path) {
-              createRedirect({ fromPath: previousWithSlash, toPath: doc.path, isPermanent: true, redirectInBrowser: true });
+            if (doc.slug) {
+              createRedirect({ fromPath: `/${doc.language}/${doc.slug}/`, toPath: doc.path, isPermanent: true, redirectInBrowser: true });
+              if (doc.language === defaultLang) {
+                createRedirect({ fromPath: `/${defaultLang}${doc.originalPath}`, toPath: doc.path, isPermanent: true, redirectInBrowser: true });
+              }
             }
           });
 
@@ -217,7 +219,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           // root-level redirects to default language
           legacySlugs.forEach((s) => {
             const toSlug = canonical[s] || s;
-            const toPath = `/${defaultLang}/${DOC_PREFIX}/${toSlug}/`.replace(/\/+/g, '/');
+            const toPath = `${docRoot}${toSlug}/`;
             createRedirect({ fromPath: `/${s}/`, toPath, isPermanent: true, redirectInBrowser: true });
             createRedirect({ fromPath: `/${s}`, toPath, isPermanent: true, redirectInBrowser: true });
           });
@@ -228,33 +230,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               const toSlug = canonical[s] || s;
               const fromA = `/${lang}/${s}`.replace(/\/+/g, '/');
               const fromB = `/${lang}/${s}/`.replace(/\/+/g, '/');
-              const toPath = `/${lang}/${DOC_PREFIX}/${toSlug}/`.replace(/\/+/g, '/');
+              const toPath = localizedDocPath(lang, `${docRoot}${toSlug}/`);
               createRedirect({ fromPath: fromA, toPath, isPermanent: true, redirectInBrowser: true });
               createRedirect({ fromPath: fromB, toPath, isPermanent: true, redirectInBrowser: true });
             });
-          });
-
-          // redirect /doc or /doc/ to default language doc index
-          createRedirect({ fromPath: `/doc`, toPath: `/${defaultLang}/${DOC_PREFIX}/`, isPermanent: false, redirectInBrowser: true });
-          createRedirect({ fromPath: `/doc/`, toPath: `/${defaultLang}/${DOC_PREFIX}/`, isPermanent: false, redirectInBrowser: true });
-
-          // Redirect any /doc/<slug> (no language prefix) to the default language equivalent
-          docsList.forEach((doc) => {
-            try {
-              const docPath = String(doc.path || ''); // e.g. /en/doc/privacy_policy/
-              // remove leading language and doc prefix to get slug part
-              const slugPart = docPath.replace(new RegExp(`^\/[a-z]{2}\/${DOC_PREFIX}`), '');
-              const fromPathBase = `/` + DOC_PREFIX + (slugPart || '/');
-              const toPathBase = `/${defaultLang}/${DOC_PREFIX}` + (slugPart || '/');
-              const fromA = fromPathBase.replace(/\/+/g, '/');
-              const fromB = fromA.replace(/\/$/, '');
-              const toA = toPathBase.replace(/\/+/g, '/');
-              const toFinal = toA.endsWith('/') ? toA : toA + '/';
-              createRedirect({ fromPath: fromA, toPath: toFinal, isPermanent: true, redirectInBrowser: true });
-              createRedirect({ fromPath: fromB, toPath: toFinal, isPermanent: true, redirectInBrowser: true });
-            } catch (e) {
-              // ignore per-item redirect failures
-            }
           });
         }
       }
@@ -488,5 +467,28 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   } catch (e) {
     reporter.warn('Failed to generate blog pages: ' + String(e));
+  }
+};
+
+// GitHub Pages serves files, so Gatsby's browser redirects alone can't handle direct visits.
+exports.onPostBuild = ({ store }) => {
+  const fs = require('fs');
+  const path = require('path');
+  const { pages, redirects } = store.getState();
+  const docPrefix = process.env.DOC_PREFIX || 'doc';
+  const staticPath = /^\/(?:[a-z0-9_-]+\/)*[a-z0-9_-]+\/$/i;
+  const written = new Set();
+
+  for (const { fromPath, toPath } of redirects) {
+    const from = fromPath.endsWith('/') ? fromPath : fromPath + '/';
+    if (from === toPath || !staticPath.test(from) || !staticPath.test(toPath)) continue;
+    if (!toPath.startsWith(`/${docPrefix}/`) && toPath.split('/')[2] !== docPrefix) continue;
+    if (written.has(from) || pages.has(from) || !pages.has(toPath)) continue;
+
+    const dir = path.join('public', from.slice(1));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'),
+      `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${toPath}"><link rel="canonical" href="${toPath}"><title>Redirecting</title><a href="${toPath}">Continue</a>\n`);
+    written.add(from);
   }
 };

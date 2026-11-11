@@ -4,6 +4,7 @@
 
 :root {
 	--bg: 255 255 255;
+	--bg-alt: 248 250 252;
 	--text: 17 24 39;
 	--muted: 107 114 128;
 
@@ -13,6 +14,7 @@
 
 .dark {
 	--bg: 15 23 42;
+	--bg-alt: 23 34 54;
 	--text: 229 231 235;
 	--muted: 148 163 184;
 
@@ -38,8 +40,9 @@ html[data-theme-ready="true"] {
 
 /* Utility to apply themed colors in components */
 .bg-theme { background-color: rgb(var(--bg)); }
+.bg-theme-alt { background-color: rgb(var(--bg-alt)); }
 .text-theme { color: rgb(var(--text)); }
-.muted { color: rgb(var(--muted)); }
+.text-muted, .muted { color: rgb(var(--muted)); }
 
 /* Brand utilities moved into Tailwind config as `brand` color */
 
