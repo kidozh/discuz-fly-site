@@ -290,6 +290,11 @@
   max-width: none;
 }
 
+.home-preview-crop-summary > .gatsby-image-wrapper {
+  left: -13.9%;
+  width: 128%;
+}
+
 .home-preview-device-front .home-preview-crop {
   animation: home-preview-in 260ms ease-out;
 }

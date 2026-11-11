@@ -92,6 +92,8 @@
   "home_preview_forums": "论坛动态",
   "home_preview_forums_alt": "谈坛在 iPhone 上显示日常小馆的最新帖子列表",
   "home_preview_reading": "帖子正文",
+  "home_preview_summary": "摘要示例",
+  "home_preview_summary_alt": "谈坛的帖子正文上方显示一段 AI 摘要示例",
   "home_preview_tablet_alt": "谈坛在 iPad 上并排显示帖子列表和正文",
   "docs.seo_description": "查阅谈坛的使用说明，包括 Android 正文翻译、本机 AI、隐私政策和服务条款。",
   "blog.seo_description": "阅读谈坛的版本说明、公告和 Discuz X 客户端开发动态。",
