@@ -36,6 +36,12 @@
     "title": "隐私政策"
   },
   {
+    "id": "cf01af0f-f1cd-5e73-a96d-f756dea5272b",
+    "path": "/doc/open_source/",
+    "language": "en",
+    "title": "Open Source & License"
+  },
+  {
     "id": "37d33619-1c86-58a4-ae2d-e32bb87810a4",
     "path": "/zh/doc/open_source/",
     "language": "zh",
@@ -54,21 +60,15 @@
     "title": "本机 AI 模型使用声明"
   },
   {
-    "id": "cf01af0f-f1cd-5e73-a96d-f756dea5272b",
-    "path": "/doc/open_source/",
+    "id": "4cbb275e-7e54-518c-8c44-a5c7d36f3747",
+    "path": "/doc/android-translation/",
     "language": "en",
-    "title": "Open Source & License"
+    "title": "Android post translation"
   },
   {
     "id": "a15a198e-8231-5093-9f1c-0ba82e58ec3d",
     "path": "/zh/doc/android-translation/",
     "language": "zh",
     "title": "Android 正文翻译"
-  },
-  {
-    "id": "4cbb275e-7e54-518c-8c44-a5c7d36f3747",
-    "path": "/doc/android-translation/",
-    "language": "en",
-    "title": "Android post translation"
   }
 ]
