@@ -1,7 +1,28 @@
 .disfly-home {
-  --home-hero-bg: 10 14 29;
-  --home-hero-text: 245 247 255;
-  --home-hero-muted: 185 198 225;
+  --home-toolbar-bg: 252 253 255;
+  --home-hero-bg: 248 250 255;
+  --home-hero-text: 19 31 57;
+  --home-hero-muted: 62 77 112;
+  --home-accent: 47 77 164;
+  --home-glow-blue: 143 176 254;
+  --home-glow-violet: 185 159 247;
+  --home-grid: 69 99 170;
+  --home-ui-edge: 83 107 165;
+  --home-secondary-bg: rgb(255 255 255 / 0.67);
+  --home-secondary-hover: #fff;
+  --home-primary-bg: #2b51ac;
+  --home-primary-hover: #21438f;
+  --home-primary-text: #fff;
+  --home-title-start: #214ca9;
+  --home-title-middle: #365bc1;
+  --home-title-end: #7142a6;
+  --home-preview-panel: rgb(255 255 255 / 0.8);
+  --home-preview-active: #e1ebff;
+  --home-device-edge: #93a4c2;
+  --home-device-frame: linear-gradient(150deg, #fff, #b3c4df 48%, #eef4ff);
+  --home-device-shadow: rgb(34 57 110 / 0.24);
+  --home-back-device-brightness: 0.98;
+  --home-tablet-frame: #8598ba;
   --home-border: #dfe5ee;
   --home-surface: #f6f8fc;
   --home-violet: #f3f1ff;
@@ -10,6 +31,30 @@
 }
 
 .dark .disfly-home {
+  --home-toolbar-bg: 10 14 29;
+  --home-hero-bg: 10 14 29;
+  --home-hero-text: 245 247 255;
+  --home-hero-muted: 185 198 225;
+  --home-accent: 159 187 255;
+  --home-glow-blue: 56 85 171;
+  --home-glow-violet: 62 44 128;
+  --home-grid: 194 214 255;
+  --home-ui-edge: 211 225 255;
+  --home-secondary-bg: rgb(219 231 255 / 0.07);
+  --home-secondary-hover: rgb(219 231 255 / 0.15);
+  --home-primary-bg: #edf3ff;
+  --home-primary-hover: #ccdcff;
+  --home-primary-text: #121a2e;
+  --home-title-start: #e2ebff;
+  --home-title-middle: #a7c4ff;
+  --home-title-end: #c0a6fb;
+  --home-preview-panel: rgb(9 15 33 / 0.73);
+  --home-preview-active: rgb(160 183 255 / 0.19);
+  --home-device-edge: #8a9ab6;
+  --home-device-frame: linear-gradient(150deg, #50617d, #121a2b 48%, #536481);
+  --home-device-shadow: rgb(1 5 20 / 0.52);
+  --home-back-device-brightness: 0.82;
+  --home-tablet-frame: #162238;
   --home-border: #334155;
   --home-surface: #172236;
   --home-violet: #221d3b;
@@ -18,27 +63,22 @@
 }
 
 .disfly-home > header {
-  --bg: var(--home-hero-bg);
+  --bg: var(--home-toolbar-bg);
   --text: var(--home-hero-text);
-  --brand: 159 187 255;
+  --brand: var(--home-accent);
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid rgb(210 224 255 / 0.12);
+  border-bottom: 1px solid rgb(var(--home-ui-edge) / 0.18);
 }
 
 .disfly-home > header a.bg-brand {
-  background: rgb(210 224 255 / 0.12);
+  background: rgb(var(--home-accent) / 0.13);
   color: rgb(var(--home-hero-text));
 }
 
-.disfly-home > main :is(a, button):focus-visible {
-  outline: 2px solid #5369dd;
+.disfly-home :is(header, main) :is(a, button):focus-visible {
+  outline: 2px solid rgb(var(--home-accent));
   outline-offset: 4px;
-}
-
-.disfly-home > main .home-hero :is(a, button):focus-visible,
-.dark .disfly-home > main :is(a, button):focus-visible {
-  outline-color: #a9c3ff;
 }
 
 .home-shell {
@@ -52,8 +92,8 @@
   overflow: hidden;
   color: rgb(var(--home-hero-text));
   background:
-    radial-gradient(ellipse at 82% 25%, rgb(56 85 171 / 0.50), transparent 52%),
-    radial-gradient(ellipse at 91% 93%, rgb(62 44 128 / 0.44), transparent 49%),
+    radial-gradient(ellipse at 82% 25%, rgb(var(--home-glow-blue) / 0.5), transparent 57%),
+    radial-gradient(ellipse at 91% 93%, rgb(var(--home-glow-violet) / 0.44), transparent 49%),
     rgb(var(--home-hero-bg));
 }
 
@@ -64,8 +104,8 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgb(194 214 255 / 0.08) 1px, transparent 1px),
-    linear-gradient(rgb(194 214 255 / 0.08) 1px, transparent 1px);
+    linear-gradient(90deg, rgb(var(--home-grid) / 0.1) 1px, transparent 1px),
+    linear-gradient(rgb(var(--home-grid) / 0.1) 1px, transparent 1px);
   background-size: 52px 52px;
   mask-image: radial-gradient(ellipse at 77% 48%, black, transparent 73%);
 }
@@ -85,7 +125,7 @@
 
 .home-hero-label {
   margin-bottom: 1.15rem;
-  color: #b8caff;
+  color: rgb(var(--home-accent));
   font-size: 0.875rem;
   font-weight: 650;
   letter-spacing: 0.04em;
@@ -106,8 +146,8 @@
 
 .home-hero-title span {
   display: block;
-  color: #a6c5ff;
-  background: linear-gradient(105deg, #e2ebff 0%, #a7c4ff 31%, #c0a6fb 73%);
+  color: var(--home-title-middle);
+  background: linear-gradient(105deg, var(--home-title-start), var(--home-title-middle) 31%, var(--home-title-end) 73%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -138,28 +178,28 @@
   justify-content: center;
   min-height: 2.875rem;
   padding: 0.55rem 1rem;
-  border: 1px solid rgb(211 225 255 / 0.26);
+  border: 1px solid rgb(var(--home-ui-edge) / 0.28);
   border-radius: 0.625rem;
-  background: rgb(219 231 255 / 0.07);
+  background: var(--home-secondary-bg);
   font-size: 0.875rem;
   font-weight: 650;
   transition: background-color 180ms ease, border-color 180ms ease;
 }
 
 .home-downloads a:first-child {
-  color: #121a2e;
+  color: var(--home-primary-text);
   border-color: transparent;
-  background: #edf3ff;
-  box-shadow: 0 6px 20px rgb(130 164 255 / 0.2);
+  background: var(--home-primary-bg);
+  box-shadow: 0 6px 20px rgb(var(--home-accent) / 0.2);
 }
 
 .home-downloads a:hover {
-  background: rgb(219 231 255 / 0.15);
-  border-color: rgb(211 225 255 / 0.48);
+  background: var(--home-secondary-hover);
+  border-color: rgb(var(--home-ui-edge) / 0.48);
 }
 
 .home-downloads a:first-child:hover {
-  background: #ccdcff;
+  background: var(--home-primary-hover);
 }
 
 .home-hero-links {
@@ -172,7 +212,7 @@
 .home-hero-links a {
   padding-block: 0.3rem;
   text-decoration: underline;
-  text-decoration-color: rgb(185 198 225 / 0.45);
+  text-decoration-color: rgb(var(--home-hero-muted) / 0.45);
   text-underline-offset: 4px;
 }
 
@@ -194,7 +234,7 @@
 .home-preview-orbit {
   position: absolute;
   inset: 14% 0 14%;
-  border: 1px solid rgb(181 204 255 / 0.28);
+  border: 1px solid rgb(var(--home-ui-edge) / 0.28);
   border-radius: 50%;
   transform: rotate(-25deg);
   pointer-events: none;
@@ -202,17 +242,17 @@
 
 .home-preview-orbit-inner {
   inset: 22% 8%;
-  background: radial-gradient(ellipse, rgb(111 148 255 / 0.32), transparent 69%);
-  box-shadow: 0 0 4rem rgb(103 139 255 / 0.15);
+  background: radial-gradient(ellipse, rgb(var(--home-glow-blue) / 0.32), transparent 69%);
+  box-shadow: 0 0 4rem rgb(var(--home-glow-blue) / 0.15);
 }
 
 .home-preview-device {
   position: absolute;
   padding: 5px;
-  border: 1px solid rgb(216 228 255 / 0.58);
+  border: 1px solid var(--home-device-edge);
   border-radius: clamp(1.35rem, 2.5vw, 2rem);
-  background: linear-gradient(150deg, #50617d, #121a2b 48%, #536481);
-  box-shadow: 0 1.5rem 3.5rem rgb(1 5 20 / 0.52);
+  background: var(--home-device-frame);
+  box-shadow: 0 1.5rem 3.5rem var(--home-device-shadow);
 }
 
 .home-preview-device-back {
@@ -221,7 +261,7 @@
   width: 39%;
   max-width: 13rem;
   transform: translate(-50%, -50%) rotate(-13deg);
-  filter: brightness(0.82);
+  filter: brightness(var(--home-back-device-brightness));
 }
 
 .home-preview-device-front {
@@ -269,9 +309,9 @@
   gap: 0.25rem;
   margin: 0.35rem auto 0;
   padding: 0.25rem;
-  border: 1px solid rgb(189 208 255 / 0.23);
+  border: 1px solid rgb(var(--home-ui-edge) / 0.24);
   border-radius: 0.9rem;
-  background: rgb(9 15 33 / 0.73);
+  background: var(--home-preview-panel);
 }
 
 .home-preview-controls button {
@@ -279,19 +319,19 @@
   padding: 0.45rem 0.85rem;
   border: 1px solid transparent;
   border-radius: 0.65rem;
-  color: #c8d5f1;
+  color: rgb(var(--home-hero-muted));
   font-size: 0.875rem;
   font-weight: 550;
 }
 
 .home-preview-controls button:hover {
-  background: rgb(210 224 255 / 0.08);
+  background: rgb(var(--home-accent) / 0.08);
 }
 
 .home-preview-controls button[aria-pressed="true"] {
-  border-color: rgb(193 209 255 / 0.26);
-  background: rgb(160 183 255 / 0.19);
-  color: white;
+  border-color: rgb(var(--home-ui-edge) / 0.26);
+  background: var(--home-preview-active);
+  color: rgb(var(--home-hero-text));
 }
 
 .home-section {
@@ -363,7 +403,7 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  border: 5px solid #162238;
+  border: 5px solid var(--home-tablet-frame);
   border-radius: 1rem;
   background: #f8f7f4;
   box-shadow: 0 12px 32px rgb(22 39 73 / 0.17);

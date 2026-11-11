@@ -12,15 +12,32 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
   const [open, setOpen] = useState(false)
   const [dark, setDark] = useState<boolean>(false)
 
-  // Read theme from localStorage on client only
   useEffect(() => {
-    try {
-      const v = window.localStorage.getItem('theme')
-      setDark(v === 'dark')
-    } catch (e) {
-      // ignore
+    const root = document.documentElement
+    const colorScheme = window.matchMedia?.('(prefers-color-scheme: dark)')
+    setDark(root.classList.contains('dark'))
+
+    const followSystem = (event: MediaQueryListEvent) => {
+      if (root.dataset.themePreference !== 'system') return
+      root.classList.toggle('dark', event.matches)
+      setDark(event.matches)
     }
+
+    colorScheme?.addEventListener?.('change', followSystem)
+    return () => colorScheme?.removeEventListener?.('change', followSystem)
   }, [])
+
+  function toggleTheme() {
+    const root = document.documentElement
+    const isDark = root.classList.toggle('dark')
+    const preference = isDark ? 'dark' : 'light'
+    root.dataset.themePreference = preference
+    setDark(isDark)
+    try {
+      window.localStorage.setItem('theme', preference)
+    } catch {}
+  }
+
   const { t, i18n } = useTranslation()
   // Prefer page-scoped language from Gatsby pageContext during SSR/build.
   // Fall back to i18n.language when pageProps doesn't provide a language.
@@ -81,23 +98,6 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
     return `${paddingCls} ${activeCls} ${effectiveBase}`.trim()
   }
 
-  // Removed debug logging to reduce build/runtime noise
-
-  useEffect(() => {
-    const root = document.documentElement
-    if (dark) {
-      root.classList.add('dark')
-      try {
-        window.localStorage.setItem('theme', 'dark')
-      } catch (e) {}
-    } else {
-      root.classList.remove('dark')
-      try {
-        window.localStorage.setItem('theme', 'light')
-      } catch (e) {}
-    }
-  }, [dark])
-
   return (
   <header className="bg-theme dark:bg-theme shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -119,20 +119,18 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
             <div className="ml-4 flex items-center space-x-4">
               <LanguageSwitcher pageProps={pageProps} />
               <button
-                onClick={() => setDark((d) => !d)}
+                type="button"
+                onClick={toggleTheme}
                 className="p-2 rounded-md bg-theme dark:bg-theme text-theme dark:text-theme hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
                 aria-pressed={dark}
-                aria-label="Toggle dark mode"
+                aria-label={translate('theme_toggle')}
               >
-                {dark ? (
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M17.293 13.293A8 8 0 116.707 2.707a7 7 0 0010.586 10.586z" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
-                  </svg>
-                )}
+                <svg aria-hidden="true" className="hidden w-5 h-5 dark:block" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M17.293 13.293A8 8 0 116.707 2.707a7 7 0 0010.586 10.586z" />
+                </svg>
+                <svg aria-hidden="true" className="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636" />
+                </svg>
               </button>
             </div>
           </div>
@@ -172,10 +170,14 @@ const Navbar: React.FC<NavbarProps> = ({ pageProps }) => {
           </div>
           <div className="px-3 py-2">
             <button
-              onClick={() => setDark((d) => !d)}
+              type="button"
+              onClick={toggleTheme}
+              aria-pressed={dark}
+              aria-label={translate('theme_toggle')}
               className="p-2 rounded-md bg-theme dark:bg-theme text-theme dark:text-theme hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
             >
-              {dark ? 'Light' : 'Dark'}
+              <span className="dark:hidden">{translate('theme_switch_to_dark')}</span>
+              <span className="hidden dark:inline">{translate('theme_switch_to_light')}</span>
             </button>
           </div>
         </div>

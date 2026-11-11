@@ -109,5 +109,8 @@
   "blog.archive": "文章",
   "blog.pagination": "博客分页",
   "blog.newer": "较新文章",
-  "blog.older": "较早文章"
+  "blog.older": "较早文章",
+  "theme_toggle": "切换深色模式",
+  "theme_switch_to_dark": "切换到深色模式",
+  "theme_switch_to_light": "切换到浅色模式"
 }

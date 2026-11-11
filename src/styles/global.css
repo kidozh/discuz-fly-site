@@ -23,9 +23,13 @@
 }
 
 html {
-	color-scheme: light dark;
+	color-scheme: light;
 	background-color: rgb(var(--bg));
 	color: rgb(var(--text));
+}
+
+html.dark {
+	color-scheme: dark;
 }
 
 /* Use system UI fonts by default to match OS-native rendering */

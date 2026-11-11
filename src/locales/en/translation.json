@@ -120,5 +120,8 @@
   "blog.archive": "Articles",
   "blog.pagination": "Blog pages",
   "blog.newer": "Newer article",
-  "blog.older": "Older article"
+  "blog.older": "Older article",
+  "theme_toggle": "Toggle dark mode",
+  "theme_switch_to_dark": "Switch to dark mode",
+  "theme_switch_to_light": "Switch to light mode"
 }

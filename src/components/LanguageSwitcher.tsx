@@ -85,8 +85,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ pageProps }) => {
               <Link key={lng} {...({ to: originalPath || '/', language: lng } as any)}>
                 <button
                   onClick={() => setOpen(false)}
-                  className={`w-full text-left px-3 py-2 text-sm transition-colors ${lng === language ? 'text-white' : 'text-theme dark:text-theme hover:bg-gray-100 dark:hover:bg-gray-700'}`}
-                  style={lng === language ? { backgroundColor: 'rgb(var(--brand))' } : undefined}
+                  className={`w-full text-left px-3 py-2 text-sm text-theme transition-colors ${lng === language ? 'bg-brand/15 font-semibold' : 'hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                   aria-label={`Switch to ${lng}`}>
                   <span className="mr-2 inline-block w-5 h-5 align-middle" aria-hidden>
                     <LangIcon lng={lng} />
